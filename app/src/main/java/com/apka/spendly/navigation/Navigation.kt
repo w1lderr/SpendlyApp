@@ -13,12 +13,12 @@ import com.apka.spendly.ui.screens.SetTokenScreen
 
 @Composable
 fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
-    NavHost(navController = navController, startDestination = Screens.DuringLoadingScreen.name) {
+    NavHost(navController = navController, startDestination = Screens.GetStartedScreen.name) {
         composable(Screens.DuringLoadingScreen.name) {
             DuringLoadingScreen()
         }
         composable(Screens.GetStartedScreen.name) {
-            GetStartedScreen()
+            GetStartedScreen(paddingValues)
         }
         composable(Screens.AuthorizationScreen.name) {
             AuthorizationScreen()

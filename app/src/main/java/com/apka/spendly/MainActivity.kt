@@ -19,8 +19,8 @@ class MainActivity : ComponentActivity() {
             SpendlyTheme {
                 val navController = rememberNavController()
 
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Navigation(navController, innerPadding)
+                Scaffold(modifier = Modifier.fillMaxSize()) { paddingValues ->
+                    Navigation(navController, paddingValues)
                 }
             }
         }
