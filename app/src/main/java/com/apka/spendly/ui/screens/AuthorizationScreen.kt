@@ -50,8 +50,10 @@ fun AuthorizationScreen(
     ) {
         Spacer(modifier = Modifier.height(50.dp))
 
-        Column (
-            modifier = Modifier.fillMaxWidth().padding(start = 20.dp),
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
@@ -75,7 +77,9 @@ fun AuthorizationScreen(
         Spacer(modifier = Modifier.height(70.dp))
 
         Column(
-            modifier = Modifier.fillMaxWidth().padding(30.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(30.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.Start
         ) {
@@ -114,9 +118,11 @@ fun BankItem(
         ),
         shape = RoundedCornerShape(90.dp),
 
-    ) {
-        Row (
-            modifier = Modifier.fillMaxSize().padding(start = 25.dp),
+        ) {
+        Row(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(start = 25.dp),
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically
         ) {

@@ -38,7 +38,7 @@ fun GetStartedScreen(
     navController: NavController,
     paddingValues: PaddingValues
 ) {
-    Column (
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFF1A1A1A))
@@ -55,7 +55,7 @@ fun GetStartedScreen(
 
         Spacer(modifier = Modifier.height(30.dp))
 
-        Column (
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 50.dp),
