@@ -18,13 +18,13 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
             DuringLoadingScreen()
         }
         composable(Screens.GetStartedScreen.name) {
-            GetStartedScreen(paddingValues)
+            GetStartedScreen(navController, paddingValues)
         }
         composable(Screens.AuthorizationScreen.name) {
-            AuthorizationScreen()
+            AuthorizationScreen(navController, paddingValues)
         }
         composable(Screens.SetTokenScreen.name) {
-            SetTokenScreen()
+            SetTokenScreen(navController, paddingValues)
         }
         composable(Screens.HomeScreen.name) {
             HomeScreen()

@@ -23,18 +23,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.apka.spendly.R
+import com.apka.spendly.navigation.Screens
 
 @Composable
-fun GetStartedScreen(paddingValues: PaddingValues) {
-    val context = LocalContext.current
-
+fun GetStartedScreen(
+    navController: NavController,
+    paddingValues: PaddingValues
+) {
     Column (
         modifier = Modifier
             .fillMaxSize()
@@ -53,7 +56,9 @@ fun GetStartedScreen(paddingValues: PaddingValues) {
         Spacer(modifier = Modifier.height(30.dp))
 
         Column (
-            modifier = Modifier.fillMaxWidth().padding(start = 50.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 50.dp),
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Center
         ) {
@@ -87,7 +92,7 @@ fun GetStartedScreen(paddingValues: PaddingValues) {
                 containerColor = Color(0xFF723FEB)
             ),
             onClick = {
-
+                navController.navigate(Screens.AuthorizationScreen.name)
             }
         ) {
             Row(
@@ -116,6 +121,7 @@ fun GetStartedScreen(paddingValues: PaddingValues) {
 @Preview
 @Composable
 fun GetStartedScreenPreview() {
+    val navController = rememberNavController()
     val paddingValues = PaddingValues()
-    GetStartedScreen(paddingValues)
+    GetStartedScreen(navController, paddingValues)
 }
