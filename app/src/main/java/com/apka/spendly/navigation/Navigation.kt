@@ -5,17 +5,17 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.apka.spendly.ui.screens.AuthorizationScreen
-import com.apka.spendly.ui.screens.DuringLoadingScreen
-import com.apka.spendly.ui.screens.GetStartedScreen
-import com.apka.spendly.ui.screens.HomeScreen
-import com.apka.spendly.ui.screens.SetTokenScreen
+import com.apka.spendly.ui.screens.Authorization.AuthorizationScreen
+import com.apka.spendly.ui.screens.DuringLoading.DuringLoadingScreen
+import com.apka.spendly.ui.screens.GetStarted.GetStartedScreen
+import com.apka.spendly.ui.screens.HomeScreen.HomeScreen
+import com.apka.spendly.ui.screens.SetToken.SetTokenScreen
 
 @Composable
 fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
-    NavHost(navController = navController, startDestination = Screens.GetStartedScreen.name) {
+    NavHost(navController = navController, startDestination = Screens.DuringLoadingScreen.name) {
         composable(Screens.DuringLoadingScreen.name) {
-            DuringLoadingScreen()
+            DuringLoadingScreen(navController, paddingValues)
         }
         composable(Screens.GetStartedScreen.name) {
             GetStartedScreen(navController, paddingValues)
@@ -27,7 +27,7 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
             SetTokenScreen(navController, paddingValues)
         }
         composable(Screens.HomeScreen.name) {
-            HomeScreen()
+            HomeScreen(paddingValues)
         }
     }
 }

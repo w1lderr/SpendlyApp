@@ -1,4 +1,4 @@
-package com.apka.spendly.ui.screens
+package com.apka.spendly.ui.screens.GetStarted
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

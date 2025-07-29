@@ -1,4 +1,4 @@
-package com.apka.spendly.ui.screens
+package com.apka.spendly.ui.screens.Authorization
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -64,7 +64,7 @@ fun AuthorizationScreen(
                 color = Color.White
             )
 
-            Spacer(modifier = Modifier.height(15.dp))
+            Spacer(modifier = Modifier.height(5.dp))
 
             Text(
                 text = "Choose a bank for authorization",
@@ -90,7 +90,7 @@ fun AuthorizationScreen(
                 color = Color.White
             )
 
-            Spacer(modifier = Modifier.height(25.dp))
+            Spacer(modifier = Modifier.height(15.dp))
 
             LazyColumn {
                 item {

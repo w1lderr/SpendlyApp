@@ -42,15 +42,17 @@ android {
 }
 
 dependencies {
+    implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.androidx.datastore.preferences)
-    implementation(libs.androidx.datastore)
 
     implementation(libs.koin.compose.viewmodel)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
 
+    implementation(libs.okhttp.digest)
     implementation(libs.okhttp)
+
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel)
