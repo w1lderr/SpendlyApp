@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 
 @Composable
 fun HomeScreen(
-    paddingValues: PaddingValues
+    paddingValues: PaddingValues,
 ) {
     Column(
         modifier = Modifier

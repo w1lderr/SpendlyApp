@@ -5,5 +5,10 @@ enum class Screens {
     GetStartedScreen,
     AuthorizationScreen,
     SetTokenScreen,
-    HomeScreen
+    HomeScreen,
+    ChallengesScreen,
+    TargetsScreen,
+    SettingsScreen,
+    LLamaScreen,
+    StatisticsScreen
 }

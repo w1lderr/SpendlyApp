@@ -4,11 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Scaffold
-import androidx.compose.ui.Modifier
-import androidx.navigation.compose.rememberNavController
-import com.apka.spendly.navigation.Navigation
+import com.apka.spendly.navigation.SpendlyMainScreen
 import com.apka.spendly.ui.theme.SpendlyTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,11 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SpendlyTheme {
-                val navController = rememberNavController()
-
-                Scaffold(modifier = Modifier.fillMaxSize()) { paddingValues ->
-                    Navigation(navController, paddingValues)
-                }
+                SpendlyMainScreen()
             }
         }
     }
