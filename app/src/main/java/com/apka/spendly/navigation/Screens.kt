@@ -10,5 +10,6 @@ enum class Screens {
     TargetsScreen,
     SettingsScreen,
     LLamaScreen,
-    StatisticsScreen
+    StatisticsScreen,
+    NotificationsScreen
 }

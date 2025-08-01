@@ -11,6 +11,7 @@ import com.apka.spendly.ui.screens.DuringLoading.DuringLoadingScreen
 import com.apka.spendly.ui.screens.GetStarted.GetStartedScreen
 import com.apka.spendly.ui.screens.HomeScreen.HomeScreen
 import com.apka.spendly.ui.screens.LlamaScreen.LLamaScreen
+import com.apka.spendly.ui.screens.Notifications.NotificationsScreen
 import com.apka.spendly.ui.screens.SetToken.SetTokenScreen
 import com.apka.spendly.ui.screens.Settings.SettingsScreen
 import com.apka.spendly.ui.screens.Statistics.StatisticsScreen
@@ -32,22 +33,25 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
             SetTokenScreen(navController, paddingValues)
         }
         composable(Screens.HomeScreen.name) {
-            HomeScreen(paddingValues)
+            HomeScreen(navController, paddingValues)
         }
         composable(Screens.ChallengesScreen.name) {
             ChallengesScreen()
         }
         composable(Screens.TargetsScreen.name) {
-            TargetsScreen()
+            TargetsScreen(paddingValues)
         }
         composable(Screens.SettingsScreen.name) {
-            SettingsScreen()
+            SettingsScreen(paddingValues)
         }
         composable(Screens.LLamaScreen.name) {
-            LLamaScreen()
+            LLamaScreen(paddingValues)
         }
         composable(Screens.StatisticsScreen.name) {
-            StatisticsScreen()
+            StatisticsScreen(paddingValues)
+        }
+        composable(Screens.NotificationsScreen.name) {
+            NotificationsScreen(paddingValues)
         }
     }
 }

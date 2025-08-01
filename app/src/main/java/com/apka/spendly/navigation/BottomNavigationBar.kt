@@ -49,15 +49,15 @@ fun BottomNavigationBar(navController: NavController) {
         shape = RoundedCornerShape(90.dp),
         color = Color(0xFF1F1F1F),
         modifier = Modifier
-            .padding(horizontal = 10.dp, vertical = 27.dp)
+            .padding(horizontal = 10.dp, vertical = 25.dp)
             .fillMaxWidth()
-            .height(76.dp),
+            .height(78.dp),
         border = BorderStroke(1.dp, Color(0xFF313131))
     ) {
         Row(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(start = 12.dp, end = 12.dp),
+                .padding(start = 20.dp, end = 20.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {

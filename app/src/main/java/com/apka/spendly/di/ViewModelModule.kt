@@ -13,6 +13,6 @@ val provideViewModelModule = module {
             get()
         )
     }
-    single<HomeViewModel> { HomeViewModel() }
+    single<HomeViewModel> { HomeViewModel(get(), get()) }
     single<DuringLoadingViewModel> { DuringLoadingViewModel(get()) }
 }

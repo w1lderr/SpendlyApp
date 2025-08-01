@@ -1,5 +1,5 @@
 package com.apka.spendly.ui.screens.HomeScreen
 
-class HomeUiState {
-
-}
+data class HomeUiState(
+    val toast: String = "",
+)
