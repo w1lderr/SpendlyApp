@@ -23,23 +23,33 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.apka.spendly.navigation.Screens
 import com.apka.spendly.ui.imageVector.BellIcon
+import com.apka.spendly.ui.imageVector.FireIcon
+import com.apka.spendly.ui.imageVector.IdeaIcon
+import com.apka.spendly.ui.imageVector.TargetIcon
 import ir.ehsannarmani.compose_charts.PieChart
 import ir.ehsannarmani.compose_charts.models.Pie
 import org.koin.androidx.compose.koinViewModel
@@ -56,6 +66,34 @@ fun HomeScreen(
     val balance = viewModel.balance.collectAsState()
     val categories = viewModel.categories.collectAsState()
     val context = LocalContext.current
+
+    var pieData by remember {
+        mutableStateOf(
+            categories.value.categories.mapIndexed { index, category ->
+                val absoluteTotal = kotlin.math.abs(category.total)
+                Pie(
+                    label = category.category,
+                    data = absoluteTotal.toDouble().coerceAtLeast(0.1), // Ensure positive values
+                    color = getCategoryColor(index),
+                    selectedColor = getCategoryColor(index).copy(alpha = 0.8f)
+                )
+            }
+        )
+    }
+
+    LaunchedEffect(categories.value) {
+        if (categories.value.categories.isNotEmpty()) {
+            pieData = categories.value.categories.mapIndexed { index, category ->
+                val absoluteTotal = kotlin.math.abs(category.total)
+                Pie(
+                    label = category.category,
+                    data = absoluteTotal.toDouble().coerceAtLeast(0.1),
+                    color = getCategoryColor(index),
+                    selectedColor = getCategoryColor(index).copy(alpha = 0.8f)
+                )
+            }
+        }
+    }
 
     LaunchedEffect(uiState.value.toast) {
         if (uiState.value.toast.isNotEmpty()) {
@@ -117,7 +155,7 @@ fun HomeScreen(
         // Short statistics section
         Box(
             modifier = Modifier
-                .size(width = 385.dp, height = 320.dp)
+                .size(width = 380.dp, height = 320.dp)
                 .clip(RoundedCornerShape(30.dp))
                 .background(Color(0xFF1F1F1F))
                 .border(
@@ -160,15 +198,13 @@ fun HomeScreen(
                     if (categories.value.categories.isNotEmpty()) {
                         PieChart(
                             modifier = Modifier.size(130.dp),
-                            data = categories.value.categories.mapIndexed { index, category ->
-                                // Convert absolute values to positive for chart display
-                                val absoluteTotal = kotlin.math.abs(category.total)
-                                Pie(
-                                    label = category.category,
-                                    data = absoluteTotal.toDouble(),
-                                    color = getCategoryColor(index),
-                                    selectedColor = getCategoryColor(index).copy(alpha = 0.8f)
-                                )
+                            data = pieData,
+                            onPieClick = { clickedPie ->
+                                println("${clickedPie.label} Clicked")
+                                val pieIndex = pieData.indexOf(clickedPie)
+                                pieData = pieData.mapIndexed { index, pie ->
+                                    pie.copy(selected = index == pieIndex)
+                                }
                             },
                             selectedScale = 1.1f,
                             scaleAnimEnterSpec = spring<Float>(
@@ -179,13 +215,14 @@ fun HomeScreen(
                             colorAnimExitSpec = tween(300),
                             scaleAnimExitSpec = tween(300),
                             spaceDegreeAnimExitSpec = tween(300),
-                            selectedPaddingDegree = 6f,
-                            style = Pie.Style.Stroke(width = 30.dp)
+                            selectedPaddingDegree = 7f,
+                            style = Pie.Style.Stroke(width = 30.dp),
+                            spaceDegree = 5f
                         )
                     }
                 }
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
                     text = "This month",
@@ -194,13 +231,12 @@ fun HomeScreen(
                     fontWeight = FontWeight.Normal
                 )
 
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(13.dp))
 
                 if (categories.value.categories.isNotEmpty()) {
                     LazyRow(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(20.dp),
-                        contentPadding = PaddingValues(horizontal = 4.dp)
+                        horizontalArrangement = Arrangement.spacedBy(12.dp),
                     ) {
                         itemsIndexed(categories.value.categories) { index, category ->
                             CategoryItem(
@@ -218,6 +254,152 @@ fun HomeScreen(
                         color = Color.White
                     )
                 }
+
+
+            }
+        }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        // Buttons
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 18.dp, end = 18.dp),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Card(
+                modifier = Modifier.size(width = 110.dp, height = 160.dp),
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFF1F1F1F)
+                ),
+                border = BorderStroke(1.dp, Color(0xFF313131)),
+                onClick = {
+
+                }
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(50.dp)
+                            .clip(RoundedCornerShape(90.dp))
+                            .background(Color(0xFF723FEB)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            modifier = Modifier.size(30.dp),
+                            imageVector = TargetIcon,
+                            contentDescription = null,
+                            tint = Color.White,
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(13.dp))
+
+                    Text(
+                        text = "Add\n" +
+                                "target",
+                        color = Color.White,
+                        textAlign = TextAlign.Center,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 18.sp,
+                    )
+                }
+            }
+
+            Card(
+                modifier = Modifier.size(width = 110.dp, height = 160.dp),
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFF1F1F1F)
+                ),
+                border = BorderStroke(1.dp, Color(0xFF313131)),
+                onClick = {
+
+                }
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(50.dp)
+                            .clip(RoundedCornerShape(90.dp))
+                            .background(Color(0xFF723FEB)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            modifier = Modifier.size(33.dp),
+                            imageVector = FireIcon,
+                            contentDescription = null,
+                            tint = Color.White,
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(13.dp))
+
+                    Text(
+                        text = "View\n" +
+                                "Challenges",
+                        color = Color.White,
+                        textAlign = TextAlign.Center,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 18.sp,
+                    )
+                }
+            }
+
+            Card(
+                modifier = Modifier.size(width = 110.dp, height = 160.dp),
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFF1F1F1F)
+                ),
+                border = BorderStroke(1.dp, Color(0xFF313131)),
+                onClick = {
+
+                }
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(50.dp)
+                            .clip(RoundedCornerShape(90.dp))
+                            .background(Color(0xFF723FEB)),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Icon(
+                            modifier = Modifier.size(33.dp),
+                            imageVector = IdeaIcon,
+                            contentDescription = null,
+                            tint = Color.White,
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(13.dp))
+
+                    Text(
+                        text = "View\n" +
+                                "Finance Tips",
+                        color = Color.White,
+                        textAlign = TextAlign.Center,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 18.sp,
+                    )
+                }
             }
         }
     }
@@ -229,8 +411,6 @@ private fun getCategoryColor(index: Int): Color {
         Color(0xFF836EFE),
         Color(0xFF97E0F7),
         Color(0xFFFDFDFD),
-        Color(0xFFFFC6C6),
-        Color(0xFF7DE2D1)
     )
     return colors[index % colors.size]
 }
@@ -245,7 +425,7 @@ fun CategoryItem(
     Box(
         modifier = Modifier
             .size(width = 110.dp, height = 100.dp)
-            .clip(RoundedCornerShape(16.dp))
+            .clip(RoundedCornerShape(20.dp))
             .background(color)
             .padding(10.dp)
     ) {
@@ -263,7 +443,7 @@ fun CategoryItem(
             Text(
                 text = amount,
                 color = if (color == Color(0xFFFDFDFD) || color == Color(0xFF97E0F7)) Color.Black else Color.White,
-                fontSize = 15.sp,
+                fontSize = 16.sp,
                 fontWeight = FontWeight.Medium
             )
 
@@ -271,7 +451,13 @@ fun CategoryItem(
                 modifier = Modifier
                     .size(33.dp, 22.dp)
                     .clip(RoundedCornerShape(90.dp))
-                    .background(Color.White.copy(alpha = 0.2f)),
+                    .background(
+                        if (color == Color(0xFFFDFDFD)) Color.Black.copy(
+                            alpha = 0.2f
+                        ) else Color.White.copy(
+                            alpha = 0.2f
+                        ),
+                    ),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {

@@ -42,7 +42,7 @@ android {
 }
 
 dependencies {
-    implementation("io.github.ehsannarmani:compose-charts:0.1.7")
+    implementation(libs.compose.charts)
 
     implementation(libs.kotlinx.serialization.json)
 
