@@ -284,7 +284,7 @@ fun HomeScreen(
                 ),
                 border = BorderStroke(1.dp, Color(0xFF313131)),
                 onClick = {
-
+                    navController.navigate(Screens.AddNewTargetScreen.name)
                 }
             ) {
                 Column(
@@ -328,7 +328,7 @@ fun HomeScreen(
                 ),
                 border = BorderStroke(1.dp, Color(0xFF313131)),
                 onClick = {
-
+                    navController.navigate(Screens.ChallengesScreen.name)
                 }
             ) {
                 Column(
@@ -372,7 +372,7 @@ fun HomeScreen(
                 ),
                 border = BorderStroke(1.dp, Color(0xFF313131)),
                 onClick = {
-
+                    navController.navigate(Screens.FinanceTipsScreen.name)
                 }
             ) {
                 Column(

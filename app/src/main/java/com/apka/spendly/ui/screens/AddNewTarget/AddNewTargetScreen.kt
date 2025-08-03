@@ -1,4 +1,4 @@
-package com.apka.spendly.ui.screens.Challenges
+package com.apka.spendly.ui.screens.AddNewTarget
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun ChallengesScreen(paddingValues: PaddingValues) {
+fun AddNewTargetScreen(paddingValues: PaddingValues) {
     Column(
         modifier = Modifier
             .fillMaxSize()

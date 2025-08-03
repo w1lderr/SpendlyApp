@@ -5,9 +5,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.apka.spendly.ui.screens.AddNewTarget.AddNewTargetScreen
 import com.apka.spendly.ui.screens.Authorization.AuthorizationScreen
 import com.apka.spendly.ui.screens.Challenges.ChallengesScreen
 import com.apka.spendly.ui.screens.DuringLoading.DuringLoadingScreen
+import com.apka.spendly.ui.screens.FinanceTips.FinanceTipsScreen
 import com.apka.spendly.ui.screens.GetStarted.GetStartedScreen
 import com.apka.spendly.ui.screens.HomeScreen.HomeScreen
 import com.apka.spendly.ui.screens.LlamaScreen.LLamaScreen
@@ -36,7 +38,7 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
             HomeScreen(navController, paddingValues)
         }
         composable(Screens.ChallengesScreen.name) {
-            ChallengesScreen()
+            ChallengesScreen(paddingValues)
         }
         composable(Screens.TargetsScreen.name) {
             TargetsScreen(paddingValues)
@@ -52,6 +54,12 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
         }
         composable(Screens.NotificationsScreen.name) {
             NotificationsScreen(paddingValues)
+        }
+        composable(Screens.AddNewTargetScreen.name) {
+            AddNewTargetScreen(paddingValues)
+        }
+        composable(Screens.FinanceTipsScreen.name) {
+            FinanceTipsScreen(paddingValues)
         }
     }
 }

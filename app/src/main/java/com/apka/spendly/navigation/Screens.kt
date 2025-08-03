@@ -11,5 +11,8 @@ enum class Screens {
     SettingsScreen,
     LLamaScreen,
     StatisticsScreen,
-    NotificationsScreen
+    NotificationsScreen,
+    AddNewTargetScreen,
+    FinanceTipsScreen,
+
 }
