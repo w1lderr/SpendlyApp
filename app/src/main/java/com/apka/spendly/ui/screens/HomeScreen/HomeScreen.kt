@@ -6,6 +6,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -20,9 +21,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -40,11 +44,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.apka.spendly.R
 import com.apka.spendly.navigation.Screens
 import com.apka.spendly.ui.imageVector.BellIcon
 import com.apka.spendly.ui.imageVector.FireIcon
@@ -150,7 +156,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(25.dp))
+        Spacer(modifier = Modifier.height(23.dp))
 
         // Short statistics section
         Box(
@@ -259,7 +265,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(23.dp))
 
         // Buttons
 
@@ -399,6 +405,121 @@ fun HomeScreen(
                         fontWeight = FontWeight.Medium,
                         fontSize = 18.sp,
                     )
+                }
+            }
+        }
+
+        Spacer(modifier = Modifier.height(23.dp))
+
+        // Exchange rate section
+
+        Card(
+            modifier = Modifier.size(width = 380.dp, 140.dp),
+            shape = RoundedCornerShape(20.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = Color(0xFF1F1F1F)
+            ),
+            border = BorderStroke(1.dp, Color(0xFF313131)),
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(18.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Top
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Exchange rate",
+                        color = Color.White,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Medium,
+                    )
+
+                    Button(
+                        modifier = Modifier.size(78.dp, 35.dp),
+                        onClick = {
+
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF723FEB)
+                        )
+                    ) {
+                        Text(
+                            text = "View",
+                            color = Color.White,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Medium,
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column {
+                        Row(
+                            horizontalArrangement = Arrangement.Center,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Image(
+                                modifier = Modifier.size(30.dp),
+                                painter = painterResource(R.drawable.usa_flag),
+                                contentDescription = null
+                            )
+
+                            Spacer(modifier = Modifier.width(5.dp))
+
+                            Text(
+                                text = "USD",
+                                color = Color(0xFFA2A2A2),
+                                fontSize = 17.sp,
+                                fontWeight = FontWeight.Normal
+                            )
+                        }
+                        Text(
+                            text = "41.4 / 42.02",
+                            color = Color.White,
+                            fontSize = 17.sp,
+                            fontWeight = FontWeight.Medium
+                        )
+                    }
+
+                    Column {
+                        Row(
+                            horizontalArrangement = Arrangement.Center,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Image(
+                                modifier = Modifier.size(30.dp),
+                                painter = painterResource(R.drawable.flag_of_europe1),
+                                contentDescription = null
+                            )
+
+                            Spacer(modifier = Modifier.width(5.dp))
+
+                            Text(
+                                text = "EUR",
+                                color = Color(0xFFA2A2A2),
+                                fontSize = 17.sp,
+                                fontWeight = FontWeight.Normal
+                            )
+                        }
+                        Text(
+                            text = "48.26 / 49.02",
+                            color = Color.White,
+                            fontSize = 17.sp,
+                            fontWeight = FontWeight.Medium
+                        )
+                    }
                 }
             }
         }
