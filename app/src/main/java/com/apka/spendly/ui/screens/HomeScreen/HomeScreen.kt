@@ -156,7 +156,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(22.dp))
+        Spacer(modifier = Modifier.height(21.dp))
 
         // Short statistics section
         Box(
@@ -265,7 +265,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(22.dp))
+        Spacer(modifier = Modifier.height(21.dp))
 
         // Buttons
 
@@ -409,7 +409,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(22.dp))
+        Spacer(modifier = Modifier.height(21.dp))
 
         // Exchange rate section
 
