@@ -156,7 +156,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(23.dp))
+        Spacer(modifier = Modifier.height(22.dp))
 
         // Short statistics section
         Box(
@@ -265,7 +265,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(23.dp))
+        Spacer(modifier = Modifier.height(22.dp))
 
         // Buttons
 
@@ -409,12 +409,12 @@ fun HomeScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(23.dp))
+        Spacer(modifier = Modifier.height(22.dp))
 
         // Exchange rate section
 
         Card(
-            modifier = Modifier.size(width = 380.dp, 140.dp),
+            modifier = Modifier.size(width = 380.dp, 150.dp),
             shape = RoundedCornerShape(20.dp),
             colors = CardDefaults.cardColors(
                 containerColor = Color(0xFF1F1F1F)
@@ -458,7 +458,7 @@ fun HomeScreen(
                     }
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(25.dp))
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
