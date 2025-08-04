@@ -31,8 +31,9 @@ import androidx.navigation.NavController
 @Composable
 fun LLamaScreen(
     paddingValues: PaddingValues,
-    navController: NavController
+    navController: NavController,
 ) {
+
     Column(
         modifier = Modifier
             .fillMaxSize()

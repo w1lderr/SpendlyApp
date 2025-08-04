@@ -6,7 +6,6 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 
 class TokenRepo(private val okHttpClient: OkHttpClient) {
-
     fun saveToken(tokenDTO: TokenDTO): String {
         val requestBody = FormBody.Builder()
             .add("uuid", tokenDTO.uuid)
