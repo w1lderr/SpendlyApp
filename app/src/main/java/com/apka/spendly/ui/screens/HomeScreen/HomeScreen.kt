@@ -146,8 +146,7 @@ fun HomeScreen(
                         },
                     ),
                 contentAlignment = Alignment.Center,
-
-                ) {
+            ) {
                 Icon(
                     imageVector = BellIcon,
                     contentDescription = "Notifications",
@@ -225,6 +224,12 @@ fun HomeScreen(
                             style = Pie.Style.Stroke(width = 30.dp),
                             spaceDegree = 5f
                         )
+                    } else {
+                        // Show loading indicator
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(30.dp),
+                            color = Color.White
+                        )
                     }
                 }
 
@@ -244,7 +249,9 @@ fun HomeScreen(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                     ) {
-                        itemsIndexed(categories.value.categories) { index, category ->
+                        val sortedCategoriesByPercentage =
+                            categories.value.categories.sortedByDescending { it.percentage }
+                        itemsIndexed(sortedCategoriesByPercentage) { index, category ->
                             CategoryItem(
                                 category = category.category,
                                 amount = "₴${category.total / 100}",
@@ -254,14 +261,12 @@ fun HomeScreen(
                         }
                     }
                 } else {
-                    // Show loading indicator or empty state
+                    // Show loading indicator
                     CircularProgressIndicator(
-                        modifier = Modifier.size(24.dp),
+                        modifier = Modifier.size(30.dp),
                         color = Color.White
                     )
                 }
-
-
             }
         }
 
@@ -443,7 +448,7 @@ fun HomeScreen(
                     Button(
                         modifier = Modifier.size(78.dp, 35.dp),
                         onClick = {
-
+                            navController.navigate(Screens.ExchangeRateScreen.name)
                         },
                         colors = ButtonDefaults.buttonColors(
                             containerColor = Color(0xFF723FEB)

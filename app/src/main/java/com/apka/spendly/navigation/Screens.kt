@@ -14,5 +14,6 @@ enum class Screens {
     NotificationsScreen,
     AddNewTargetScreen,
     FinanceTipsScreen,
+    ExchangeRateScreen
 
 }

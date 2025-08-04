@@ -9,6 +9,7 @@ import com.apka.spendly.ui.screens.AddNewTarget.AddNewTargetScreen
 import com.apka.spendly.ui.screens.Authorization.AuthorizationScreen
 import com.apka.spendly.ui.screens.Challenges.ChallengesScreen
 import com.apka.spendly.ui.screens.DuringLoading.DuringLoadingScreen
+import com.apka.spendly.ui.screens.ExchangeRate.ExchangeRateScreen
 import com.apka.spendly.ui.screens.FinanceTips.FinanceTipsScreen
 import com.apka.spendly.ui.screens.GetStarted.GetStartedScreen
 import com.apka.spendly.ui.screens.HomeScreen.HomeScreen
@@ -47,7 +48,7 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
             SettingsScreen(paddingValues)
         }
         composable(Screens.LLamaScreen.name) {
-            LLamaScreen(paddingValues)
+            LLamaScreen(paddingValues, navController)
         }
         composable(Screens.StatisticsScreen.name) {
             StatisticsScreen(paddingValues)
@@ -60,6 +61,9 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
         }
         composable(Screens.FinanceTipsScreen.name) {
             FinanceTipsScreen(paddingValues)
+        }
+        composable(Screens.ExchangeRateScreen.name) {
+            ExchangeRateScreen(paddingValues)
         }
     }
 }
