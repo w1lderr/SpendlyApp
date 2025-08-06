@@ -263,7 +263,8 @@ fun LlamaScreen(
                             Icon(
                                 modifier = Modifier.size(50.dp),
                                 imageVector = ArrowUpIcon,
-                                contentDescription = null
+                                contentDescription = null,
+                                tint = Color.White
                             )
                         }
                     }
