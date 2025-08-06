@@ -273,7 +273,6 @@ fun HomeScreen(
         Spacer(modifier = Modifier.height(21.dp))
 
         // Buttons
-
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -417,7 +416,6 @@ fun HomeScreen(
         Spacer(modifier = Modifier.height(21.dp))
 
         // Exchange rate section
-
         Card(
             modifier = Modifier.size(width = 380.dp, 150.dp),
             shape = RoundedCornerShape(20.dp),
