@@ -34,6 +34,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -70,6 +71,16 @@ fun LlamaScreen(
             Toast.makeText(context, uiState.value.toast, Toast.LENGTH_SHORT).show()
             viewModel.setToast("")
         }
+    }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            viewModel.closeConnection()
+        }
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.connectToSocket()
     }
 
     Column(

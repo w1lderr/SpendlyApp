@@ -3,10 +3,13 @@ package com.apka.spendly.navigation
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.apka.spendly.ui.screens.AddNewTarget.AddNewTargetScreen
 import com.apka.spendly.ui.screens.Authorization.AuthorizationScreen
+import com.apka.spendly.ui.screens.BalanceInfo.BalanceInfoScreen
 import com.apka.spendly.ui.screens.Challenges.ChallengesScreen
 import com.apka.spendly.ui.screens.DuringLoading.DuringLoadingScreen
 import com.apka.spendly.ui.screens.ExchangeRate.ExchangeRateScreen
@@ -64,6 +67,23 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
         }
         composable(Screens.ExchangeRateScreen.name) {
             ExchangeRateScreen(paddingValues)
+        }
+        composable(
+            route = "${Screens.BalanceInfoScreen.name}/{balance}/{totalSumSpending}",
+            arguments = listOf(
+                navArgument("balance") { type = NavType.LongType },
+                navArgument("totalSumSpending") { type = NavType.LongType }
+            )
+        ) {
+            val balance = it.arguments?.getLong("balance") ?: 0L
+            val totalSumSpending = it.arguments?.getLong("totalSumSpending") ?: 0L
+
+            BalanceInfoScreen(
+                paddingValues,
+                navController,
+                balance,
+                totalSumSpending
+            )
         }
     }
 }

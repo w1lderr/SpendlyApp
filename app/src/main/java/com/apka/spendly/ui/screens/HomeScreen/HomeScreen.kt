@@ -71,6 +71,7 @@ fun HomeScreen(
     val greeting = viewModel.greeting.collectAsState("Loading...")
     val balance = viewModel.balance.collectAsState()
     val categories = viewModel.categories.collectAsState()
+    val totalSumSpending = viewModel.totalSumSpending.collectAsState()
     val context = LocalContext.current
 
     var pieData by remember {
@@ -167,7 +168,14 @@ fun HomeScreen(
                     border = BorderStroke(1.dp, Color(0xFF313131)),
                     shape = RoundedCornerShape(30.dp)
                 )
-                .padding(18.dp),
+                .padding(18.dp)
+                .clickable(
+                    onClick = {
+                        val route =
+                            "${Screens.BalanceInfoScreen.name}/${balance.value}/${totalSumSpending.value}"
+                        navController.navigate(route)
+                    }
+                ),
         ) {
             Column(
                 modifier = Modifier.fillMaxSize(),
@@ -183,7 +191,7 @@ fun HomeScreen(
                 ) {
                     Column {
                         Text(
-                            text = "Total Balance",
+                            text = "My Balance",
                             color = Color.White,
                             fontSize = 22.sp,
                             fontWeight = FontWeight.Medium

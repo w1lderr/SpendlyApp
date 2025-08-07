@@ -1,5 +1,6 @@
 package com.apka.spendly.ui.screens.LlamaScreen
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apka.spendly.androidUuidGenerator.AndroidUuidGenerator
@@ -30,7 +31,6 @@ class LlamaViewModel(
 
     init {
         loadHistory()
-        connectToSocket()
     }
 
     fun setToast(value: String) {
@@ -102,10 +102,11 @@ class LlamaViewModel(
                 )
             }
         })
+        Log.i("WEBSOCKET", "WebSocket connection opened")
     }
 
-    override fun onCleared() {
+    fun closeConnection() {
         webSocket?.close(1000, "Closed by user")
-        super.onCleared()
+        Log.i("WEBSOCKET", "WebSocket connection closed")
     }
 }

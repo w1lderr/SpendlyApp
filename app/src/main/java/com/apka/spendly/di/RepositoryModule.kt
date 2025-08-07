@@ -8,7 +8,7 @@ import com.apka.spendly.data.repo.TransactionRepo
 import org.koin.dsl.module
 
 val provideRepositoryModule = module {
-    single<TransactionRepo> { TransactionRepo(get()) }
+    single<TransactionRepo> { TransactionRepo(get(), get()) }
     single<TokenRepo> { TokenRepo(get()) }
     single<AuthenticationRepo> { AuthenticationRepo(get()) }
     single<HomeRepo> { HomeRepo(get()) }

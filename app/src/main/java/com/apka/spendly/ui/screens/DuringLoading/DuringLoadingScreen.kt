@@ -1,6 +1,5 @@
 package com.apka.spendly.ui.screens.DuringLoading
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,8 +27,6 @@ fun DuringLoadingScreen(
     viewModel: DuringLoadingViewModel = koinViewModel()
 ) {
     val isLoggedIn by viewModel.isLoggedIn.collectAsState(null)
-
-    Log.i("IS LOGGED IN STATUS ", isLoggedIn.toString())
 
     LaunchedEffect(isLoggedIn) {
         if (isLoggedIn == true) {

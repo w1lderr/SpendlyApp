@@ -16,6 +16,7 @@ class HomeViewModel(
     private val repo: HomeRepo,
     private val uuidGenerator: AndroidUuidGenerator
 ) : ViewModel() {
+    private val _totalSumSpending = MutableStateFlow(0L)
     private val _categories = MutableStateFlow(MonthlySummaryDTO(0L, emptyList()))
     private val _uiState = MutableStateFlow(HomeUiState())
     private val _balance = MutableStateFlow(0L)
@@ -24,10 +25,16 @@ class HomeViewModel(
     val balance: StateFlow<Long> = _balance
     val uiState: StateFlow<HomeUiState> = _uiState
     val categories: StateFlow<MonthlySummaryDTO> = _categories
+    val totalSumSpending: StateFlow<Long> get() = _totalSumSpending
 
     init {
         getBalance()
         getMonthlyCategories()
+    }
+
+    private fun calculateTotalSumSpending() {
+        val total = _categories.value.categories.sumOf { it.total }
+        _totalSumSpending.value = total
     }
 
     private fun getGreetingBasedOnTime(): String {
@@ -67,6 +74,7 @@ class HomeViewModel(
             try {
                 val monthlyCategories = repo.getMonthlyCategories(uuid)
                 _categories.value = monthlyCategories
+                calculateTotalSumSpending()
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     setToast("Error fetching monthly categories: ${e.message}")
