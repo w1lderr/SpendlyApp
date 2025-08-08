@@ -43,6 +43,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.firebase.messaging.ktx)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.messaging)
 
