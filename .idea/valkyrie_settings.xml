@@ -3,5 +3,6 @@
   <component name="Valkyrie.Settings">
     <option name="mode" value="Simple" />
     <option name="packageName" value="com.apka.spendly.ui.imageVector" />
+    <option name="previewType" value="Auto" />
   </component>
 </project>

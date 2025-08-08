@@ -30,6 +30,7 @@ androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-view
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 compose-charts = { module = "io.github.ehsannarmani:compose-charts", version.ref = "composeCharts" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-messaging = { module = "com.google.firebase:firebase-messaging" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
