@@ -83,6 +83,7 @@ fun SetTokenScreen(
         Button(
             modifier = Modifier.size(width = 170.dp, height = 48.dp),
             onClick = {
+                viewModel.setFcmToken()
                 viewModel.sendTokenRequest()
             },
             colors = ButtonDefaults.buttonColors(

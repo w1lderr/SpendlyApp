@@ -12,6 +12,7 @@ val provideViewModelModule = module {
         SetTokenViewModel(
             get(),
             get(),
+            get(),
             get()
         )
     }

@@ -1,6 +1,7 @@
 package com.apka.spendly.di
 
 import com.apka.spendly.data.repo.AuthenticationRepo
+import com.apka.spendly.data.repo.FCMTokenRepo
 import com.apka.spendly.data.repo.HomeRepo
 import com.apka.spendly.data.repo.MessageRepo
 import com.apka.spendly.data.repo.TokenRepo
@@ -13,4 +14,5 @@ val provideRepositoryModule = module {
     single<AuthenticationRepo> { AuthenticationRepo(get()) }
     single<HomeRepo> { HomeRepo(get()) }
     single<MessageRepo> { MessageRepo(get(), get()) }
+    single<FCMTokenRepo> { FCMTokenRepo(get()) }
 }

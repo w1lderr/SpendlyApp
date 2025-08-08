@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "com.apka.spendly"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -44,6 +44,7 @@ android {
 
 dependencies {
     implementation(libs.firebase.messaging.ktx)
+
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.messaging)
 

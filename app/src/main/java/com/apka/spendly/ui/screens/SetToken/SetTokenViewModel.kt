@@ -1,11 +1,15 @@
 package com.apka.spendly.ui.screens.SetToken
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apka.spendly.androidUuidGenerator.AndroidUuidGenerator
+import com.apka.spendly.data.dto.FCMTokenDTO
 import com.apka.spendly.data.dto.TokenDTO
 import com.apka.spendly.data.repo.AuthenticationRepo
+import com.apka.spendly.data.repo.FCMTokenRepo
 import com.apka.spendly.data.repo.TokenRepo
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -15,6 +19,7 @@ import kotlinx.coroutines.withContext
 class SetTokenViewModel(
     private val tokenRepo: TokenRepo,
     private val authenticationRepo: AuthenticationRepo,
+    private val fcmTokenRepo: FCMTokenRepo,
     private val uuidGenerator: AndroidUuidGenerator
 ) : ViewModel() {
     private val _token = MutableStateFlow("")
@@ -37,6 +42,34 @@ class SetTokenViewModel(
     fun setLoggedIn(loggedIn: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
             authenticationRepo.setLoggedIn(loggedIn)
+        }
+    }
+
+    fun setFcmToken() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w("FCM", "Fetching FCM token failed", task.exception)
+                return@addOnCompleteListener
+            }
+
+            val token = task.result
+            Log.d("FCM", "Device FCM token: $token")
+
+            viewModelScope.launch(Dispatchers.IO) {
+                try {
+                    fcmTokenRepo.saveFcmToken(
+                        FCMTokenDTO(
+                            fcmTokenId = "",
+                            uuid = uuidGenerator.getOrCreateGuid(),
+                            fcmToken = token
+                        )
+                    )
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        setToast("Error saving FCM token: $e")
+                    }
+                }
+            }
         }
     }
 
