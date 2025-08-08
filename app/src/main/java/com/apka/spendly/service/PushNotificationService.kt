@@ -6,7 +6,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.apka.spendly.MainActivity
 import com.apka.spendly.R
@@ -20,9 +19,11 @@ class PushNotificationService : FirebaseMessagingService() {
     }
 
     override fun onMessageReceived(message: RemoteMessage) {
-        Log.d("FCM", "From: ${message.from}")
-        message.notification?.let {
-            showNotification(it.title, it.body)
+        val title = message.data["title"] ?: message.notification?.title
+        val body = message.data["body"] ?: message.notification?.body
+
+        if (title != null && body != null) {
+            showNotification(title, body)
         }
     }
 
