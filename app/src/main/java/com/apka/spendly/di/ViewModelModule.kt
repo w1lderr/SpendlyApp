@@ -2,6 +2,7 @@ package com.apka.spendly.di
 
 import com.apka.spendly.ui.screens.BalanceInfo.BalanceInfoVM
 import com.apka.spendly.ui.screens.DuringLoading.DuringLoadingViewModel
+import com.apka.spendly.ui.screens.FinanceTips.FinanceTipsViewModel
 import com.apka.spendly.ui.screens.HomeScreen.HomeViewModel
 import com.apka.spendly.ui.screens.LlamaScreen.LlamaViewModel
 import com.apka.spendly.ui.screens.SetToken.SetTokenViewModel
@@ -20,4 +21,5 @@ val provideViewModelModule = module {
     single<DuringLoadingViewModel> { DuringLoadingViewModel(get()) }
     single<LlamaViewModel> { LlamaViewModel(get(), get(), get()) }
     single<BalanceInfoVM> { BalanceInfoVM(get()) }
+    single<FinanceTipsViewModel> { FinanceTipsViewModel(get()) }
 }

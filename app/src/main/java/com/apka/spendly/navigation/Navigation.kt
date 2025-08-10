@@ -63,7 +63,7 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
             AddNewTargetScreen(paddingValues)
         }
         composable(Screens.FinanceTipsScreen.name) {
-            FinanceTipsScreen(paddingValues)
+            FinanceTipsScreen(navController, paddingValues)
         }
         composable(Screens.ExchangeRateScreen.name) {
             ExchangeRateScreen(paddingValues)
