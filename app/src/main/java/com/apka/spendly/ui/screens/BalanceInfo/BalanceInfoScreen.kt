@@ -207,7 +207,7 @@ fun BalanceInfoScreen(
         LazyColumn {
             items(uiState.value.transactions) { transaction ->
                 TransactionItem(transaction)
-                Spacer(modifier = Modifier.height(40.dp))
+                Spacer(modifier = Modifier.height(30.dp))
             }
         }
     }
@@ -229,7 +229,7 @@ fun TransactionItem(
     val year = calendar.get(Calendar.YEAR)
 
     Row(
-        modifier = Modifier.size(360.dp, 45.dp),
+        modifier = Modifier.size(360.dp, 55.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
