@@ -1,5 +1,9 @@
 package com.apka.spendly.ui.screens.DuringLoading
 
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,10 +16,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import com.apka.spendly.navigation.Screens
 import org.koin.androidx.compose.koinViewModel
@@ -26,7 +35,31 @@ fun DuringLoadingScreen(
     paddingValues: PaddingValues,
     viewModel: DuringLoadingViewModel = koinViewModel()
 ) {
+    val context = LocalContext.current
     val isLoggedIn by viewModel.isLoggedIn.collectAsState(null)
+    var permissionsGranted by remember { mutableStateOf(false) }
+
+    val permissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestMultiplePermissions()
+    ) { permissions ->
+        permissionsGranted = permissions[Manifest.permission.POST_NOTIFICATIONS] == true
+    }
+
+    LaunchedEffect(Unit) {
+        if (ContextCompat.checkSelfPermission(
+                context,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            permissionsGranted = true
+        } else {
+            permissionLauncher.launch(
+                arrayOf(
+                    Manifest.permission.POST_NOTIFICATIONS,
+                )
+            )
+        }
+    }
 
     LaunchedEffect(isLoggedIn) {
         if (isLoggedIn == true) {
