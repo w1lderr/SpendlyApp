@@ -53,7 +53,7 @@ fun StatChallengeItem(userChallengeDTO: UserChallengeDTO) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 15.dp, end = 15.dp),
+            .padding(start = 12.dp, end = 20.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
