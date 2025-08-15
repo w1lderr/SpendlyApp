@@ -29,21 +29,21 @@ import com.apka.spendly.ui.imageVector.TargetIcon
 
 @Composable
 fun StatChallengeItem(userChallengeDTO: UserChallengeDTO) {
-    val statusColor = when(userChallengeDTO.status) {
+    val statusColor = when (userChallengeDTO.status) {
         "started" -> Color(0xFFFFE75F)
         "completed" -> Color(0xFF3DA86F)
         "failed" -> Color(0xFFDE241B)
         else -> Color(0xFF723FEB)
     }
 
-    val statusName = when(userChallengeDTO.status) {
+    val statusName = when (userChallengeDTO.status) {
         "started" -> "Started"
         "completed" -> "Completed"
         "failed" -> "Failed"
         else -> "Started"
     }
 
-    val statusTextColor = when(userChallengeDTO.status) {
+    val statusTextColor = when (userChallengeDTO.status) {
         "started" -> Color.Black
         "completed" -> Color.White
         "failed" -> Color.White
@@ -51,7 +51,9 @@ fun StatChallengeItem(userChallengeDTO: UserChallengeDTO) {
     }
 
     Row(
-        modifier = Modifier.fillMaxWidth().padding(start = 15.dp, end = 15.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 15.dp, end = 15.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {

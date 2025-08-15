@@ -117,7 +117,7 @@ fun StatisticsScreen(
 
                 Spacer(modifier = Modifier.height(5.dp))
 
-                Text (
+                Text(
                     text = "Total saved",
                     color = Color(0xFFB8B8B8),
                     fontSize = 18.sp,
@@ -144,14 +144,16 @@ fun StatisticsScreen(
                     defaultElevation = 2.dp
                 ),
 
-            ) {
+                ) {
                 Column(
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     LineChart(
-                        modifier = Modifier.size(width = 380.dp, height = 230.dp).padding(22.dp),
+                        modifier = Modifier
+                            .size(width = 380.dp, height = 230.dp)
+                            .padding(22.dp),
                         data = remember {
                             listOf(
                                 Line(
