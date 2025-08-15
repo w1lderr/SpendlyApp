@@ -81,7 +81,7 @@ fun StatisticsScreen(
             )
         }
 
-        Spacer(modifier = Modifier.height(45.dp))
+        Spacer(modifier = Modifier.height(40.dp))
 
         Row(
             modifier = Modifier
@@ -126,7 +126,7 @@ fun StatisticsScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(40.dp))
+        Spacer(modifier = Modifier.height(33.dp))
 
         // Chart Line
         Row(
@@ -185,7 +185,7 @@ fun StatisticsScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Card(
-                modifier = Modifier.size(width = 380.dp, height = 325.dp),
+                modifier = Modifier.size(width = 380.dp, height = 340.dp),
                 shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = Color(0xFF1F1F1F)
