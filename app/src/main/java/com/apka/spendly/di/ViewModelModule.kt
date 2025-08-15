@@ -7,6 +7,7 @@ import com.apka.spendly.ui.screens.FinanceTips.FinanceTipsViewModel
 import com.apka.spendly.ui.screens.HomeScreen.HomeViewModel
 import com.apka.spendly.ui.screens.LlamaScreen.LlamaViewModel
 import com.apka.spendly.ui.screens.SetToken.SetTokenViewModel
+import com.apka.spendly.ui.screens.Statistics.StatisticsViewModel
 import org.koin.dsl.module
 
 val provideViewModelModule = module {
@@ -24,4 +25,5 @@ val provideViewModelModule = module {
     single<BalanceInfoVM> { BalanceInfoVM(get()) }
     single<FinanceTipsViewModel> { FinanceTipsViewModel(get()) }
     single<ChallengesViewModel> { ChallengesViewModel(get()) }
+    single<StatisticsViewModel> { StatisticsViewModel(get()) }
 }
