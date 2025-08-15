@@ -1,6 +1,7 @@
 package com.apka.spendly.di
 
 import com.apka.spendly.data.repo.AuthenticationRepo
+import com.apka.spendly.data.repo.ChallengeRepo
 import com.apka.spendly.data.repo.FCMTokenRepo
 import com.apka.spendly.data.repo.FinanceTipsRepo
 import com.apka.spendly.data.repo.HomeRepo
@@ -17,4 +18,5 @@ val provideRepositoryModule = module {
     single<MessageRepo> { MessageRepo(get(), get()) }
     single<FCMTokenRepo> { FCMTokenRepo(get()) }
     single<FinanceTipsRepo> { FinanceTipsRepo(get()) }
+    single<ChallengeRepo> { ChallengeRepo(get(), get()) }
 }

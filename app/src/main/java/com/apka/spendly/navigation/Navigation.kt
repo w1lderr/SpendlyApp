@@ -42,7 +42,7 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
             HomeScreen(navController, paddingValues)
         }
         composable(Screens.ChallengesScreen.name) {
-            ChallengesScreen(paddingValues)
+            ChallengesScreen(navController, paddingValues)
         }
         composable(Screens.TargetsScreen.name) {
             TargetsScreen(paddingValues)
