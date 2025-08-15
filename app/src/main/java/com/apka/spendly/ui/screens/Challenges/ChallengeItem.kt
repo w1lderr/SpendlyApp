@@ -234,7 +234,7 @@ fun ChallengeItem(
                     }
 
                     Button(
-                        modifier = Modifier.size(width = 120.dp, height = 40.dp),
+                        modifier = Modifier.size(width = 116.dp, height = 40.dp),
                         onClick = {
 
                         },
