@@ -3,15 +3,13 @@ package com.apka.spendly.ui.screens.Target
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apka.spendly.data.repo.TargetRepo
-import com.apka.spendly.ui.screens.AddNewTarget.AddNewTargetUiState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.OkHttpClient
 
-class TargetViewModel(private val repo: TargetRepo): ViewModel() {
+class TargetViewModel(private val repo: TargetRepo) : ViewModel() {
     private val _uiState = MutableStateFlow(TargetUiState())
     val uiState: StateFlow<TargetUiState> get() = _uiState
 

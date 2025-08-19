@@ -5,7 +5,7 @@ import com.apka.spendly.data.repo.TargetRepo
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class AddNewTargetViewModel(private val repo: TargetRepo): ViewModel() {
+class AddNewTargetViewModel(private val repo: TargetRepo) : ViewModel() {
     private val _uiState = MutableStateFlow(AddNewTargetUiState())
     val uiState: StateFlow<AddNewTargetUiState> get() = _uiState
 
