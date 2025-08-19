@@ -22,6 +22,7 @@ import com.apka.spendly.ui.screens.SetToken.SetTokenScreen
 import com.apka.spendly.ui.screens.Settings.SettingsScreen
 import com.apka.spendly.ui.screens.Statistics.StatisticsScreen
 import com.apka.spendly.ui.screens.Target.TargetsScreen
+import com.apka.spendly.ui.screens.ViewTarget.ViewTargetScreen
 
 @Composable
 fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
@@ -60,7 +61,7 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
             NotificationsScreen(paddingValues)
         }
         composable(Screens.AddNewTargetScreen.name) {
-            AddNewTargetScreen(paddingValues)
+            AddNewTargetScreen(navController, paddingValues)
         }
         composable(Screens.FinanceTipsScreen.name) {
             FinanceTipsScreen(navController, paddingValues)
@@ -83,6 +84,12 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
                 navController,
                 balance,
                 totalSumSpending
+            )
+        }
+        composable(Screens.ViewTargetScreen.name) {
+            ViewTargetScreen(
+                paddingValues = paddingValues,
+                navController = navController
             )
         }
     }

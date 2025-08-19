@@ -8,9 +8,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun AddNewTargetScreen(paddingValues: PaddingValues) {
+fun AddNewTargetScreen(
+    navController: NavController,
+    paddingValues: PaddingValues,
+    viewModel: AddNewTargetViewModel = koinViewModel()
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()

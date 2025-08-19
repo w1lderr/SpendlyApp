@@ -6,6 +6,7 @@ import com.apka.spendly.data.repo.FCMTokenRepo
 import com.apka.spendly.data.repo.FinanceTipsRepo
 import com.apka.spendly.data.repo.HomeRepo
 import com.apka.spendly.data.repo.MessageRepo
+import com.apka.spendly.data.repo.TargetRepo
 import com.apka.spendly.data.repo.TokenRepo
 import com.apka.spendly.data.repo.TransactionRepo
 import org.koin.dsl.module
@@ -19,4 +20,5 @@ val provideRepositoryModule = module {
     single<FCMTokenRepo> { FCMTokenRepo(get()) }
     single<FinanceTipsRepo> { FinanceTipsRepo(get()) }
     single<ChallengeRepo> { ChallengeRepo(get(), get()) }
+    single<TargetRepo> { TargetRepo(get(), get()) }
 }

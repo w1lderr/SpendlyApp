@@ -15,5 +15,6 @@ enum class Screens {
     AddNewTargetScreen,
     FinanceTipsScreen,
     ExchangeRateScreen,
-    BalanceInfoScreen
+    BalanceInfoScreen,
+    ViewTargetScreen
 }
