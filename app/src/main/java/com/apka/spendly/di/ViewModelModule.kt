@@ -10,6 +10,7 @@ import com.apka.spendly.ui.screens.LlamaScreen.LlamaViewModel
 import com.apka.spendly.ui.screens.SetToken.SetTokenViewModel
 import com.apka.spendly.ui.screens.Statistics.StatisticsViewModel
 import com.apka.spendly.ui.screens.Target.TargetViewModel
+import com.apka.spendly.ui.screens.TopUpHistory.TopUpHistoryVM
 import com.apka.spendly.ui.screens.ViewTarget.ViewTargetViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
@@ -33,4 +34,5 @@ val provideViewModelModule = module {
     viewModel<AddNewTargetViewModel> { AddNewTargetViewModel(get(), get()) }
     viewModel<TargetViewModel> { TargetViewModel(get()) }
     viewModel<ViewTargetViewModel> { ViewTargetViewModel(get()) }
+    viewModel<TopUpHistoryVM> { TopUpHistoryVM(get()) }
 }

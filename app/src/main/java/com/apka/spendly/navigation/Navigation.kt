@@ -23,6 +23,7 @@ import com.apka.spendly.ui.screens.Settings.SettingsScreen
 import com.apka.spendly.ui.screens.Statistics.StatisticsScreen
 import com.apka.spendly.ui.screens.Target.TargetUiItem
 import com.apka.spendly.ui.screens.Target.TargetsScreen
+import com.apka.spendly.ui.screens.TopUpHistory.TopUpHistoryScreen
 import com.apka.spendly.ui.screens.ViewTarget.ViewTargetScreen
 import java.net.URLDecoder
 import java.nio.charset.StandardCharsets
@@ -145,6 +146,23 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
                     totalTopUpAmount = totalTopUpAmount,
                     progressPercent = progressPercent
                 )
+            )
+        }
+        composable(
+            route = "${Screens.TopUpHistoryScreen.name}/{targetId}",
+            arguments = listOf(
+                navArgument("targetId") { type = NavType.StringType }
+            )
+        ) {
+            val targetId = URLDecoder.decode(
+                it.arguments?.getString("targetId") ?: "",
+                StandardCharsets.UTF_8.toString()
+            )
+
+            TopUpHistoryScreen(
+                navController = navController,
+                paddingValues = paddingValues,
+                targetId = targetId
             )
         }
     }

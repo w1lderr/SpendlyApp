@@ -97,8 +97,7 @@ fun AddNewTargetScreen(
                 .padding(start = 20.dp, end = 20.dp, top = 8.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
-        )
-        {
+        ) {
             Box(
                 modifier = Modifier
                     .size(50.dp)

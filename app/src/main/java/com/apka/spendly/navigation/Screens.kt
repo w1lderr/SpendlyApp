@@ -16,5 +16,6 @@ enum class Screens {
     FinanceTipsScreen,
     ExchangeRateScreen,
     BalanceInfoScreen,
-    ViewTargetScreen
+    ViewTargetScreen,
+    TopUpHistoryScreen
 }

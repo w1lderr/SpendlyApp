@@ -46,10 +46,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.apka.spendly.navigation.Screens
 import com.apka.spendly.ui.imageVector.BrokenImageIcon
 import com.apka.spendly.ui.screens.AddNewTarget.Categories
 import com.apka.spendly.ui.screens.Target.TargetUiItem
 import org.koin.androidx.compose.koinViewModel
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 @Composable
 fun ViewTargetScreen(
@@ -281,7 +284,9 @@ fun ViewTargetScreen(
                     Button(
                         modifier = Modifier.size(width = 100.dp, height = 42.dp),
                         onClick = {
-
+                            val encodeTargetId = URLEncoder.encode(target.targetId, StandardCharsets.UTF_8.toString())
+                            val route = "${Screens.TopUpHistoryScreen.name}/${encodeTargetId}"
+                            navController.navigate(route)
                         },
                         colors = ButtonDefaults.buttonColors(
                             containerColor = if (target.totalTopUpAmount == target.targetAmount) {
