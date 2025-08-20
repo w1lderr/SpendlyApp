@@ -1,6 +1,6 @@
 package com.apka.spendly.ui.screens.Target
 
-data class TargetUiItem (
+data class TargetUiItem(
     val targetId: String,
     val uuid: String,
     val targetName: String,

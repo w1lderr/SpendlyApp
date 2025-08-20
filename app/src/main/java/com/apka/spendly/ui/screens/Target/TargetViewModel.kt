@@ -25,7 +25,8 @@ class TargetViewModel(private val repo: TargetRepo) : ViewModel() {
                 val uiItems = targets.map { target ->
                     val totalTopUpAmount = repo.getTotalTopUpAmount(target.targetId)
                     val progressPercent = if (target.targetAmount > 0) {
-                        val percentage = (totalTopUpAmount.toDouble() / target.targetAmount.toDouble()) * 100
+                        val percentage =
+                            (totalTopUpAmount.toDouble() / target.targetAmount.toDouble()) * 100
                         percentage.coerceIn(0.0, 100.0).toInt()
                     } else {
                         0
@@ -52,7 +53,8 @@ class TargetViewModel(private val repo: TargetRepo) : ViewModel() {
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    _uiState.value = _uiState.value.copy(toast = "Error fetching targets: ${e.message}")
+                    _uiState.value =
+                        _uiState.value.copy(toast = "Error fetching targets: ${e.message}")
                 }
             }
         }
