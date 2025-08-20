@@ -1,9 +1,6 @@
-package com.apka.spendly.data.dto
+package com.apka.spendly.ui.screens.Target
 
-import kotlinx.serialization.Serializable
-
-@Serializable
-data class TargetDTO(
+data class TargetUiItem (
     val targetId: String,
     val uuid: String,
     val targetName: String,
@@ -12,5 +9,6 @@ data class TargetDTO(
     val category: String,
     val date: Long,
     val completed: Boolean,
-    val reminder: Boolean
+    val totalTopUpAmount: Long,
+    val progressPercent: Int
 )
