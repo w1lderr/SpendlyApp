@@ -1,7 +1,5 @@
 package com.apka.spendly.ui.screens.ViewTarget
 
-import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -27,33 +25,31 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.apka.spendly.ui.imageVector.BrokenImageIcon
-import com.apka.spendly.ui.imageVector.OtherIcon
 import com.apka.spendly.ui.screens.AddNewTarget.Categories
 import com.apka.spendly.ui.screens.Target.TargetUiItem
 import org.koin.androidx.compose.koinViewModel
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.text.input.ImeAction
 
 @Composable
 fun ViewTargetScreen(
@@ -187,7 +183,9 @@ fun ViewTargetScreen(
             Spacer(modifier = Modifier.height(15.dp))
 
             Row(
-                modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 20.dp, end = 20.dp),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -241,7 +239,7 @@ fun ViewTargetScreen(
                     viewModel.setShowAlertDialogState(true)
                 }
             ) {
-                Text (
+                Text(
                     text = "Add Contribution",
                     fontSize = 20.sp,
                     color = Color.White,
