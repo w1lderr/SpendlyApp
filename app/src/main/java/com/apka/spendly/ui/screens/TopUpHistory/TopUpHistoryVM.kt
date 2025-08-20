@@ -11,7 +11,7 @@ import kotlinx.coroutines.withContext
 
 class TopUpHistoryVM(
     private val repo: TargetRepo
-): ViewModel() {
+) : ViewModel() {
     private val _uiState = MutableStateFlow(ViewAllTopUpsUiState())
     val uiState: StateFlow<ViewAllTopUpsUiState> get() = _uiState
 

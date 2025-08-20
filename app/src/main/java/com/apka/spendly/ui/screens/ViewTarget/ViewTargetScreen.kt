@@ -284,7 +284,10 @@ fun ViewTargetScreen(
                     Button(
                         modifier = Modifier.size(width = 100.dp, height = 42.dp),
                         onClick = {
-                            val encodeTargetId = URLEncoder.encode(target.targetId, StandardCharsets.UTF_8.toString())
+                            val encodeTargetId = URLEncoder.encode(
+                                target.targetId,
+                                StandardCharsets.UTF_8.toString()
+                            )
                             val route = "${Screens.TopUpHistoryScreen.name}/${encodeTargetId}"
                             navController.navigate(route)
                         },
