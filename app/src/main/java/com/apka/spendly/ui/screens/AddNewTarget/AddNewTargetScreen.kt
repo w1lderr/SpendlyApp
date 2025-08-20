@@ -21,7 +21,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -35,7 +34,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -53,7 +51,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.apka.spendly.ui.imageVector.BellIcon
 import com.apka.spendly.ui.imageVector.DescriptionIcon
 import com.apka.spendly.ui.imageVector.MoneyIcon
 import com.apka.spendly.ui.imageVector.NotificationFilled
@@ -151,7 +148,9 @@ fun AddNewTargetScreen(
                 ),
             ) {
                 Row(
-                    modifier = Modifier.fillMaxWidth().padding(start = 20.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 20.dp),
                     horizontalArrangement = Arrangement.Start,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -212,7 +211,9 @@ fun AddNewTargetScreen(
                 ),
             ) {
                 Row(
-                    modifier = Modifier.fillMaxWidth().padding(start = 20.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 20.dp),
                     horizontalArrangement = Arrangement.Start,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -273,7 +274,9 @@ fun AddNewTargetScreen(
                 ),
             ) {
                 Row(
-                    modifier = Modifier.fillMaxWidth().padding(start = 20.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 20.dp),
                     horizontalArrangement = Arrangement.Start,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
@@ -325,7 +328,9 @@ fun AddNewTargetScreen(
         Spacer(modifier = Modifier.height(50.dp))
 
         Row(
-            modifier = Modifier.fillMaxWidth().padding(start = 20.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp),
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically
         ) {
