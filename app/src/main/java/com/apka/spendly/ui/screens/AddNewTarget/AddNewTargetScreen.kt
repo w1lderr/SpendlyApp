@@ -87,7 +87,9 @@ fun AddNewTargetScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(color = Color(0xFF1A1A1A))
-            .padding(paddingValues)
+            .padding(paddingValues),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(
             modifier = Modifier

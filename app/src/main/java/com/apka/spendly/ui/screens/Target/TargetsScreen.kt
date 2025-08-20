@@ -59,6 +59,8 @@ fun TargetsScreen(
             .fillMaxSize()
             .background(Color(0xFF1A1A1A))
             .padding(paddingValues),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Row(
             modifier = Modifier
