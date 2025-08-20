@@ -79,7 +79,11 @@ fun TargetItem(
                         .fillMaxWidth()
                         .height(10.dp)
                         .clip(RoundedCornerShape(90.dp)),
-                    color = Color(0xFF723FEB),
+                    color = if (targetUiItem.totalTopUpAmount == targetUiItem.targetAmount) {
+                        Color(0xFF3DA86F)
+                    } else {
+                        Color(0xFF723FEB)
+                    },
                     progress = targetUiItem.progressPercent.toFloat() / 100f,
                 )
             }

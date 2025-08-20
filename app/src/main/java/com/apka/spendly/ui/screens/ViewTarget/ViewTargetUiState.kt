@@ -1,5 +1,6 @@
 package com.apka.spendly.ui.screens.ViewTarget
 
 data class ViewTargetUiState(
-    val toast: String = ""
+    val toast: String = "",
+    val showAlertDialog: Boolean = false
 )

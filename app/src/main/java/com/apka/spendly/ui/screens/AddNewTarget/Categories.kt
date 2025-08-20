@@ -44,7 +44,7 @@ enum class Categories(
     OTHER("Other", OtherIcon);
 
     companion object {
-        fun fromName(name: String): Categories? =
-            entries.find { it.name == name }
+        fun fromTitle(title: String): Categories? =
+            entries.find { it.title == title }
     }
 }

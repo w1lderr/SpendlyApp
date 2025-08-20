@@ -42,7 +42,7 @@ class TargetRepo(
         return Json.decodeFromString(response.body?.string() ?: "[]")
     }
 
-    fun addContribution(targetTopUpHistoryDTO: TargetTopUpHistoryDTO) {
+    fun addContribution(targetTopUpHistoryDTO: TargetTopUpHistoryDTO): Int {
         val jsonBody = json.encodeToString(targetTopUpHistoryDTO)
         val requestBody = jsonBody.toRequestBody("application/json".toMediaType())
 
@@ -51,7 +51,8 @@ class TargetRepo(
             .post(requestBody)
             .build()
 
-        okHttpClient.newCall(request).execute()
+        val result = okHttpClient.newCall(request).execute()
+        return result.code
     }
 
     fun getTargetTopUpHistory(targetId: String): List<TargetTopUpHistoryDTO> {
