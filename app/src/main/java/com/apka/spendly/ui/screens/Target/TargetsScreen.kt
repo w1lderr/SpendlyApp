@@ -91,14 +91,14 @@ fun TargetsScreen(
 
             item {
                 Button(
-                    modifier = Modifier.size(width = 330.dp, height = 64.dp),
+                    modifier = Modifier.size(width = 350.dp, height = 64.dp),
                     onClick = {
                         navController.navigate(Screens.AddNewTargetScreen.name)
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFF1F1F1F)
                     ),
-                    shape = RoundedCornerShape(12.dp)
+                    shape = RoundedCornerShape(15.dp)
                 ) {
                     Text(
                         text = "+ Add New Target",

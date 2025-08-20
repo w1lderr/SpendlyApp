@@ -11,10 +11,11 @@ import com.apka.spendly.ui.screens.SetToken.SetTokenViewModel
 import com.apka.spendly.ui.screens.Statistics.StatisticsViewModel
 import com.apka.spendly.ui.screens.Target.TargetViewModel
 import com.apka.spendly.ui.screens.ViewTarget.ViewTargetViewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val provideViewModelModule = module {
-    single<SetTokenViewModel> {
+    viewModel<SetTokenViewModel> {
         SetTokenViewModel(
             get(),
             get(),
@@ -22,14 +23,14 @@ val provideViewModelModule = module {
             get()
         )
     }
-    single<HomeViewModel> { HomeViewModel(get(), get()) }
-    single<DuringLoadingViewModel> { DuringLoadingViewModel(get()) }
-    single<LlamaViewModel> { LlamaViewModel(get(), get(), get()) }
-    single<BalanceInfoVM> { BalanceInfoVM(get()) }
-    single<FinanceTipsViewModel> { FinanceTipsViewModel(get()) }
-    single<ChallengesViewModel> { ChallengesViewModel(get()) }
-    single<StatisticsViewModel> { StatisticsViewModel(get()) }
-    single<AddNewTargetViewModel> { AddNewTargetViewModel(get()) }
-    single<TargetViewModel> { TargetViewModel(get()) }
-    single<ViewTargetViewModel> { ViewTargetViewModel(get()) }
+    viewModel<HomeViewModel> { HomeViewModel(get(), get()) }
+    viewModel<DuringLoadingViewModel> { DuringLoadingViewModel(get()) }
+    viewModel<LlamaViewModel> { LlamaViewModel(get(), get(), get()) }
+    viewModel<BalanceInfoVM> { BalanceInfoVM(get()) }
+    viewModel<FinanceTipsViewModel> { FinanceTipsViewModel(get()) }
+    viewModel<ChallengesViewModel> { ChallengesViewModel(get()) }
+    viewModel<StatisticsViewModel> { StatisticsViewModel(get()) }
+    viewModel<AddNewTargetViewModel> { AddNewTargetViewModel(get(), get()) }
+    viewModel<TargetViewModel> { TargetViewModel(get()) }
+    viewModel<ViewTargetViewModel> { ViewTargetViewModel(get()) }
 }
