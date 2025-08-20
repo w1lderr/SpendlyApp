@@ -104,12 +104,27 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
                 navArgument("progressPercent") { type = NavType.IntType }
             )
         ) {
-            val targetId = URLDecoder.decode(it.arguments?.getString("targetId") ?: "", StandardCharsets.UTF_8.toString())
-            val uuid = URLDecoder.decode(it.arguments?.getString("uuid") ?: "", StandardCharsets.UTF_8.toString())
-            val targetName = URLDecoder.decode(it.arguments?.getString("targetName") ?: "", StandardCharsets.UTF_8.toString())
-            val targetDescription = URLDecoder.decode(it.arguments?.getString("targetDescription") ?: "", StandardCharsets.UTF_8.toString())
+            val targetId = URLDecoder.decode(
+                it.arguments?.getString("targetId") ?: "",
+                StandardCharsets.UTF_8.toString()
+            )
+            val uuid = URLDecoder.decode(
+                it.arguments?.getString("uuid") ?: "",
+                StandardCharsets.UTF_8.toString()
+            )
+            val targetName = URLDecoder.decode(
+                it.arguments?.getString("targetName") ?: "",
+                StandardCharsets.UTF_8.toString()
+            )
+            val targetDescription = URLDecoder.decode(
+                it.arguments?.getString("targetDescription") ?: "",
+                StandardCharsets.UTF_8.toString()
+            )
             val targetAmount = it.arguments?.getLong("targetAmount") ?: 0L
-            val category = URLDecoder.decode(it.arguments?.getString("category") ?: "", StandardCharsets.UTF_8.toString())
+            val category = URLDecoder.decode(
+                it.arguments?.getString("category") ?: "",
+                StandardCharsets.UTF_8.toString()
+            )
             val date = it.arguments?.getLong("date") ?: 0L
             val completed = it.arguments?.getBoolean("completed") ?: false
             val totalTopUpAmount = it.arguments?.getLong("totalTopUpAmount") ?: 0L

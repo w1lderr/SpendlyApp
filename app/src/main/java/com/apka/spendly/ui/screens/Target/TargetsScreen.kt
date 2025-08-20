@@ -86,11 +86,18 @@ fun TargetsScreen(
                 TargetItem(
                     targetUiItem = target,
                     onClick = {
-                        val encodedName = URLEncoder.encode(target.targetName, StandardCharsets.UTF_8.toString())
-                        val encodedDescription = URLEncoder.encode(target.targetDescription ?: "", StandardCharsets.UTF_8.toString())
-                        val encodedCategory = URLEncoder.encode(target.category, StandardCharsets.UTF_8.toString())
-                        val encodedTargetId = URLEncoder.encode(target.targetId, StandardCharsets.UTF_8.toString())
-                        val encodedUuid = URLEncoder.encode(target.uuid, StandardCharsets.UTF_8.toString())
+                        val encodedName =
+                            URLEncoder.encode(target.targetName, StandardCharsets.UTF_8.toString())
+                        val encodedDescription = URLEncoder.encode(
+                            target.targetDescription ?: "",
+                            StandardCharsets.UTF_8.toString()
+                        )
+                        val encodedCategory =
+                            URLEncoder.encode(target.category, StandardCharsets.UTF_8.toString())
+                        val encodedTargetId =
+                            URLEncoder.encode(target.targetId, StandardCharsets.UTF_8.toString())
+                        val encodedUuid =
+                            URLEncoder.encode(target.uuid, StandardCharsets.UTF_8.toString())
 
                         navController.navigate(
                             "${Screens.ViewTargetScreen.name}/${encodedTargetId}/${encodedUuid}/$encodedName/$encodedDescription/${target.targetAmount}/$encodedCategory/${target.date}/${target.completed}/${target.totalTopUpAmount}/${target.progressPercent}"
