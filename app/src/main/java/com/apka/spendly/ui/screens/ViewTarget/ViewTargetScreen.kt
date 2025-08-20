@@ -335,9 +335,11 @@ fun ShowAlertDialog(
             Text(
                 text = "Add Contribution",
                 fontSize = 18.sp,
-                color = Color.White
+                color = Color.White,
+                fontWeight = FontWeight.SemiBold
             )
         },
+        containerColor = Color(0xFF1A1A1A),
         text = {
             TextField(
                 value = contribution,
