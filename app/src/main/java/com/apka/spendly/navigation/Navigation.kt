@@ -21,8 +21,11 @@ import com.apka.spendly.ui.screens.Notifications.NotificationsScreen
 import com.apka.spendly.ui.screens.SetToken.SetTokenScreen
 import com.apka.spendly.ui.screens.Settings.SettingsScreen
 import com.apka.spendly.ui.screens.Statistics.StatisticsScreen
+import com.apka.spendly.ui.screens.Target.TargetUiItem
 import com.apka.spendly.ui.screens.Target.TargetsScreen
 import com.apka.spendly.ui.screens.ViewTarget.ViewTargetScreen
+import java.net.URLDecoder
+import java.nio.charset.StandardCharsets
 
 @Composable
 fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
@@ -86,10 +89,47 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
                 totalSumSpending
             )
         }
-        composable(Screens.ViewTargetScreen.name) {
+        composable(
+            route = "${Screens.ViewTargetScreen.name}/{targetId}/{uuid}/{targetName}/{targetDescription}/{targetAmount}/{category}/{date}/{completed}/{totalTopUpAmount}/{progressPercent}",
+            arguments = listOf(
+                navArgument("targetId") { type = NavType.StringType },
+                navArgument("uuid") { type = NavType.StringType },
+                navArgument("targetName") { type = NavType.StringType },
+                navArgument("targetDescription") { type = NavType.StringType },
+                navArgument("targetAmount") { type = NavType.LongType },
+                navArgument("category") { type = NavType.StringType },
+                navArgument("date") { type = NavType.LongType },
+                navArgument("completed") { type = NavType.BoolType },
+                navArgument("totalTopUpAmount") { type = NavType.LongType },
+                navArgument("progressPercent") { type = NavType.IntType }
+            )
+        ) {
+            val targetId = URLDecoder.decode(it.arguments?.getString("targetId") ?: "", StandardCharsets.UTF_8.toString())
+            val uuid = URLDecoder.decode(it.arguments?.getString("uuid") ?: "", StandardCharsets.UTF_8.toString())
+            val targetName = URLDecoder.decode(it.arguments?.getString("targetName") ?: "", StandardCharsets.UTF_8.toString())
+            val targetDescription = URLDecoder.decode(it.arguments?.getString("targetDescription") ?: "", StandardCharsets.UTF_8.toString())
+            val targetAmount = it.arguments?.getLong("targetAmount") ?: 0L
+            val category = URLDecoder.decode(it.arguments?.getString("category") ?: "", StandardCharsets.UTF_8.toString())
+            val date = it.arguments?.getLong("date") ?: 0L
+            val completed = it.arguments?.getBoolean("completed") ?: false
+            val totalTopUpAmount = it.arguments?.getLong("totalTopUpAmount") ?: 0L
+            val progressPercent = it.arguments?.getInt("progressPercent") ?: 0
+
             ViewTargetScreen(
                 paddingValues = paddingValues,
-                navController = navController
+                navController = navController,
+                target = TargetUiItem(
+                    targetId = targetId,
+                    uuid = uuid,
+                    targetName = targetName,
+                    targetDescription = targetDescription,
+                    targetAmount = targetAmount,
+                    category = category,
+                    date = date,
+                    completed = completed,
+                    totalTopUpAmount = totalTopUpAmount,
+                    progressPercent = progressPercent
+                )
             )
         }
     }

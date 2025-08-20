@@ -31,6 +31,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.apka.spendly.navigation.Screens
 import org.koin.androidx.compose.koinViewModel
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 @Composable
 fun TargetsScreen(
@@ -84,7 +86,15 @@ fun TargetsScreen(
                 TargetItem(
                     targetUiItem = target,
                     onClick = {
-                        navController.navigate(Screens.ViewTargetScreen.name)
+                        val encodedName = URLEncoder.encode(target.targetName, StandardCharsets.UTF_8.toString())
+                        val encodedDescription = URLEncoder.encode(target.targetDescription ?: "", StandardCharsets.UTF_8.toString())
+                        val encodedCategory = URLEncoder.encode(target.category, StandardCharsets.UTF_8.toString())
+                        val encodedTargetId = URLEncoder.encode(target.targetId, StandardCharsets.UTF_8.toString())
+                        val encodedUuid = URLEncoder.encode(target.uuid, StandardCharsets.UTF_8.toString())
+
+                        navController.navigate(
+                            "${Screens.ViewTargetScreen.name}/${encodedTargetId}/${encodedUuid}/$encodedName/$encodedDescription/${target.targetAmount}/$encodedCategory/${target.date}/${target.completed}/${target.totalTopUpAmount}/${target.progressPercent}"
+                        )
                     }
                 )
             }
@@ -98,7 +108,7 @@ fun TargetsScreen(
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFF1F1F1F)
                     ),
-                    shape = RoundedCornerShape(15.dp)
+                    shape = RoundedCornerShape(20.dp)
                 ) {
                     Text(
                         text = "+ Add New Target",

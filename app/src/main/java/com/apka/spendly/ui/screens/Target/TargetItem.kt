@@ -38,7 +38,7 @@ fun TargetItem(
             containerColor = Color(0xFF1F1F1F)
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-        shape = RoundedCornerShape(15.dp)
+        shape = RoundedCornerShape(20.dp)
     ) {
         Column(
             modifier = Modifier
