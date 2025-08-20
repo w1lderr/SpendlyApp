@@ -133,7 +133,7 @@ fun AddNewTargetScreen(
             )
         }
 
-        Spacer(modifier = Modifier.height(70.dp))
+        Spacer(modifier = Modifier.height(50.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -196,7 +196,7 @@ fun AddNewTargetScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(25.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -259,7 +259,7 @@ fun AddNewTargetScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(25.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -325,7 +325,7 @@ fun AddNewTargetScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.height(40.dp))
 
         Row(
             modifier = Modifier
@@ -364,7 +364,7 @@ fun AddNewTargetScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.height(30.dp))
 
         Row(
             modifier = Modifier
