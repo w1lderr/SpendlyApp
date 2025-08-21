@@ -21,6 +21,7 @@ class BalanceInfoVM(private val repo: TransactionRepo) : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val transactions = repo.fetchTransactions()
+                    .sortedByDescending { it.date }
                 _uiState.value = _uiState.value.copy(transactions = transactions)
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
