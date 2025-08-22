@@ -294,8 +294,6 @@ fun LlamaScreen(
                             )
                         }
 
-                        Spacer(modifier = Modifier.width(25.dp))
-
                         Button(
                             modifier = Modifier.size(60.dp),
                             colors = ButtonDefaults.buttonColors(
@@ -308,7 +306,7 @@ fun LlamaScreen(
                             enabled = message.value.isNotEmpty()
                         ) {
                             Icon(
-                                modifier = Modifier.size(50.dp),
+                                modifier = Modifier.size(24.dp),
                                 imageVector = ArrowUpIcon,
                                 contentDescription = null,
                                 tint = Color.White
