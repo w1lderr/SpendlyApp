@@ -25,6 +25,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -121,7 +123,7 @@ fun HomeScreen(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 15.dp, end = 15.dp, top = 8.dp),
+                .padding(start = 15.dp, end = 15.dp, top = 12.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -156,7 +158,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(21.dp))
+        Spacer(modifier = Modifier.height(30.dp))
 
         // Short statistics section
         Box(
@@ -278,7 +280,7 @@ fun HomeScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(21.dp))
+        Spacer(modifier = Modifier.height(25.dp))
 
         // Buttons
         Row(
@@ -421,12 +423,12 @@ fun HomeScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(21.dp))
+        Spacer(modifier = Modifier.height(25.dp))
 
         // Exchange rate section
         Card(
-            modifier = Modifier.size(width = 380.dp, 150.dp),
-            shape = RoundedCornerShape(20.dp),
+            modifier = Modifier.size(width = 380.dp, 78.dp),
+            shape = RoundedCornerShape(22.dp),
             colors = CardDefaults.cardColors(
                 containerColor = Color(0xFF1F1F1F)
             ),
@@ -437,7 +439,7 @@ fun HomeScreen(
                     .fillMaxSize()
                     .padding(18.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Top
+                verticalArrangement = Arrangement.Center
             ) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -452,7 +454,7 @@ fun HomeScreen(
                     )
 
                     Button(
-                        modifier = Modifier.size(78.dp, 35.dp),
+                        modifier = Modifier.size(82.dp, 37.dp),
                         onClick = {
                             navController.navigate(Screens.ExchangeRateScreen.name)
                         },
@@ -465,70 +467,6 @@ fun HomeScreen(
                             color = Color.White,
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Medium,
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(25.dp))
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column {
-                        Row(
-                            horizontalArrangement = Arrangement.Center,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Image(
-                                modifier = Modifier.size(30.dp),
-                                painter = painterResource(R.drawable.usa_flag),
-                                contentDescription = null
-                            )
-
-                            Spacer(modifier = Modifier.width(5.dp))
-
-                            Text(
-                                text = "USD",
-                                color = Color(0xFFA2A2A2),
-                                fontSize = 17.sp,
-                                fontWeight = FontWeight.Normal
-                            )
-                        }
-                        Text(
-                            text = "41.4 / 42.02",
-                            color = Color.White,
-                            fontSize = 17.sp,
-                            fontWeight = FontWeight.Medium
-                        )
-                    }
-
-                    Column {
-                        Row(
-                            horizontalArrangement = Arrangement.Center,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Image(
-                                modifier = Modifier.size(30.dp),
-                                painter = painterResource(R.drawable.flag_of_europe1),
-                                contentDescription = null
-                            )
-
-                            Spacer(modifier = Modifier.width(5.dp))
-
-                            Text(
-                                text = "EUR",
-                                color = Color(0xFFA2A2A2),
-                                fontSize = 17.sp,
-                                fontWeight = FontWeight.Normal
-                            )
-                        }
-                        Text(
-                            text = "48.26 / 49.02",
-                            color = Color.White,
-                            fontSize = 17.sp,
-                            fontWeight = FontWeight.Medium
                         )
                     }
                 }
