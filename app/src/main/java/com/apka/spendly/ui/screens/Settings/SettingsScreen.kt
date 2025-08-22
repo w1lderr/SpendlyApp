@@ -94,7 +94,7 @@ fun SettingsScreen(
                 ),
                 shape = RoundedCornerShape(12.dp),
                 onClick = {
-
+                    navController.navigate(Screens.AboutScreen.name)
                 },
             ) {
                 Column(
@@ -143,7 +143,7 @@ fun SettingsScreen(
                 ),
                 shape = RoundedCornerShape(12.dp),
                 onClick = {
-
+                    navController.navigate(Screens.PrivacyPolicyScreen.name)
                 },
             ) {
                 Column(
@@ -192,6 +192,7 @@ fun SettingsScreen(
                 ),
                 shape = RoundedCornerShape(12.dp),
                 onClick = {
+                    navController.navigate(Screens.TermsOfUseScreen.name)
                 },
             ) {
                 Column(

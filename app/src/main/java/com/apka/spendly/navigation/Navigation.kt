@@ -19,7 +19,10 @@ import com.apka.spendly.ui.screens.HomeScreen.HomeScreen
 import com.apka.spendly.ui.screens.LlamaScreen.LlamaScreen
 import com.apka.spendly.ui.screens.Notifications.NotificationsScreen
 import com.apka.spendly.ui.screens.SetToken.SetTokenScreen
+import com.apka.spendly.ui.screens.Settings.AboutScreen
+import com.apka.spendly.ui.screens.Settings.PrivacyPolicyScreen
 import com.apka.spendly.ui.screens.Settings.SettingsScreen
+import com.apka.spendly.ui.screens.Settings.TermsOfUseScreen
 import com.apka.spendly.ui.screens.Statistics.StatisticsScreen
 import com.apka.spendly.ui.screens.Target.TargetUiItem
 import com.apka.spendly.ui.screens.Target.TargetsScreen
@@ -163,6 +166,24 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
                 navController = navController,
                 paddingValues = paddingValues,
                 targetId = targetId
+            )
+        }
+        composable(Screens.TermsOfUseScreen.name) {
+            TermsOfUseScreen(
+                navController,
+                paddingValues
+            )
+        }
+        composable(Screens.AboutScreen.name) {
+            AboutScreen(
+                navController,
+                paddingValues
+            )
+        }
+        composable(Screens.PrivacyPolicyScreen.name) {
+            PrivacyPolicyScreen(
+                navController,
+                paddingValues
             )
         }
     }

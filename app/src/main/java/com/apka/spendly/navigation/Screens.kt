@@ -17,5 +17,8 @@ enum class Screens {
     ExchangeRateScreen,
     BalanceInfoScreen,
     ViewTargetScreen,
-    TopUpHistoryScreen
+    TopUpHistoryScreen,
+    AboutScreen,
+    PrivacyPolicyScreen,
+    TermsOfUseScreen
 }
