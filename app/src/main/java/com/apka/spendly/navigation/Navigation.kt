@@ -53,7 +53,7 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
             TargetsScreen(navController, paddingValues)
         }
         composable(Screens.SettingsScreen.name) {
-            SettingsScreen(paddingValues)
+            SettingsScreen(navController, paddingValues)
         }
         composable(Screens.LLamaScreen.name) {
             LlamaScreen(paddingValues, navController)

@@ -9,6 +9,7 @@ import com.apka.spendly.ui.screens.FinanceTips.FinanceTipsViewModel
 import com.apka.spendly.ui.screens.HomeScreen.HomeViewModel
 import com.apka.spendly.ui.screens.LlamaScreen.LlamaViewModel
 import com.apka.spendly.ui.screens.SetToken.SetTokenViewModel
+import com.apka.spendly.ui.screens.Settings.SettingsViewModel
 import com.apka.spendly.ui.screens.Statistics.StatisticsViewModel
 import com.apka.spendly.ui.screens.Target.TargetViewModel
 import com.apka.spendly.ui.screens.TopUpHistory.TopUpHistoryVM
@@ -37,4 +38,5 @@ val provideViewModelModule = module {
     viewModel<ViewTargetViewModel> { ViewTargetViewModel(get()) }
     viewModel<TopUpHistoryVM> { TopUpHistoryVM(get()) }
     viewModel<ExchangeRateVM> { ExchangeRateVM(get()) }
+    viewModel<SettingsViewModel> { SettingsViewModel(get()) }
 }
