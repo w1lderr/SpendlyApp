@@ -43,6 +43,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.material.icons.extended)
     implementation(libs.firebase.messaging.ktx)
 
     implementation(platform(libs.firebase.bom))
