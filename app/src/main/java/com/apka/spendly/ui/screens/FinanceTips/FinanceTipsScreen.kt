@@ -92,7 +92,7 @@ fun FinanceTipsScreen(
             Text(
                 text = "Finance Tips",
                 color = Color.White,
-                fontSize = 25.sp,
+                fontSize = 23.sp,
                 fontWeight = FontWeight.Medium
             )
 

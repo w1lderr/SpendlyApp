@@ -76,7 +76,7 @@ fun StatisticsScreen(
             Text(
                 text = "Statistics",
                 color = Color.White,
-                fontSize = 25.sp,
+                fontSize = 23.sp,
                 fontWeight = FontWeight.SemiBold
             )
         }
