@@ -2,7 +2,6 @@ package com.apka.spendly.ui.screens.Settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.apka.spendly.data.preferences.AuthenticationPreferencesDataSource
 import com.apka.spendly.data.repo.AuthenticationRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -11,7 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class SettingsViewModel(private val repo: AuthenticationRepo): ViewModel() {
+class SettingsViewModel(private val repo: AuthenticationRepo) : ViewModel() {
     private val _uiState = MutableStateFlow(SettingsUiState())
     val uiState: StateFlow<SettingsUiState> get() = _uiState
 
