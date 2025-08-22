@@ -71,7 +71,7 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
             FinanceTipsScreen(navController, paddingValues)
         }
         composable(Screens.ExchangeRateScreen.name) {
-            ExchangeRateScreen(paddingValues)
+            ExchangeRateScreen(navController, paddingValues)
         }
         composable(
             route = "${Screens.BalanceInfoScreen.name}/{balance}/{totalSumSpending}",
