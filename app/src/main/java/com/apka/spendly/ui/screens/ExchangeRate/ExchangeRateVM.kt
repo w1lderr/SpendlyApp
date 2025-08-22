@@ -1,6 +1,5 @@
 package com.apka.spendly.ui.screens.ExchangeRate
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apka.spendly.data.repo.ExchangeRepo
