@@ -1,6 +1,11 @@
 package com.apka.spendly.ui.screens.LlamaScreen
 
+import android.app.Activity
+import android.content.Intent
+import android.speech.RecognizerIntent
 import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -30,6 +35,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -55,6 +61,7 @@ import com.apka.spendly.data.dto.MessageDTO
 import com.apka.spendly.ui.imageVector.ArrowUpIcon
 import com.apka.spendly.ui.imageVector.MicrophoneIcon
 import org.koin.compose.viewmodel.koinViewModel
+import java.util.Locale
 
 @Composable
 fun LlamaScreen(
@@ -65,6 +72,16 @@ fun LlamaScreen(
     val context = LocalContext.current
     val uiState = viewModel.uiState.collectAsState()
     val message = viewModel.message.collectAsState()
+    val launcher =
+        rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                val data = it.data
+                val result = data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                viewModel.onMessageChange(result?.get(0) ?: "No speech detected.")
+            } else {
+                Toast.makeText(context, "Speech recognition failed.", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     LaunchedEffect(uiState.value.toast) {
         if (uiState.value.toast.isNotEmpty()) {
@@ -228,7 +245,7 @@ fun LlamaScreen(
                         },
                         placeholder = {
                             Text(
-                                text = "Ask Meta AI...",
+                                text = "Ask meta AI...",
                                 color = Color(0xFFB8B8B8),
                                 fontSize = 18.sp,
                                 fontWeight = FontWeight.Normal
@@ -252,11 +269,30 @@ fun LlamaScreen(
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon(
-                            imageVector = MicrophoneIcon,
-                            contentDescription = null,
-                            tint = Color.White
-                        )
+                        IconButton(
+                            onClick = {
+                                val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+                                intent.putExtra(
+                                    RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                                    RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+                                )
+                                intent.putExtra(
+                                    RecognizerIntent.EXTRA_LANGUAGE,
+                                    Locale.getDefault()
+                                )
+                                intent.putExtra(
+                                    RecognizerIntent.EXTRA_PROMPT,
+                                    "Go on then, say something."
+                                )
+                                launcher.launch(intent)
+                            }
+                        ) {
+                            Icon(
+                                imageVector = MicrophoneIcon,
+                                contentDescription = null,
+                                tint = Color.White,
+                            )
+                        }
 
                         Spacer(modifier = Modifier.width(25.dp))
 
