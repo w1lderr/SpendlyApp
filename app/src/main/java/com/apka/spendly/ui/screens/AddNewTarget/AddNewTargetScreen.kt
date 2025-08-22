@@ -125,7 +125,7 @@ fun AddNewTargetScreen(
             Text(
                 text = "Add new target",
                 color = Color.White,
-                fontSize = 25.sp,
+                fontSize = 23.sp,
                 fontWeight = FontWeight.Medium
             )
 
