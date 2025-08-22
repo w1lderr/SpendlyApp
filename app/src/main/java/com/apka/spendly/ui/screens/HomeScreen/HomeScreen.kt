@@ -1,6 +1,5 @@
 package com.apka.spendly.ui.screens.HomeScreen
 
-import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -56,7 +55,6 @@ import ir.ehsannarmani.compose_charts.PieChart
 import ir.ehsannarmani.compose_charts.models.Pie
 import org.koin.androidx.compose.koinViewModel
 
-@SuppressLint("DefaultLocale")
 @Composable
 fun HomeScreen(
     navController: NavController,
