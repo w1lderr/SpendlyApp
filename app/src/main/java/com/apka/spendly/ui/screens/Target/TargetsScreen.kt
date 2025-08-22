@@ -120,7 +120,7 @@ fun TargetsScreen(
                     shape = RoundedCornerShape(20.dp)
                 ) {
                     Text(
-                        text = "+ Add New Target",
+                        text = "+ Add new target",
                         fontSize = 19.sp,
                         color = Color.White,
                         fontWeight = FontWeight.Medium

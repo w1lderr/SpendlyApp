@@ -243,7 +243,7 @@ fun ViewTargetScreen(
                 }
             ) {
                 Text(
-                    text = "Add Contribution",
+                    text = "Add contribution",
                     fontSize = 20.sp,
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold
@@ -275,7 +275,7 @@ fun ViewTargetScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Top Up History",
+                        text = "Top up History",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.SemiBold,
                         color = Color.White
@@ -301,7 +301,7 @@ fun ViewTargetScreen(
                         shape = RoundedCornerShape(90.dp)
                     ) {
                         Text(
-                            text = "View All",
+                            text = "View all",
                             fontSize = 14.sp,
                             fontWeight = FontWeight.SemiBold,
                             color = Color.White
@@ -333,7 +333,7 @@ fun ShowAlertDialog(
         },
         title = {
             Text(
-                text = "Add Contribution",
+                text = "Add contribution",
                 fontSize = 18.sp,
                 color = Color.White,
                 fontWeight = FontWeight.SemiBold

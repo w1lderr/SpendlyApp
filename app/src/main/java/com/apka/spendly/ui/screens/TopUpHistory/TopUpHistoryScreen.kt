@@ -98,9 +98,9 @@ fun TopUpHistoryScreen(
             }
 
             Text(
-                text = "Top Up History",
+                text = "Top up History",
                 color = Color.White,
-                fontSize = 25.sp,
+                fontSize = 23.sp,
                 fontWeight = FontWeight.Medium
             )
 
