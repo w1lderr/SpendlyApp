@@ -1,7 +1,5 @@
 package com.apka.spendly.ui.screens.ExchangeRate
 
-import com.apka.spendly.ui.screens.AddNewTarget.Categories
-
 enum class ExchangeRates(
     val cc: String,
     val flag: String

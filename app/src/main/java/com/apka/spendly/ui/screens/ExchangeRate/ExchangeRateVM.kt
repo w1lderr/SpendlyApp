@@ -9,9 +9,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.time.format.DateTimeFormatter
 
-class ExchangeRateVM(private val repo: ExchangeRepo): ViewModel() {
+class ExchangeRateVM(private val repo: ExchangeRepo) : ViewModel() {
     private val _uiState = MutableStateFlow(ExchangeRateUiState())
     val uiState: StateFlow<ExchangeRateUiState> get() = _uiState
 
@@ -23,7 +22,6 @@ class ExchangeRateVM(private val repo: ExchangeRepo): ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val result = repo.getExchangeRatesByNBU()
-                Log.i("EXCHANGE RATE LIST", "$result")
                 withContext(Dispatchers.Main) {
                     _uiState.value = _uiState.value.copy(exchangeRates = result)
                 }
