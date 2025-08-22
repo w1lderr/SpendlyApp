@@ -168,7 +168,7 @@ fun SettingsScreen(
                         Spacer(modifier = Modifier.width(12.dp))
 
                         Text(
-                            text = "Privacy Policy",
+                            text = "Privacy policy",
                             color = Color.White,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Normal
@@ -217,7 +217,7 @@ fun SettingsScreen(
                         Spacer(modifier = Modifier.width(12.dp))
 
                         Text(
-                            text = "Terms of Use",
+                            text = "Terms of use",
                             color = Color.White,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Normal
@@ -266,7 +266,7 @@ fun SettingsScreen(
                         Spacer(modifier = Modifier.width(12.dp))
 
                         Text(
-                            text = "Log Out",
+                            text = "Log out",
                             color = Color.White,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Normal

@@ -29,6 +29,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.toLowerCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -107,7 +108,7 @@ fun BalanceInfoScreen(
                         modifier = Modifier.padding(top = 10.dp)
                     ) {
                         Text(
-                            text = "My Balance",
+                            text = "My balance",
                             color = Color.White,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Normal
@@ -161,7 +162,7 @@ fun BalanceInfoScreen(
                         )
 
                         Text(
-                            text = currentMonth,
+                            text = currentMonth.lowercase(),
                             color = Color(0xFF908F92),
                             fontSize = 21.sp,
                             fontWeight = FontWeight.Normal,

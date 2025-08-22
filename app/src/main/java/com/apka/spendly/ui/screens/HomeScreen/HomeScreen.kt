@@ -317,7 +317,7 @@ fun HomeScreen(
 
                     Text(
                         text = "Add\n" +
-                                "target",
+                                "Target",
                         color = Color.White,
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.Medium,
