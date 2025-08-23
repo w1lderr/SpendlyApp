@@ -205,7 +205,7 @@ fun ViewTargetScreen(
         Spacer(modifier = Modifier.height(25.dp))
 
         Text(
-            text = "₴${target.totalTopUpAmount} of ₴${target.targetAmount}",
+            text = "₴${target.totalTopUpAmount / 100} of ₴${target.targetAmount / 100}",
             fontSize = 20.sp,
             fontWeight = FontWeight.SemiBold,
             color = Color.White
