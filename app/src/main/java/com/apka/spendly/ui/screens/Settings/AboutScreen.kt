@@ -81,7 +81,9 @@ fun AboutScreen(
 
 
         Row(
-            modifier = Modifier.fillMaxWidth().padding(start = 20.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp),
             horizontalArrangement = Arrangement.Start
         ) {
             Text(
@@ -95,7 +97,9 @@ fun AboutScreen(
         Spacer(modifier = Modifier.height(15.dp))
 
         Row(
-            modifier = Modifier.fillMaxWidth().padding(start = 20.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp),
             horizontalArrangement = Arrangement.Start
         ) {
             Text(
@@ -110,7 +114,9 @@ fun AboutScreen(
         Spacer(modifier = Modifier.height(40.dp))
 
         Row(
-            modifier = Modifier.fillMaxWidth().padding(start = 20.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp),
             horizontalArrangement = Arrangement.Start
         ) {
             Text(
@@ -124,7 +130,9 @@ fun AboutScreen(
         Spacer(modifier = Modifier.height(40.dp))
 
         Row(
-            modifier = Modifier.fillMaxWidth().padding(start = 20.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp),
             horizontalArrangement = Arrangement.Start
         ) {
             Text(
@@ -138,7 +146,9 @@ fun AboutScreen(
         Spacer(modifier = Modifier.height(20.dp))
 
         Row(
-            modifier = Modifier.fillMaxWidth().padding(start = 30.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 30.dp),
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -162,7 +172,9 @@ fun AboutScreen(
         Spacer(modifier = Modifier.height(10.dp))
 
         Row(
-            modifier = Modifier.fillMaxWidth().padding(start = 30.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 30.dp),
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically
         ) {
