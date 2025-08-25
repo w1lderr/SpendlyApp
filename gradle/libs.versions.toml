@@ -1,6 +1,6 @@
 [versions]
 agp = "8.12.1"
-composeCharts = "0.1.9"
+composeCharts = "0.1.10"
 datastorePreferences = "1.1.7"
 firebaseBom = "34.1.0"
 firebaseMessagingKtx = "24.1.2"
