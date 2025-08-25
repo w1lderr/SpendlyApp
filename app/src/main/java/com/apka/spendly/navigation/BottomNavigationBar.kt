@@ -13,6 +13,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -24,20 +27,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.apka.spendly.ui.imageVector.FilledHouseIcon
+import com.apka.spendly.ui.imageVector.FilledSettingsIcon
+import com.apka.spendly.ui.imageVector.FilledStatisticIcon
 import com.apka.spendly.ui.imageVector.HomeIcon
 import com.apka.spendly.ui.imageVector.LlamaIcon
-import com.apka.spendly.ui.imageVector.SettingsIcon
+import com.apka.spendly.ui.imageVector.OutlinedSettingsIcon
 import com.apka.spendly.ui.imageVector.StatisticsIcon
 import com.apka.spendly.ui.imageVector.TargetIcon
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
     val items = listOf(
-        BottomNavItem(Screens.HomeScreen, HomeIcon),
-        BottomNavItem(Screens.StatisticsScreen, StatisticsIcon),
-        BottomNavItem(Screens.LLamaScreen, LlamaIcon),
-        BottomNavItem(Screens.TargetsScreen, TargetIcon),
-        BottomNavItem(Screens.SettingsScreen, SettingsIcon)
+        BottomNavItem(Screens.HomeScreen, HomeIcon, FilledHouseIcon),
+        BottomNavItem(Screens.StatisticsScreen, StatisticsIcon, FilledStatisticIcon),
+        BottomNavItem(Screens.LLamaScreen, LlamaIcon, LlamaIcon),
+        BottomNavItem(Screens.TargetsScreen, TargetIcon, TargetIcon),
+        BottomNavItem(Screens.SettingsScreen, OutlinedSettingsIcon, FilledSettingsIcon)
     )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -83,7 +89,7 @@ fun BottomNavigationBar(navController: NavController) {
                 ) {
                     Icon(
                         modifier = Modifier.size(27.dp),
-                        imageVector = item.icon,
+                        imageVector = if (selected) item.selectedIcon else item.icon,
                         contentDescription = item.screen.name,
                         tint = if (selected) Color.White else Color(0xFFB7B7B7)
                     )

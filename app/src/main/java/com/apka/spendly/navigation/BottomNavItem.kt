@@ -4,5 +4,6 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 data class BottomNavItem(
     val screen: Screens,
-    val icon: ImageVector
+    val icon: ImageVector,
+    val selectedIcon: ImageVector
 )
