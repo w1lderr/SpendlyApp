@@ -9,7 +9,7 @@ enum class Screens {
     ChallengesScreen,
     TargetsScreen,
     SettingsScreen,
-    LLamaScreen,
+    AIScreen,
     StatisticsScreen,
     NotificationsScreen,
     AddNewTargetScreen,

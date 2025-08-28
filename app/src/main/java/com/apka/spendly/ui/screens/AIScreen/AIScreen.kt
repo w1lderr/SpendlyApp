@@ -1,4 +1,4 @@
-package com.apka.spendly.ui.screens.LlamaScreen
+package com.apka.spendly.ui.screens.AIScreen
 
 import android.app.Activity
 import android.content.Intent
@@ -67,7 +67,7 @@ import java.util.Locale
 fun LlamaScreen(
     paddingValues: PaddingValues,
     navController: NavController,
-    viewModel: LlamaViewModel = koinViewModel()
+    viewModel: AIViewModel = koinViewModel()
 ) {
     val context = LocalContext.current
     val uiState = viewModel.uiState.collectAsState()
@@ -382,7 +382,7 @@ fun DonutGradientRing(
 @Composable
 fun QuestionItem(
     question: String,
-    viewModel: LlamaViewModel
+    viewModel: AIViewModel
 ) {
     Card(
         modifier = Modifier.size(width = 200.dp, height = 90.dp),

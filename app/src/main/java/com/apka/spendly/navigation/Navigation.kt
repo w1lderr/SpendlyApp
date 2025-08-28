@@ -7,6 +7,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.apka.spendly.ui.screens.AIScreen.LlamaScreen
 import com.apka.spendly.ui.screens.AddNewTarget.AddNewTargetScreen
 import com.apka.spendly.ui.screens.Authorization.AuthorizationScreen
 import com.apka.spendly.ui.screens.BalanceInfo.BalanceInfoScreen
@@ -16,7 +17,6 @@ import com.apka.spendly.ui.screens.ExchangeRate.ExchangeRateScreen
 import com.apka.spendly.ui.screens.FinanceTips.FinanceTipsScreen
 import com.apka.spendly.ui.screens.GetStarted.GetStartedScreen
 import com.apka.spendly.ui.screens.HomeScreen.HomeScreen
-import com.apka.spendly.ui.screens.LlamaScreen.LlamaScreen
 import com.apka.spendly.ui.screens.Notifications.NotificationsScreen
 import com.apka.spendly.ui.screens.SetToken.SetTokenScreen
 import com.apka.spendly.ui.screens.Settings.AboutScreen
@@ -58,7 +58,7 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
         composable(Screens.SettingsScreen.name) {
             SettingsScreen(navController, paddingValues)
         }
-        composable(Screens.LLamaScreen.name) {
+        composable(Screens.AIScreen.name) {
             LlamaScreen(paddingValues, navController)
         }
         composable(Screens.StatisticsScreen.name) {

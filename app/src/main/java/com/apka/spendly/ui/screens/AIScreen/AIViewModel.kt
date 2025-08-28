@@ -1,4 +1,4 @@
-package com.apka.spendly.ui.screens.LlamaScreen
+package com.apka.spendly.ui.screens.AIScreen
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -17,16 +17,16 @@ import okhttp3.Request
 import okhttp3.WebSocket
 import okhttp3.WebSocketListener
 
-class LlamaViewModel(
+class AIViewModel(
     private val repo: MessageRepo,
     private val okHttpClient: OkHttpClient,
     uuidGenerator: AndroidUuidGenerator
 ) : ViewModel() {
     private val _message = MutableStateFlow("")
     private val uuid = uuidGenerator.getOrCreateGuid()
-    private val _uiState = MutableStateFlow(LlamaUiState())
+    private val _uiState = MutableStateFlow(AIUiState())
     private var webSocket: WebSocket? = null
-    val uiState: StateFlow<LlamaUiState> get() = _uiState
+    val uiState: StateFlow<AIUiState> get() = _uiState
     val message: StateFlow<String> get() = _message
 
     init {

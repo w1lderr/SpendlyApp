@@ -38,7 +38,7 @@ fun BottomNavigationBar(navController: NavController) {
     val items = listOf(
         BottomNavItem(Screens.HomeScreen, HomeIcon, FilledHouseIcon),
         BottomNavItem(Screens.StatisticsScreen, StatisticsIcon, FilledStatisticIcon),
-        BottomNavItem(Screens.LLamaScreen, LlamaIcon, LlamaIcon),
+        BottomNavItem(Screens.AIScreen, LlamaIcon, LlamaIcon),
         BottomNavItem(Screens.TargetsScreen, TargetIcon, TargetIcon),
         BottomNavItem(Screens.SettingsScreen, OutlinedSettingsIcon, FilledSettingsIcon)
     )
