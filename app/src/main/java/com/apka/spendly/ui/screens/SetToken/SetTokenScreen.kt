@@ -1,18 +1,31 @@
 package com.apka.spendly.ui.screens.SetToken
 
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -21,8 +34,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -61,29 +76,114 @@ fun SetTokenScreen(
             .background(Color(0xFF1A1A1A))
             .padding(paddingValues),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Top
     ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 20.dp, end = 20.dp, top = 8.dp),
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .clip(RoundedCornerShape(90.dp))
+                    .background(Color(0xFF1F1F1F))
+                    .border(
+                        border = BorderStroke(1.dp, Color(0xFF313131)),
+                        shape = RoundedCornerShape(90.dp)
+                    )
+                    .clickable(
+                        onClick = {
+                            navController.popBackStack()
+                        }), contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    modifier = Modifier.size(28.dp),
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = null,
+                    tint = Color.White
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(300.dp))
+
         OutlinedTextField(
+            modifier = Modifier
+                .width(300.dp)
+                .height(66.dp),
             value = token.value,
             onValueChange = { viewModel.setToken(it) },
             label = {
-                Text("Token")
+                Text("Monobank API Token")
             },
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
             colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = Color(0xFF723FEB),
-                unfocusedBorderColor = Color(0xFF723FEB),
-                focusedLabelColor = Color(0xFF723FEB),
-                cursorColor = Color.LightGray
-            )
+                focusedBorderColor = Color.White,
+                unfocusedBorderColor = Color.White,
+                focusedLabelColor = Color.White,
+                focusedTextColor = Color.White,
+                unfocusedTextColor = Color.White,
+                cursorColor = Color.White,
+            ),
+            shape = RoundedCornerShape(15.dp),
+            singleLine = true
         )
 
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 55.dp),
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Checkbox(
+                checked = uiState.value.isTermsOfUseAgreed,
+                onCheckedChange = {
+                    viewModel.setIsTermsOfUseAgreed(it)
+                },
+                colors = CheckboxDefaults.colors(
+                    checkedColor = Color(0xFF723FEB),
+                    uncheckedColor = Color.White,
+                    checkmarkColor = Color.White
+                )
+            )
+
+            Row(
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "I agree to the ",
+                    color = Color.White,
+                    fontSize = 17.sp,
+                    fontWeight = FontWeight.Normal
+                )
+
+                Text(
+                    modifier = Modifier.clickable(
+                        onClick = {
+                            navController.navigate(Screens.TermsOfUseScreen.name)
+                        }
+                    ),
+                    text = "Terms of Use",
+                    color = Color(0xFF723FEB),
+                    fontSize = 17.sp,
+                    fontWeight = FontWeight.Normal
+                )
+            }
+        }
+
+        Spacer(modifier = Modifier.height(10.dp))
 
         Button(
-            modifier = Modifier.size(width = 170.dp, height = 48.dp),
+            enabled = uiState.value.isTermsOfUseAgreed,
+            modifier = Modifier.size(width = 270.dp, height = 60.dp),
             onClick = {
-                viewModel.setFcmToken()
                 viewModel.sendTokenRequest()
             },
             colors = ButtonDefaults.buttonColors(
@@ -92,7 +192,8 @@ fun SetTokenScreen(
         ) {
             Text(
                 text = "Set Token",
-                fontSize = 15.sp
+                fontSize = 17.sp,
+                fontWeight = FontWeight.SemiBold
             )
         }
     }

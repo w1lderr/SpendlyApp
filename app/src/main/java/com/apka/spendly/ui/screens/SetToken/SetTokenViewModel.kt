@@ -45,7 +45,11 @@ class SetTokenViewModel(
         }
     }
 
-    fun setFcmToken() {
+    fun setIsTermsOfUseAgreed(isAgreed: Boolean) {
+        _uiState.value = _uiState.value.copy(isTermsOfUseAgreed = isAgreed)
+    }
+
+    private fun setFcmToken() {
         FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w("FCM", "Fetching FCM token failed", task.exception)
@@ -79,7 +83,8 @@ class SetTokenViewModel(
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                if (current_token.isNotEmpty() && uuid.isNotEmpty()) {
+                if (current_token.isNotEmpty() && current_token.length > 36) {
+                    setFcmToken()
                     setLoggedIn(true)
                     val response = tokenRepo.saveToken(
                         TokenDTO(
@@ -94,7 +99,7 @@ class SetTokenViewModel(
                     }
                 } else {
                     withContext(Dispatchers.Main) {
-                        setToast("Token is empty")
+                        setToast("Token is empty or not valid")
                     }
                 }
             } catch (e: Exception) {

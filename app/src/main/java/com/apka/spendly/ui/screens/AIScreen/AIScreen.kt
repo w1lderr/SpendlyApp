@@ -51,6 +51,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.Dp
@@ -60,6 +61,7 @@ import androidx.navigation.NavController
 import com.apka.spendly.data.dto.MessageDTO
 import com.apka.spendly.ui.imageVector.ArrowUpIcon
 import com.apka.spendly.ui.imageVector.MicrophoneIcon
+import dev.jeziellago.compose.markdowntext.MarkdownText
 import org.koin.compose.viewmodel.koinViewModel
 import java.util.Locale
 
@@ -137,13 +139,13 @@ fun LlamaScreen(
 
             Box(
                 modifier = Modifier
-                    .size(width = 110.dp, height = 35.dp)
+                    .size(width = 150.dp, height = 35.dp)
                     .clip(RoundedCornerShape(90.dp))
                     .background(Color(0xFF0064E0)),
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
-                    text = "Llama 3",
+                    text = "Gemma 3 (4B)",
                     fontSize = 20.sp,
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold
@@ -245,7 +247,7 @@ fun LlamaScreen(
                         },
                         placeholder = {
                             Text(
-                                text = "Ask meta AI...",
+                                text = "Ask gemma...",
                                 color = Color(0xFFB8B8B8),
                                 fontSize = 18.sp,
                                 fontWeight = FontWeight.Normal
@@ -334,12 +336,14 @@ fun MessageItem(
             }
         )
     ) {
-        Text(
+        MarkdownText(
             modifier = Modifier.padding(10.dp),
-            text = messageDTO.content,
-            fontSize = 16.sp,
-            color = Color.White,
-            fontWeight = FontWeight.Medium
+            markdown = messageDTO.content,
+            style = TextStyle(
+                fontSize = 16.sp,
+                color = Color.White,
+                fontWeight = FontWeight.Medium
+            )
         )
     }
 }
