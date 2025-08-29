@@ -13,7 +13,7 @@ import java.io.IOException
 
 class ChallengeRepo(
     private val okHttpClient: OkHttpClient,
-    private val androidUuidGenerator: AndroidUuidGenerator
+    androidUuidGenerator: AndroidUuidGenerator
 ) {
     private val uuid = androidUuidGenerator.getOrCreateGuid()
 
