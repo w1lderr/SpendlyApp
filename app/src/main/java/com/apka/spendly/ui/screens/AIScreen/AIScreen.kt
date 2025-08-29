@@ -141,7 +141,7 @@ fun LlamaScreen(
                 modifier = Modifier
                     .size(width = 150.dp, height = 35.dp)
                     .clip(RoundedCornerShape(90.dp))
-                    .background(Color(0xFF0064E0)),
+                    .background(Color(0xFF723FEB)),
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
@@ -299,7 +299,7 @@ fun LlamaScreen(
                         Button(
                             modifier = Modifier.size(60.dp),
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = Color(0xFF0064E0)
+                                containerColor = Color(0xFF723FEB)
                             ),
                             shape = RoundedCornerShape(90.dp),
                             onClick = {
@@ -330,7 +330,7 @@ fun MessageItem(
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
             containerColor = if (messageDTO.sender == "user") {
-                Color(0xFF0064E0)
+                Color(0xFF723FEB)
             } else {
                 Color(0xFF323338)
             }
