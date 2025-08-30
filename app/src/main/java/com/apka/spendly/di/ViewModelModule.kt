@@ -1,6 +1,5 @@
 package com.apka.spendly.di
 
-import com.apka.spendly.ui.screens.AIScreen.AIViewModel
 import com.apka.spendly.ui.screens.AddNewTarget.AddNewTargetViewModel
 import com.apka.spendly.ui.screens.BalanceInfo.BalanceInfoVM
 import com.apka.spendly.ui.screens.Challenges.ChallengesViewModel
@@ -28,7 +27,6 @@ val provideViewModelModule = module {
     }
     viewModel<HomeViewModel> { HomeViewModel(get(), get()) }
     viewModel<DuringLoadingViewModel> { DuringLoadingViewModel(get()) }
-    viewModel<AIViewModel> { AIViewModel(get(), get(), get()) }
     viewModel<BalanceInfoVM> { BalanceInfoVM(get()) }
     viewModel<FinanceTipsViewModel> { FinanceTipsViewModel(get()) }
     viewModel<ChallengesViewModel> { ChallengesViewModel(get()) }
