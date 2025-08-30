@@ -7,7 +7,9 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 
-class FCMTokenRepo(private val okHttpClient: OkHttpClient) {
+class FCMTokenRepo(
+    private val okHttpClient: OkHttpClient
+) {
     private val json = Json { ignoreUnknownKeys = true }
 
     fun saveFcmToken(fcmTokenDTO: FCMTokenDTO): String {

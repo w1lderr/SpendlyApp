@@ -9,7 +9,6 @@ enum class Screens {
     ChallengesScreen,
     TargetsScreen,
     SettingsScreen,
-    AIScreen,
     StatisticsScreen,
     NotificationsScreen,
     AddNewTargetScreen,
@@ -20,5 +19,6 @@ enum class Screens {
     TopUpHistoryScreen,
     AboutScreen,
     PrivacyPolicyScreen,
-    TermsOfUseScreen
+    TermsOfUseScreen,
+    AIScreen
 }
