@@ -357,9 +357,9 @@ fun MessageItem(
         modifier = Modifier
             .fillMaxWidth(),
         horizontalArrangement = if (messageDTO.sender == "user") {
-            Arrangement.Start  // User messages on the right
+            Arrangement.End  // User messages on the left
         } else {
-            Arrangement.End  // AI messages on the left
+            Arrangement.Start  // AI messages on the right
         }
     ) {
         Card(
