@@ -1,6 +1,6 @@
 package com.apka.spendly.data.repo
 
-import com.apka.spendly.data.dto.FCMTokenDTO
+import com.apka.spendly.data.model.fcmToken
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -12,8 +12,8 @@ class FCMTokenRepo(
 ) {
     private val json = Json { ignoreUnknownKeys = true }
 
-    fun saveFcmToken(fcmTokenDTO: FCMTokenDTO): String {
-        val jsonBody = json.encodeToString(fcmTokenDTO)
+    fun saveFcmToken(fcmToken: fcmToken): String {
+        val jsonBody = json.encodeToString(fcmToken)
 
         val requestBody = jsonBody.toRequestBody("application/json".toMediaType())
 

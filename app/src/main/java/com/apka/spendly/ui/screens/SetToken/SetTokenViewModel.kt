@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apka.spendly.androidUuidGenerator.AndroidUuidGenerator
-import com.apka.spendly.data.dto.FCMTokenDTO
-import com.apka.spendly.data.dto.TokenDTO
+import com.apka.spendly.data.model.Token
+import com.apka.spendly.data.model.fcmToken
 import com.apka.spendly.data.repo.AuthenticationRepo
 import com.apka.spendly.data.repo.FCMTokenRepo
 import com.apka.spendly.data.repo.TokenRepo
@@ -62,8 +62,7 @@ class SetTokenViewModel(
             viewModelScope.launch(Dispatchers.IO) {
                 try {
                     fcmTokenRepo.saveFcmToken(
-                        FCMTokenDTO(
-                            fcmTokenId = "",
+                        fcmToken(
                             uuid = uuidGenerator.getOrCreateGuid(),
                             fcmToken = token
                         )
@@ -87,7 +86,7 @@ class SetTokenViewModel(
                     setFcmToken()
                     setLoggedIn(true)
                     val response = tokenRepo.saveToken(
-                        TokenDTO(
+                        Token(
                             uuid = uuid,
                             token = current_token
                         )

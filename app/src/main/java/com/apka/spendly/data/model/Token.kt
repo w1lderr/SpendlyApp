@@ -1,9 +1,9 @@
-package com.apka.spendly.data.dto
+package com.apka.spendly.data.model
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class TokenDTO(
+data class Token(
     val uuid: String,
     val token: String
 )

@@ -27,8 +27,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.apka.spendly.ui.imageVector.FilledHouseIcon
 import com.apka.spendly.ui.imageVector.FilledSettingsIcon
 import com.apka.spendly.ui.imageVector.FilledStatisticIcon
+import com.apka.spendly.ui.imageVector.GemeniIcon
 import com.apka.spendly.ui.imageVector.HomeIcon
-import com.apka.spendly.ui.imageVector.LlamaIcon
 import com.apka.spendly.ui.imageVector.OutlinedSettingsIcon
 import com.apka.spendly.ui.imageVector.StatisticsIcon
 import com.apka.spendly.ui.imageVector.TargetIcon
@@ -38,7 +38,7 @@ fun BottomNavigationBar(navController: NavController) {
     val items = listOf(
         BottomNavItem(Screens.HomeScreen, HomeIcon, FilledHouseIcon),
         BottomNavItem(Screens.StatisticsScreen, StatisticsIcon, FilledStatisticIcon),
-        BottomNavItem(Screens.AIScreen, LlamaIcon, LlamaIcon),
+        BottomNavItem(Screens.AIScreen, GemeniIcon, GemeniIcon),
         BottomNavItem(Screens.TargetsScreen, TargetIcon, TargetIcon),
         BottomNavItem(Screens.SettingsScreen, OutlinedSettingsIcon, FilledSettingsIcon)
     )

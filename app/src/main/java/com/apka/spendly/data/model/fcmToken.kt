@@ -1,10 +1,9 @@
-package com.apka.spendly.data.dto
+package com.apka.spendly.data.model
 
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class FCMTokenDTO(
-    val fcmTokenId: String,
+data class fcmToken(
     val uuid: String,
     val fcmToken: String
 )
