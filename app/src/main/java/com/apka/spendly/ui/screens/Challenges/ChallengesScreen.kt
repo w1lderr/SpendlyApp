@@ -106,29 +106,44 @@ fun ChallengesScreen(
 
         Spacer(modifier = Modifier.height(35.dp))
 
-        LazyColumn(
-            modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.spacedBy(35.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            val sortedChallenges = uiState.value.challenges.sortedWith(
-                compareBy { challenge ->
-                    when (challenge.status) {
-                        "started" -> 1
-                        "failed" -> 3
-                        "completed" -> 4
-                        "not started" -> 2
-                        else -> 5
+        if (uiState.value.challenges.isNotEmpty()) {
+            LazyColumn(
+                modifier = Modifier.fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(35.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                val sortedChallenges = uiState.value.challenges.sortedWith(
+                    compareBy { challenge ->
+                        when (challenge.status) {
+                            "started" -> 1
+                            "failed" -> 3
+                            "completed" -> 4
+                            "not started" -> 2
+                            else -> 5
+                        }
                     }
-                }
-            )
+                )
 
-            items(sortedChallenges) { challenge ->
-                ChallengeItem(
-                    challengeItemUI = challenge,
-                    onJoin = {
-                        viewModel.joinChallenge(challenge.challengeId)
-                    }
+                items(sortedChallenges) { challenge ->
+                    ChallengeItem(
+                        challengeItemUI = challenge,
+                        onJoin = {
+                            viewModel.joinChallenge(challenge.challengeId)
+                        }
+                    )
+                }
+            }
+        } else {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = "No challenges available",
+                    color = Color.White,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Medium
                 )
             }
         }

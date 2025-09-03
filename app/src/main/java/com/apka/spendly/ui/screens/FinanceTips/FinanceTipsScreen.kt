@@ -103,14 +103,29 @@ fun FinanceTipsScreen(
 
         Spacer(modifier = Modifier.height(40.dp))
 
-        LazyColumn(
-            modifier = Modifier.fillMaxWidth(),
-            reverseLayout = true,
-            verticalArrangement = Arrangement.spacedBy(30.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            items(uiState.value.financeTips) { finTip ->
-                FinTipItem(finTip)
+        if (uiState.value.financeTips.isNotEmpty()) {
+            LazyColumn(
+                modifier = Modifier.fillMaxWidth(),
+                reverseLayout = true,
+                verticalArrangement = Arrangement.spacedBy(30.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                items(uiState.value.financeTips) { finTip ->
+                    FinTipItem(finTip)
+                }
+            }
+        } else {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = "No finance tips available",
+                    color = Color.White,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Medium
+                )
             }
         }
     }

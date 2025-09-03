@@ -194,21 +194,36 @@ fun StatisticsScreen(
                     defaultElevation = 2.dp
                 )
             ) {
-                Column(
-                    modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Top,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Spacer(modifier = Modifier.height(25.dp))
-
-                    LazyColumn(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalArrangement = Arrangement.spacedBy(30.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
+                if (uiState.value.userChallenges.isNotEmpty()) {
+                    Column(
+                        modifier = Modifier.fillMaxSize(),
+                        verticalArrangement = Arrangement.Top,
+                        horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        items(uiState.value.userChallenges) { challenge ->
-                            StatChallengeItem(challenge)
+                        Spacer(modifier = Modifier.height(25.dp))
+
+                        LazyColumn(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalArrangement = Arrangement.spacedBy(30.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                        ) {
+                            items(uiState.value.userChallenges) { challenge ->
+                                StatChallengeItem(challenge)
+                            }
                         }
+                    }
+                } else {
+                    Column(
+                        modifier = Modifier.fillMaxSize(),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Text(
+                            text = "No challenges",
+                            color = Color.White,
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Medium
+                        )
                     }
                 }
             }
