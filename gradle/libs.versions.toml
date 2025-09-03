@@ -1,5 +1,5 @@
 [versions]
-agp = "8.12.2"
+agp = "8.13.0"
 composeCharts = "0.1.10"
 composeMarkdown = "0.5.7"
 datastorePreferences = "1.1.7"
