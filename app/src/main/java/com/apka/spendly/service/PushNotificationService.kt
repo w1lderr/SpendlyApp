@@ -9,13 +9,38 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.apka.spendly.MainActivity
 import com.apka.spendly.R
+import com.apka.spendly.androidUuidGenerator.AndroidUuidGenerator
+import com.apka.spendly.data.model.fcmToken
+import com.apka.spendly.data.repo.FCMTokenRepo
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
 class PushNotificationService : FirebaseMessagingService() {
+    private val fcmTokenRepo: FCMTokenRepo by inject()
+    private val androidUuidGenerator: AndroidUuidGenerator by inject()
+
     override fun onNewToken(token: String) {
         super.onNewToken(token)
-        // Update server
+
+        val uuid = androidUuidGenerator.getOrCreateGuid()
+
+        val fcmTokenData = fcmToken(
+            uuid = uuid,
+            fcmToken = token
+        )
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = fcmTokenRepo.saveFcmToken(fcmTokenData)
+                println("FCM Token saved successfully: $response")
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 
     override fun onMessageReceived(message: RemoteMessage) {
