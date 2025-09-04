@@ -2,7 +2,7 @@ package com.apka.spendly.ui.screens.Statistics
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.apka.spendly.data.model.WeekData
+import com.apka.spendly.data.dto.UserChallengeDTO
 import com.apka.spendly.data.model.WeeklyChartData
 import com.apka.spendly.data.repo.ChallengeRepo
 import kotlinx.coroutines.Dispatchers
@@ -10,7 +10,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 import kotlin.math.max
 
 class StatisticsViewModel(private val repo: ChallengeRepo) : ViewModel() {
@@ -27,15 +29,15 @@ class StatisticsViewModel(private val repo: ChallengeRepo) : ViewModel() {
                 val userChallenges = repo.getUserChallenges()
                 val totalSaved = userChallenges.sumOf { it.totalSaved }
 
-                // Calculate weekly savings for the current month
-                val weeklyData = calculateWeeklySavings(userChallenges)
+                // Calculate daily savings for the current week
+                val dailyData = calculateDailySavingsThisWeek(userChallenges)
 
                 withContext(Dispatchers.Main) {
                     _uiState.value = _uiState.value.copy(
                         userChallenges = userChallenges,
                         totalSaved = totalSaved,
-                        weeklyChartData = weeklyData.values,
-                        weeklyChartLabels = weeklyData.labels
+                        weeklyChartData = dailyData.values,
+                        weeklyChartLabels = dailyData.labels
                     )
                 }
             } catch (e: Exception) {
@@ -46,87 +48,73 @@ class StatisticsViewModel(private val repo: ChallengeRepo) : ViewModel() {
         }
     }
 
-    private fun calculateWeeklySavings(userChallenges: List<com.apka.spendly.data.dto.UserChallengeDTO>): WeeklyChartData {
+    private fun calculateDailySavingsThisWeek(userChallenges: List<UserChallengeDTO>): WeeklyChartData {
         val calendar = Calendar.getInstance()
-        val currentMonth = calendar.get(Calendar.MONTH)
-        val currentYear = calendar.get(Calendar.YEAR)
+        val today = Calendar.getInstance()
+        val currentDayOfWeek = today.get(Calendar.DAY_OF_WEEK)
 
-        // Get first day of current month
-        calendar.set(currentYear, currentMonth, 1)
-        val firstDayOfMonth = calendar.timeInMillis
+        // Get start of current week (Monday)
+        calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY)
 
-        // Get last day of current month
-        calendar.set(currentYear, currentMonth, calendar.getActualMaximum(Calendar.DAY_OF_MONTH))
-        val lastDayOfMonth = calendar.timeInMillis
+        val dailyData = mutableListOf<Pair<String, Double>>()
+        val dayFormat = SimpleDateFormat("EEE", Locale.getDefault()) // Mon, Tue, Wed, etc.
 
-        // Initialize weekly data for current month (4-5 weeks)
-        val weeksInMonth = mutableListOf<WeekData>()
-        calendar.set(currentYear, currentMonth, 1)
-
-        var weekNumber = 1
-        while (calendar.timeInMillis <= lastDayOfMonth) {
-            val weekStart = calendar.timeInMillis
-            calendar.add(Calendar.DAY_OF_MONTH, 6)
-            val weekEnd = minOf(calendar.timeInMillis, lastDayOfMonth)
-
-            weeksInMonth.add(
-                WeekData(
-                    weekNumber = weekNumber,
-                    startDate = weekStart,
-                    endDate = weekEnd,
-                    totalSaved = 0.0
-                )
-            )
-
-            calendar.add(Calendar.DAY_OF_MONTH, 1)
-            weekNumber++
+        // Determine how many days to show data for (only up to today)
+        val daysToShowData = when (currentDayOfWeek) {
+            Calendar.MONDAY -> 1
+            Calendar.TUESDAY -> 2
+            Calendar.WEDNESDAY -> 3
+            Calendar.THURSDAY -> 4
+            Calendar.FRIDAY -> 5
+            Calendar.SATURDAY -> 6
+            Calendar.SUNDAY -> 7
+            else -> 1
         }
 
-        // Calculate savings for each week based on challenge progress
-        userChallenges.forEach { challenge ->
-            val challengeStartDate = challenge.startDate
-            val dailySavings = if (challenge.daysCompleted > 0) {
-                challenge.totalSaved / challenge.daysCompleted
-            } else 0.0
+        // Always show all 7 days of the week for labels, but only show data up to today
+        for (i in 0 until 7) {
+            val dayStart = calendar.timeInMillis
+            val dayLabel = dayFormat.format(calendar.time)
 
-            // Distribute savings across weeks based on challenge progress
-            weeksInMonth.forEach { week ->
-                val daysInWeek = getDaysInWeekForChallenge(
-                    challengeStartDate,
-                    challenge.daysCompleted,
-                    week.startDate,
-                    week.endDate
-                )
-                week.totalSaved += daysInWeek * dailySavings
+            var dailySavings = 0.0
+
+            // Only calculate savings for days up to today
+            if (i < daysToShowData) {
+                // Calculate savings for this specific day
+                userChallenges.forEach { challenge ->
+                    val challengeStartDate = challenge.startDate
+                    val dailyChallengeAmount = if (challenge.daysCompleted > 0) {
+                        challenge.totalSaved / challenge.daysCompleted
+                    } else 0.0
+
+                    // Check if this day falls within the challenge period
+                    val challengeEndDate =
+                        challengeStartDate + (challenge.daysCompleted * 24 * 60 * 60 * 1000L)
+
+                    if (dayStart >= challengeStartDate && dayStart <= challengeEndDate) {
+                        // Calculate which day of the challenge this is
+                        val daysSinceStart =
+                            ((dayStart - challengeStartDate) / (24 * 60 * 60 * 1000L)).toInt()
+                        if (daysSinceStart < challenge.daysCompleted) {
+                            dailySavings += dailyChallengeAmount
+                        }
+                    }
+                }
             }
+            // For future days (after today), dailySavings remains 0.0
+
+            dailyData.add(
+                Pair(
+                    dayLabel,
+                    max(dailySavings / 100, 0.0)
+                )
+            ) // Convert to currency format
+            calendar.add(Calendar.DAY_OF_MONTH, 1)
         }
 
         return WeeklyChartData(
-            values = weeksInMonth.map {
-                max(
-                    it.totalSaved / 100,
-                    0.0
-                )
-            }, // Convert to currency format
-            labels = weeksInMonth.map { "Week ${it.weekNumber}" }
+            values = dailyData.map { it.second },
+            labels = dailyData.map { it.first }
         )
-    }
-
-    private fun getDaysInWeekForChallenge(
-        challengeStartDate: Long,
-        daysCompleted: Int,
-        weekStart: Long,
-        weekEnd: Long
-    ): Int {
-        val challengeEndDate = challengeStartDate + (daysCompleted * 24 * 60 * 60 * 1000L)
-
-        val overlapStart = maxOf(challengeStartDate, weekStart)
-        val overlapEnd = minOf(challengeEndDate, weekEnd)
-
-        return if (overlapStart <= overlapEnd) {
-            ((overlapEnd - overlapStart) / (24 * 60 * 60 * 1000L)).toInt() + 1
-        } else {
-            0
-        }
     }
 }

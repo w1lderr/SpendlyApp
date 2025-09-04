@@ -128,7 +128,7 @@ fun StatisticsScreen(
 
         Spacer(modifier = Modifier.height(33.dp))
 
-        // Weekly Savings Chart
+        // Daily Savings Chart
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center,
@@ -152,7 +152,7 @@ fun StatisticsScreen(
                     Spacer(modifier = Modifier.height(15.dp))
 
                     Text(
-                        text = "Weekly Savings This Month",
+                        text = "Daily Savings This Week",
                         color = Color.White,
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Medium
@@ -161,28 +161,53 @@ fun StatisticsScreen(
                     Spacer(modifier = Modifier.height(10.dp))
 
                     if (uiState.value.weeklyChartData.isNotEmpty()) {
-                        LineChart(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .padding(16.dp),
-                            data = remember(uiState.value.weeklyChartData) {
-                                listOf(
-                                    Line(
-                                        label = "Weekly Savings (₴)",
-                                        values = uiState.value.weeklyChartData,
-                                        color = SolidColor(Color(0xFF723FEB)),
-                                        firstGradientFillColor = Color(0xFF723FEB).copy(alpha = .5f),
-                                        secondGradientFillColor = Color.Transparent,
-                                        strokeAnimationSpec = tween(2000, easing = EaseInOutCubic),
-                                        gradientAnimationDelay = 1000,
-                                        drawStyle = DrawStyle.Stroke(width = 4.dp),
+                        Column {
+                            LineChart(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(180.dp)
+                                    .padding(start = 16.dp, end = 16.dp, top = 16.dp),
+                                data = remember(uiState.value.weeklyChartData) {
+                                    listOf(
+                                        Line(
+                                            label = "Daily Savings (₴)",
+                                            values = uiState.value.weeklyChartData,
+                                            color = SolidColor(Color(0xFF723FEB)),
+                                            firstGradientFillColor = Color(0xFF723FEB).copy(alpha = .5f),
+                                            secondGradientFillColor = Color.Transparent,
+                                            strokeAnimationSpec = tween(
+                                                2000,
+                                                easing = EaseInOutCubic
+                                            ),
+                                            gradientAnimationDelay = 1000,
+                                            drawStyle = DrawStyle.Stroke(width = 4.dp),
+                                        )
                                     )
-                                )
-                            },
-                            animationMode = AnimationMode.Together(delayBuilder = {
-                                it * 500L
-                            }),
-                        )
+                                },
+                                animationMode = AnimationMode.Together(delayBuilder = {
+                                    it * 500L
+                                }),
+                            )
+
+                            // Custom X-axis labels
+                            if (uiState.value.weeklyChartLabels.isNotEmpty()) {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 24.dp, vertical = 8.dp),
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    uiState.value.weeklyChartLabels.forEach { label ->
+                                        Text(
+                                            text = label,
+                                            color = Color(0xFFB8B8B8),
+                                            fontSize = 10.sp,
+                                            fontWeight = FontWeight.Normal
+                                        )
+                                    }
+                                }
+                            }
+                        }
                     } else {
                         Box(
                             modifier = Modifier.fillMaxSize(),
