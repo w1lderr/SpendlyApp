@@ -275,7 +275,7 @@ fun TransactionItem(
         }
 
         Text(
-            text = "${formattedAmount}₴",
+            text = "-${formattedAmount}₴",
             color = Color(0xFFBEBEBE),
             fontSize = 16.sp,
             fontWeight = FontWeight.Normal
