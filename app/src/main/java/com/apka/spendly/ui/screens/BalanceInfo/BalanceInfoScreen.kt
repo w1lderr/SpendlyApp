@@ -35,6 +35,7 @@ import androidx.navigation.NavController
 import com.apka.spendly.data.dto.TransactionDTO
 import com.apka.spendly.ui.imageVector.ExitIcon
 import org.koin.androidx.compose.koinViewModel
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -169,7 +170,7 @@ fun BalanceInfoScreen(
                     }
 
                     Text(
-                        text = "${totalSumSpending / 100}₴",
+                        text = "${totalSumSpending / 100.0}₴",
                         fontSize = 21.sp,
                         fontWeight = FontWeight.Normal,
                         color = Color(0xFF908F92)
@@ -228,6 +229,10 @@ fun TransactionItem(
     val date = dateFormat.format(calendar.time)
     val year = calendar.get(Calendar.YEAR)
 
+    // Format the amount properly to show decimals
+    val decimalFormat = DecimalFormat("#.##")
+    val formattedAmount = decimalFormat.format(kotlin.math.abs(transactionDTO.amount / 100.0))
+
     Row(
         modifier = Modifier.size(360.dp, 55.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -270,7 +275,7 @@ fun TransactionItem(
         }
 
         Text(
-            text = "${transactionDTO.amount / 100}₴",
+            text = "${formattedAmount}₴",
             color = Color(0xFFBEBEBE),
             fontSize = 16.sp,
             fontWeight = FontWeight.Normal

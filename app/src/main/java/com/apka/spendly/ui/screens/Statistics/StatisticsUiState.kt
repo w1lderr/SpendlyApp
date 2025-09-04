@@ -5,5 +5,7 @@ import com.apka.spendly.data.dto.UserChallengeDTO
 data class StatisticsUiState(
     val toast: String = "",
     val totalSaved: Double = 0.0,
-    val userChallenges: List<UserChallengeDTO> = emptyList()
+    val userChallenges: List<UserChallengeDTO> = emptyList(),
+    val weeklyChartData: List<Double> = emptyList(),
+    val weeklyChartLabels: List<String> = emptyList()
 )

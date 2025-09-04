@@ -109,7 +109,7 @@ fun StatisticsScreen(
 
             Column {
                 Text(
-                    text = "${uiState.value.totalSaved / 100}",
+                    text = "${(uiState.value.totalSaved / 100).toInt()}",
                     color = Color.White,
                     fontSize = 28.sp,
                     fontWeight = FontWeight.Medium
@@ -128,14 +128,14 @@ fun StatisticsScreen(
 
         Spacer(modifier = Modifier.height(33.dp))
 
-        // Chart Line
+        // Weekly Savings Chart
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Card(
-                modifier = Modifier.size(width = 380.dp, height = 230.dp),
+                modifier = Modifier.size(width = 380.dp, height = 280.dp),
                 shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = Color(0xFF1F1F1F)
@@ -143,35 +143,58 @@ fun StatisticsScreen(
                 elevation = CardDefaults.cardElevation(
                     defaultElevation = 2.dp
                 ),
-
-                ) {
+            ) {
                 Column(
                     modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Center,
+                    verticalArrangement = Arrangement.Top,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    LineChart(
-                        modifier = Modifier
-                            .size(width = 380.dp, height = 230.dp)
-                            .padding(22.dp),
-                        data = remember {
-                            listOf(
-                                Line(
-                                    label = "Savings this month",
-                                    values = listOf(28.0, 41.0, 5.0, 10.0, 35.0),
-                                    color = SolidColor(Color(0xFF723FEB)),
-                                    firstGradientFillColor = Color(0xFF723FEB).copy(alpha = .5f),
-                                    secondGradientFillColor = Color.Transparent,
-                                    strokeAnimationSpec = tween(2000, easing = EaseInOutCubic),
-                                    gradientAnimationDelay = 1000,
-                                    drawStyle = DrawStyle.Stroke(width = 4.dp),
-                                )
-                            )
-                        },
-                        animationMode = AnimationMode.Together(delayBuilder = {
-                            it * 500L
-                        }),
+                    Spacer(modifier = Modifier.height(15.dp))
+
+                    Text(
+                        text = "Weekly Savings This Month",
+                        color = Color.White,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Medium
                     )
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    if (uiState.value.weeklyChartData.isNotEmpty()) {
+                        LineChart(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .padding(16.dp),
+                            data = remember(uiState.value.weeklyChartData) {
+                                listOf(
+                                    Line(
+                                        label = "Weekly Savings (₴)",
+                                        values = uiState.value.weeklyChartData,
+                                        color = SolidColor(Color(0xFF723FEB)),
+                                        firstGradientFillColor = Color(0xFF723FEB).copy(alpha = .5f),
+                                        secondGradientFillColor = Color.Transparent,
+                                        strokeAnimationSpec = tween(2000, easing = EaseInOutCubic),
+                                        gradientAnimationDelay = 1000,
+                                        drawStyle = DrawStyle.Stroke(width = 4.dp),
+                                    )
+                                )
+                            },
+                            animationMode = AnimationMode.Together(delayBuilder = {
+                                it * 500L
+                            }),
+                        )
+                    } else {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "No data available",
+                                color = Color(0xFFB8B8B8),
+                                fontSize = 14.sp
+                            )
+                        }
+                    }
                 }
             }
         }
