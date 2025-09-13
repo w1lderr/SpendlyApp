@@ -67,10 +67,12 @@ fun HomeScreen(
     val categories = viewModel.categories.collectAsState()
     val totalSumSpending = viewModel.totalSumSpending.collectAsState()
     val context = LocalContext.current
+    val sortedCategoriesByPercentage =
+        categories.value.categories.sortedByDescending { it.percentage }
 
     var pieData by remember {
         mutableStateOf(
-            categories.value.categories.mapIndexed { index, category ->
+            sortedCategoriesByPercentage.mapIndexed { index, category ->
                 val absoluteTotal = kotlin.math.abs(category.total)
                 Pie(
                     label = category.category,
@@ -82,9 +84,9 @@ fun HomeScreen(
         )
     }
 
-    LaunchedEffect(categories.value) {
-        if (categories.value.categories.isNotEmpty()) {
-            pieData = categories.value.categories.mapIndexed { index, category ->
+    LaunchedEffect(sortedCategoriesByPercentage) {
+        if (sortedCategoriesByPercentage.isNotEmpty()) {
+            pieData = sortedCategoriesByPercentage.mapIndexed { index, category ->
                 val absoluteTotal = kotlin.math.abs(category.total)
                 Pie(
                     label = category.category,
@@ -202,7 +204,7 @@ fun HomeScreen(
                     }
 
                     // Donut-style pie chart for monthly categories
-                    if (categories.value.categories.isNotEmpty()) {
+                    if (sortedCategoriesByPercentage.isNotEmpty()) {
                         PieChart(
                             modifier = Modifier.size(130.dp),
                             data = pieData,
@@ -214,7 +216,7 @@ fun HomeScreen(
                                 }
                             },
                             selectedScale = 1.1f,
-                            scaleAnimEnterSpec = spring<Float>(
+                            scaleAnimEnterSpec = spring(
                                 dampingRatio = Spring.DampingRatioMediumBouncy,
                                 stiffness = Spring.StiffnessLow
                             ),
@@ -246,13 +248,11 @@ fun HomeScreen(
 
                 Spacer(modifier = Modifier.height(13.dp))
 
-                if (categories.value.categories.isNotEmpty()) {
+                if (sortedCategoriesByPercentage.isNotEmpty()) {
                     LazyRow(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                     ) {
-                        val sortedCategoriesByPercentage =
-                            categories.value.categories.sortedByDescending { it.percentage }
                         itemsIndexed(sortedCategoriesByPercentage) { index, category ->
                             CategoryItem(
                                 category = category.category,
