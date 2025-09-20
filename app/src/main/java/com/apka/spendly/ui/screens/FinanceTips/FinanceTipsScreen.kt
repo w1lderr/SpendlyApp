@@ -90,7 +90,7 @@ fun FinanceTipsScreen(
             }
 
             Text(
-                text = "Finance Tips",
+                text = "Фінансові поради",
                 color = Color.White,
                 fontSize = 23.sp,
                 fontWeight = FontWeight.Medium
