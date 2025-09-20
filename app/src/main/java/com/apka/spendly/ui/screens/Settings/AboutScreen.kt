@@ -120,7 +120,7 @@ fun AboutScreen(
             horizontalArrangement = Arrangement.Start
         ) {
             Text(
-                text = "Версія: v1.6",
+                text = "Версія: v1.7",
                 fontSize = 21.sp,
                 fontWeight = FontWeight.Medium,
                 color = Color.White,
