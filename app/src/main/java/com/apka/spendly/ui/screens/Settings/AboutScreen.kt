@@ -103,7 +103,7 @@ fun AboutScreen(
             horizontalArrangement = Arrangement.Start
         ) {
             Text(
-                text = "A financial tool for analyzing expenses,\nmanaging budgets, and saving money.",
+                text = "Фінансовий інструмент для аналізу витрат, управління бюджетами та економія коштів.",
                 fontSize = 19.sp,
                 fontWeight = FontWeight.Normal,
                 color = Color(0xFFB5B5B5),
@@ -120,7 +120,7 @@ fun AboutScreen(
             horizontalArrangement = Arrangement.Start
         ) {
             Text(
-                text = "Version: v1.0.0",
+                text = "Версія: v1.6",
                 fontSize = 21.sp,
                 fontWeight = FontWeight.Medium,
                 color = Color.White,
@@ -136,7 +136,7 @@ fun AboutScreen(
             horizontalArrangement = Arrangement.Start
         ) {
             Text(
-                text = "Contacts for support:",
+                text = "Контакти для підтримки:",
                 fontSize = 21.sp,
                 fontWeight = FontWeight.Medium,
                 color = Color.White,

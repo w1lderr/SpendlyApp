@@ -73,7 +73,7 @@ fun SettingsScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Settings",
+                text = "Налаштування",
                 color = Color.White,
                 fontSize = 25.sp,
                 fontWeight = FontWeight.SemiBold
@@ -119,7 +119,7 @@ fun SettingsScreen(
                         Spacer(modifier = Modifier.width(12.dp))
 
                         Text(
-                            text = "About",
+                            text = "Про додаток",
                             color = Color.White,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Normal
@@ -168,7 +168,7 @@ fun SettingsScreen(
                         Spacer(modifier = Modifier.width(12.dp))
 
                         Text(
-                            text = "Privacy policy",
+                            text = "Політика конфіденційності",
                             color = Color.White,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Normal
@@ -217,7 +217,7 @@ fun SettingsScreen(
                         Spacer(modifier = Modifier.width(12.dp))
 
                         Text(
-                            text = "Terms of use",
+                            text = "Умови використання",
                             color = Color.White,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Normal
@@ -266,7 +266,7 @@ fun SettingsScreen(
                         Spacer(modifier = Modifier.width(12.dp))
 
                         Text(
-                            text = "Log out",
+                            text = "Вийти",
                             color = Color.White,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Normal
