@@ -82,9 +82,9 @@ fun AIScreen(
             if (it.resultCode == Activity.RESULT_OK) {
                 val data = it.data
                 val result = data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
-                viewModel.onMessageChange(result?.get(0) ?: "No speech detected.")
+                viewModel.onMessageChange(result?.get(0) ?: "Не виявлено мовлення.")
             } else {
-                Toast.makeText(context, "Speech recognition failed.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Розпізнавання мови не вдалося.", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -253,7 +253,7 @@ fun AIScreen(
                         },
                         placeholder = {
                             Text(
-                                text = if (isLoading.value) "Gemma is thinking..." else "Ask gemma...",
+                                text = if (isLoading.value) "Gemma думає..." else "Запитайте gemma...",
                                 color = Color(0xFFB8B8B8),
                                 fontSize = 18.sp,
                                 fontWeight = FontWeight.Normal
@@ -294,7 +294,7 @@ fun AIScreen(
                                 )
                                 intent.putExtra(
                                     RecognizerIntent.EXTRA_PROMPT,
-                                    "Go on then, say something."
+                                    "Ну ж бо, скажи щось."
                                 )
                                 launcher.launch(intent)
                             },

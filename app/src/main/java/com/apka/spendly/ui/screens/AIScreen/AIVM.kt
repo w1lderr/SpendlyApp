@@ -77,7 +77,7 @@ class AIVM(
         currentSendJob = viewModelScope.launch(Dispatchers.IO) {
             try {
                 // Send message to server
-                val response = repo.sendMessage(
+                repo.sendMessage(
                     Message(
                         uuid = uuid,
                         sender = "user",
