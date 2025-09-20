@@ -40,10 +40,10 @@ class HomeViewModel(
     private fun getGreetingBasedOnTime(): String {
         val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
         return when {
-            hour in 5..11 -> "Good morning"
-            hour in 12..16 -> "Good afternoon"
-            hour in 17..20 -> "Good evening"
-            else -> "Good night"
+            hour in 5..11 -> "Доброго ранку"
+            hour in 12..16 -> "Добрий день"
+            hour in 17..20 -> "Добрий вечір"
+            else -> "Доброї ночі"
         }
     }
 

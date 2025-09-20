@@ -187,7 +187,7 @@ fun HomeScreen(
                 ) {
                     Column {
                         Text(
-                            text = "My Balance",
+                            text = "Баланс",
                             color = Color.White,
                             fontSize = 22.sp,
                             fontWeight = FontWeight.Medium
@@ -240,7 +240,7 @@ fun HomeScreen(
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "This month",
+                    text = "Цей місяць",
                     color = Color.White,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Normal
@@ -316,8 +316,8 @@ fun HomeScreen(
                     Spacer(modifier = Modifier.height(13.dp))
 
                     Text(
-                        text = "Add\n" +
-                                "Target",
+                        text = "Додати\n" +
+                                "ціль",
                         color = Color.White,
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.Medium,
@@ -360,8 +360,8 @@ fun HomeScreen(
                     Spacer(modifier = Modifier.height(13.dp))
 
                     Text(
-                        text = "View\n" +
-                                "Challenges",
+                        text = "Доступні\n" +
+                                "Челенджі",
                         color = Color.White,
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.Medium,
@@ -404,8 +404,8 @@ fun HomeScreen(
                     Spacer(modifier = Modifier.height(13.dp))
 
                     Text(
-                        text = "View\n" +
-                                "Finance Tips",
+                        text = "Фінансові\n" +
+                                "поради",
                         color = Color.White,
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.Medium,
@@ -439,14 +439,14 @@ fun HomeScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Exchange rate",
+                        text = "Курс обміну валют",
                         color = Color.White,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Medium,
                     )
 
                     Button(
-                        modifier = Modifier.size(82.dp, 37.dp),
+                        modifier = Modifier.size(110.dp, 40.dp),
                         onClick = {
                             navController.navigate(Screens.ExchangeRateScreen.name)
                         },
@@ -455,7 +455,7 @@ fun HomeScreen(
                         )
                     ) {
                         Text(
-                            text = "View",
+                            text = "Перейти",
                             color = Color.White,
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Medium,
