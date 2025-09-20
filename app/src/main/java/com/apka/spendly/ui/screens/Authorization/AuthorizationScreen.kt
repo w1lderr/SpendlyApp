@@ -58,7 +58,7 @@ fun AuthorizationScreen(
             horizontalAlignment = Alignment.Start
         ) {
             Text(
-                text = "Authorization",
+                text = "Авторизація",
                 fontSize = 38.sp,
                 fontWeight = FontWeight.Medium,
                 color = Color.White
@@ -67,7 +67,7 @@ fun AuthorizationScreen(
             Spacer(modifier = Modifier.height(5.dp))
 
             Text(
-                text = "Choose a bank for authorization",
+                text = "Оберіть свій банк для авторизації",
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Normal,
                 color = Color(0xFFB5B5B5)
@@ -84,7 +84,7 @@ fun AuthorizationScreen(
             horizontalAlignment = Alignment.Start
         ) {
             Text(
-                text = "Supported banks",
+                text = "Підтримувані банки",
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Medium,
                 color = Color.White
