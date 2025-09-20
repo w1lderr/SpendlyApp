@@ -108,7 +108,7 @@ fun BalanceInfoScreen(
                         modifier = Modifier.padding(top = 10.dp)
                     ) {
                         Text(
-                            text = "My balance",
+                            text = "Баланс",
                             color = Color.White,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Normal
@@ -155,7 +155,7 @@ fun BalanceInfoScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Spending ",
+                            text = "Витрати ",
                             color = Color.White,
                             fontSize = 21.sp,
                             fontWeight = FontWeight.Normal
@@ -189,14 +189,14 @@ fun BalanceInfoScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "This ",
+                text = "Цей ",
                 color = Color.White,
                 fontSize = 21.sp,
                 fontWeight = FontWeight.Normal
             )
 
             Text(
-                text = "month",
+                text = "місяць",
                 color = Color(0xFF908F92),
                 fontSize = 21.sp,
                 fontWeight = FontWeight.Normal,
