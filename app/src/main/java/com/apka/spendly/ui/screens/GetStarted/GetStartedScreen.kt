@@ -63,8 +63,8 @@ fun GetStartedScreen(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Take Control of\n" +
-                        "Your Finances",
+                text = "Контролюйте\n" +
+                        "свої фінанси",
                 color = Color.White,
                 fontSize = 45.sp,
                 lineHeight = 48.sp,
@@ -74,9 +74,7 @@ fun GetStartedScreen(
             Spacer(modifier = Modifier.height(22.dp))
 
             Text(
-                text = "Welcome to your finance app! Track\n" +
-                        "spending, save smart, and reach\n" +
-                        "your finance goals.",
+                text = "Ласкаво просимо до Spendly! Відстежуйте витрати, економте\nрозумно і досягайте ваші\nфінансові цілі.",
                 color = Color(0xFFB5B5B5),
                 fontSize = 18.sp,
                 lineHeight = 28.sp,
@@ -102,7 +100,7 @@ fun GetStartedScreen(
             ) {
                 Spacer(modifier = Modifier.width(24.dp))
                 Text(
-                    text = "Get Started",
+                    text = "Почати",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Normal,
                     color = Color.White
