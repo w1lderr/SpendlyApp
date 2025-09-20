@@ -70,7 +70,7 @@ fun TargetsScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Targets",
+                text = "Цілі",
                 color = Color.White,
                 fontSize = 25.sp,
                 fontWeight = FontWeight.Medium
@@ -120,7 +120,7 @@ fun TargetsScreen(
                     shape = RoundedCornerShape(20.dp)
                 ) {
                     Text(
-                        text = "+ Add new target",
+                        text = "+ Додати нову ціль",
                         fontSize = 19.sp,
                         color = Color.White,
                         fontWeight = FontWeight.Medium
