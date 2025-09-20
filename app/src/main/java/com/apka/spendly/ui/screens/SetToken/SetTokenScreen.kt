@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -37,8 +38,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -117,7 +122,7 @@ fun SetTokenScreen(
             value = token.value,
             onValueChange = { viewModel.setToken(it) },
             label = {
-                Text("Monobank API Token")
+                Text("Монобанк API Токен")
             },
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
             colors = OutlinedTextFieldDefaults.colors(
@@ -132,7 +137,7 @@ fun SetTokenScreen(
             singleLine = true
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         Row(
             modifier = Modifier
@@ -157,28 +162,53 @@ fun SetTokenScreen(
                 horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = "I agree to the ",
-                    color = Color.White,
-                    fontSize = 17.sp,
-                    fontWeight = FontWeight.Normal
-                )
+                val annotatedText = buildAnnotatedString {
+                    append("Я погоджуюсь з ")
 
-                Text(
-                    modifier = Modifier.clickable(
-                        onClick = {
+                    pushStringAnnotation(tag = "terms", annotation = "terms_of_use")
+                    withStyle(style = SpanStyle(color = Color(0xFF723FEB))) {
+                        append("умовами використання")
+                    }
+                    pop()
+
+                    append(" та ")
+
+                    pushStringAnnotation(tag = "privacypolicy", annotation = "privacy_policy")
+                    withStyle(style = SpanStyle(color = Color(0xFF723FEB))) {
+                        append("політикою конфіденційності")
+                    }
+                    pop()
+                }
+
+                ClickableText(
+                    text = annotatedText,
+                    style = TextStyle(
+                        color = Color.White,
+                        fontSize = 17.sp,
+                        fontWeight = FontWeight.Normal
+                    ),
+                    onClick = { offset ->
+                        annotatedText.getStringAnnotations(
+                            tag = "terms",
+                            start = offset,
+                            end = offset
+                        ).firstOrNull()?.let {
                             navController.navigate(Screens.TermsOfUseScreen.name)
                         }
-                    ),
-                    text = "Terms of Use",
-                    color = Color(0xFF723FEB),
-                    fontSize = 17.sp,
-                    fontWeight = FontWeight.Normal
+
+                        annotatedText.getStringAnnotations(
+                            tag = "privacypolicy",
+                            start = offset,
+                            end = offset
+                        ).firstOrNull()?.let {
+                            navController.navigate(Screens.PrivacyPolicyScreen.name)
+                        }
+                    }
                 )
             }
         }
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         Button(
             enabled = uiState.value.isTermsOfUseAgreed,
@@ -191,7 +221,7 @@ fun SetTokenScreen(
             ),
         ) {
             Text(
-                text = "Set Token",
+                text = "Встановити токен",
                 fontSize = 17.sp,
                 fontWeight = FontWeight.SemiBold
             )
