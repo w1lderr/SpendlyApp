@@ -132,7 +132,7 @@ fun ViewTargetScreen(
         if (target.totalTopUpAmount == target.targetAmount) {
             Spacer(modifier = Modifier.height(30.dp))
             Text(
-                text = "Congratulations!",
+                text = "Вітання!",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = Color.White
@@ -225,7 +225,7 @@ fun ViewTargetScreen(
                 }
             ) {
                 Text(
-                    text = "Completed",
+                    text = "Завершено",
                     fontSize = 20.sp,
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold
@@ -243,7 +243,7 @@ fun ViewTargetScreen(
                 }
             ) {
                 Text(
-                    text = "Add contribution",
+                    text = "Додати внесок",
                     fontSize = 20.sp,
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold
@@ -275,7 +275,7 @@ fun ViewTargetScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Top up History",
+                        text = "Історія поповнень",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.SemiBold,
                         color = Color.White
@@ -301,7 +301,7 @@ fun ViewTargetScreen(
                         shape = RoundedCornerShape(90.dp)
                     ) {
                         Text(
-                            text = "View all",
+                            text = "Глянути",
                             fontSize = 14.sp,
                             fontWeight = FontWeight.SemiBold,
                             color = Color.White
@@ -333,7 +333,7 @@ fun ShowAlertDialog(
         },
         title = {
             Text(
-                text = "Add contribution",
+                text = "Додати внесок",
                 fontSize = 18.sp,
                 color = Color.White,
                 fontWeight = FontWeight.SemiBold
@@ -346,7 +346,7 @@ fun ShowAlertDialog(
                 onValueChange = { viewModel.onContributionChanged(it) },
                 label = {
                     Text(
-                        text = "Amount",
+                        text = "Сума",
                         fontSize = 17.sp,
                         fontWeight = FontWeight.Normal
                     )
@@ -370,12 +370,12 @@ fun ShowAlertDialog(
                         viewModel.addContribution(targetId)
                         viewModel.onContributionChanged("")
                     } else {
-                        viewModel.setToast("Please enter a valid contribution amount")
+                        viewModel.setToast("Введіть дійсну суму")
                     }
                 }
             ) {
                 Text(
-                    text = "Add",
+                    text = "Додати",
                     color = Color.White
                 )
             }
@@ -387,7 +387,7 @@ fun ShowAlertDialog(
                 }
             ) {
                 Text(
-                    text = "Cancel",
+                    text = "Скасувати",
                     color = Color.White
                 )
             }

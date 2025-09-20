@@ -123,7 +123,7 @@ fun AddNewTargetScreen(
             }
 
             Text(
-                text = "Add new target",
+                text = "Додати нову ціль",
                 color = Color.White,
                 fontSize = 23.sp,
                 fontWeight = FontWeight.Medium
@@ -173,7 +173,7 @@ fun AddNewTargetScreen(
                         onValueChange = { viewModel.onNameChanged(it) },
                         label = {
                             Text(
-                                text = "Name",
+                                text = "Назва",
                                 fontSize = 17.sp,
                                 fontWeight = FontWeight.Normal
                             )
@@ -236,7 +236,7 @@ fun AddNewTargetScreen(
                         onValueChange = { viewModel.onDescriptionChanged(it) },
                         label = {
                             Text(
-                                text = "Description (optional)",
+                                text = "Опис (необов'язково)",
                                 fontSize = 17.sp,
                                 fontWeight = FontWeight.Normal
                             )
@@ -299,7 +299,7 @@ fun AddNewTargetScreen(
                         onValueChange = { viewModel.onAmountChanged(it) },
                         label = {
                             Text(
-                                text = "Amount",
+                                text = "Сума",
                                 fontSize = 17.sp,
                                 fontWeight = FontWeight.Normal
                             )
@@ -336,7 +336,7 @@ fun AddNewTargetScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Select category",
+                text = "Оберіть категорію",
                 color = Color.White,
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Medium
@@ -397,7 +397,7 @@ fun AddNewTargetScreen(
                 Spacer(modifier = Modifier.width(18.dp))
 
                 Text(
-                    text = "Enable reminder",
+                    text = "Дозволити нагадування",
                     color = Color.White,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Normal
@@ -437,7 +437,7 @@ fun AddNewTargetScreen(
                 )
             ) {
                 Text(
-                    text = "Save target",
+                    text = "Додати ціль",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Medium,
                     color = Color.White
