@@ -74,7 +74,7 @@ fun StatisticsScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Statistics",
+                text = "Статистика",
                 color = Color.White,
                 fontSize = 23.sp,
                 fontWeight = FontWeight.SemiBold
@@ -118,7 +118,7 @@ fun StatisticsScreen(
                 Spacer(modifier = Modifier.height(5.dp))
 
                 Text(
-                    text = "Total saved",
+                    text = "Загальна економія",
                     color = Color(0xFFB8B8B8),
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Normal
@@ -135,7 +135,7 @@ fun StatisticsScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Card(
-                modifier = Modifier.size(width = 380.dp, height = 280.dp),
+                modifier = Modifier.size(width = 380.dp, height = 240.dp),
                 shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(
                     containerColor = Color(0xFF1F1F1F)
@@ -146,20 +146,9 @@ fun StatisticsScreen(
             ) {
                 Column(
                     modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Top,
+                    verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Spacer(modifier = Modifier.height(15.dp))
-
-                    Text(
-                        text = "Daily Savings This Week",
-                        color = Color.White,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium
-                    )
-
-                    Spacer(modifier = Modifier.height(10.dp))
-
                     if (uiState.value.weeklyChartData.isNotEmpty()) {
                         Column {
                             LineChart(
@@ -170,7 +159,7 @@ fun StatisticsScreen(
                                 data = remember(uiState.value.weeklyChartData) {
                                     listOf(
                                         Line(
-                                            label = "Daily Savings (₴)",
+                                            label = "Щоденні заощадження (₴)",
                                             values = uiState.value.weeklyChartData,
                                             color = SolidColor(Color(0xFF723FEB)),
                                             firstGradientFillColor = Color(0xFF723FEB).copy(alpha = .5f),
@@ -214,7 +203,7 @@ fun StatisticsScreen(
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
-                                text = "No data available",
+                                text = "Дані відсутні",
                                 color = Color(0xFFB8B8B8),
                                 fontSize = 14.sp
                             )
@@ -267,7 +256,7 @@ fun StatisticsScreen(
                         verticalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            text = "No challenges",
+                            text = "Немає челенджів",
                             color = Color.White,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Medium

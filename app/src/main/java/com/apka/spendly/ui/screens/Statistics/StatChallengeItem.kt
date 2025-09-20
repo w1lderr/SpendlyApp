@@ -37,10 +37,10 @@ fun StatChallengeItem(userChallengeDTO: UserChallengeDTO) {
     }
 
     val statusName = when (userChallengeDTO.status) {
-        "started" -> "Started"
-        "completed" -> "Completed"
-        "failed" -> "Failed"
-        else -> "Started"
+        "started" -> "Почато"
+        "completed" -> "Завершено"
+        "failed" -> "Провалено"
+        else -> "Почато"
     }
 
     val statusTextColor = when (userChallengeDTO.status) {
