@@ -93,7 +93,7 @@ fun ChallengesScreen(
             }
 
             Text(
-                text = "Challenges",
+                text = "Челенджі",
                 color = Color.White,
                 fontSize = 23.sp,
                 fontWeight = FontWeight.Medium
@@ -140,7 +140,7 @@ fun ChallengesScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "No challenges available",
+                    text = "Викликів немає",
                     color = Color.White,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Medium
