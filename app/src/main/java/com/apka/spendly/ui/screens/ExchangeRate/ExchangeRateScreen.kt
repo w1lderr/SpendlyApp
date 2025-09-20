@@ -101,7 +101,7 @@ fun ExchangeRateScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Exchange rate",
+                    text = "Курси валют",
                     color = Color.White,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Medium
@@ -110,7 +110,7 @@ fun ExchangeRateScreen(
                 Spacer(modifier = Modifier.height(5.dp))
 
                 Text(
-                    text = "by NBU",
+                    text = "від НБУ",
                     color = Color(0xFFB8B8B8),
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Medium
@@ -150,14 +150,14 @@ fun ExchangeRateScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Currency",
+                            text = "Валюта",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Medium,
                             color = Color(0xFFB8B8B8),
                         )
 
                         Text(
-                            text = "Purchase",
+                            text = "Купівля",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Medium,
                             color = Color(0xFFB8B8B8),
