@@ -144,7 +144,7 @@ fun AIScreen(
                 modifier = Modifier
                     .size(width = 130.dp, height = 40.dp)
                     .clip(RoundedCornerShape(90.dp))
-                    .background(Color(0xFF53A3FE)),
+                    .background(Color(0xFF723FEB)),
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
@@ -327,7 +327,7 @@ fun AIScreen(
                             Button(
                                 modifier = Modifier.size(60.dp),
                                 colors = ButtonDefaults.buttonColors(
-                                    containerColor = Color(0xFF53A3FE),
+                                    containerColor = Color(0xFF723FEB),
                                     disabledContainerColor = Color.Gray
                                 ),
                                 shape = RoundedCornerShape(90.dp),
@@ -367,7 +367,7 @@ fun MessageItem(
             shape = RoundedCornerShape(20.dp),
             colors = CardDefaults.cardColors(
                 containerColor = if (messageDTO.sender == "user") {
-                    Color(0xFF53A3FE)
+                    Color(0xFF723FEB)
                 } else {
                     Color(0xFF323338)
                 }
@@ -391,10 +391,10 @@ fun DonutGradientRing(
     size: Dp = 175.dp,
     thickness: Dp = 32.dp,
     colors: List<Color> = listOf(
-        Color(0xFF56A4FF),
-        Color(0xFF53A3FE),
-        Color(0xFF52A3FF),
-        Color(0xFF53A3FE),
+        Color(0xFF723FEB),
+        Color(0xFF6A3ADD),
+        Color(0xFF6837DE),
+        Color(0xFF7346DE),
     ), // tweak to your purple→blue gradient
     startAngleOffset: Float = 180f // rotate so the seam is at bottom
 ) {
