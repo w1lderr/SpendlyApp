@@ -24,24 +24,24 @@ enum class Categories(
     val title: String,
     val icon: ImageVector
 ) {
-    TRAVEL("Travel", TravelIcon),
-    HOUSING("Housing", HousingIcon),
-    EDUCATION("Education", EducationIcon),
-    CAR("Car", CarIcon),
-    HEALTH("Health", HealthIcon),
-    SAVINGS("Savings", SavingsIcon),
-    ENTERTAINMENT("Entertainment", EntertainmentIcon),
-    FOOD("Food & Drinks", FoodIcon),
-    CLOTHES("Clothes", ClothesIcon),
-    SHOPPING("Shopping", ShoppingIcon),
-    TECHNOLOGY("Technology & Gadgets", GadgetIcon),
-    SPORTS("Sports & Fitness", SportIcon),
-    FAMILY("Family & Kids", FamilyIcon),
-    GIFTS("Gifts", GiftsIcon),
-    PETS("Pets", PetsIcon),
-    BEAUTY("Beauty & Personal Care", BeautyIcon),
-    INVESTMENTS("Investments", InvestmentsIcon),
-    OTHER("Other", OtherIcon);
+    TRAVEL("Подорожі", TravelIcon),
+    HOUSING("Житло", HousingIcon),
+    EDUCATION("Освіта", EducationIcon),
+    CAR("Автомобіль", CarIcon),
+    HEALTH("Здоров'я", HealthIcon),
+    SAVINGS("Заощадження", SavingsIcon),
+    ENTERTAINMENT("Розваги", EntertainmentIcon),
+    FOOD("Їжа", FoodIcon),
+    CLOTHES("Одяг", ClothesIcon),
+    SHOPPING("Покупки", ShoppingIcon),
+    TECHNOLOGY("Технології та гаджети", GadgetIcon),
+    SPORTS("Спорт та фітнес", SportIcon),
+    FAMILY("Сім'я та діти", FamilyIcon),
+    GIFTS("Подарунки", GiftsIcon),
+    PETS("Домашні тварини", PetsIcon),
+    BEAUTY("Краса та особистий догляд", BeautyIcon),
+    INVESTMENTS("Інвестиції", InvestmentsIcon),
+    OTHER("Інше", OtherIcon);
 
     companion object {
         fun fromTitle(title: String): Categories? =
