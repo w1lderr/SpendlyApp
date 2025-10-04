@@ -40,6 +40,7 @@ import ir.ehsannarmani.compose_charts.models.AnimationMode
 import ir.ehsannarmani.compose_charts.models.DrawStyle
 import ir.ehsannarmani.compose_charts.models.Line
 import org.koin.androidx.compose.koinViewModel
+import java.text.DecimalFormat
 
 @Composable
 fun StatisticsScreen(
@@ -48,6 +49,8 @@ fun StatisticsScreen(
 ) {
     val uiState = viewModel.uiState.collectAsState()
     val context = LocalContext.current
+    val decimalFormat = DecimalFormat("#.##")
+    val formattedAmount = decimalFormat.format(kotlin.math.abs(uiState.value.totalSaved / 100.0))
 
     LaunchedEffect(uiState.value.toast) {
         if (uiState.value.toast.isNotEmpty()) {
@@ -109,7 +112,7 @@ fun StatisticsScreen(
 
             Column {
                 Text(
-                    text = "${(uiState.value.totalSaved / 100).toInt()}",
+                    text = "+$formattedAmount",
                     color = Color.White,
                     fontSize = 28.sp,
                     fontWeight = FontWeight.Medium

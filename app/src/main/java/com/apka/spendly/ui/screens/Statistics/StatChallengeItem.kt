@@ -26,9 +26,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.apka.spendly.data.dto.UserChallengeDTO
 import com.apka.spendly.ui.imageVector.TargetIcon
+import java.text.DecimalFormat
 
 @Composable
 fun StatChallengeItem(userChallengeDTO: UserChallengeDTO) {
+    val decimalFormat = DecimalFormat("#.##")
+    val formattedAmount = decimalFormat.format(kotlin.math.abs(userChallengeDTO.totalSaved / 100.0))
+
     val statusColor = when (userChallengeDTO.status) {
         "started" -> Color(0xFFFFE75F)
         "completed" -> Color(0xFF3DA86F)
@@ -113,7 +117,7 @@ fun StatChallengeItem(userChallengeDTO: UserChallengeDTO) {
         }
 
         Text(
-            text = "+${userChallengeDTO.totalSaved / 100} ₴",
+            text = "+$formattedAmount ₴",
             color = Color.White,
             fontSize = 17.sp,
             fontWeight = FontWeight.Normal
