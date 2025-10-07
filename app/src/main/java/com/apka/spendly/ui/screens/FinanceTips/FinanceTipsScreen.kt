@@ -150,7 +150,7 @@ fun FinTipItem(financeTipDTO: FinanceTipDTO) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceBetween,
+            horizontalArrangement = Arrangement.spacedBy(15.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(
@@ -164,8 +164,6 @@ fun FinTipItem(financeTipDTO: FinanceTipDTO) {
                     fontWeight = FontWeight.Medium
                 )
             }
-
-            Spacer(modifier = Modifier.width(10.dp))
 
             Column {
                 Text(
