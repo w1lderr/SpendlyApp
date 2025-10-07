@@ -43,6 +43,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow.Companion.Ellipsis
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -496,10 +497,12 @@ fun CategoryItem(
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                text = category,
+                text = "$category ksdkfdskfkd",
                 color = if (color == Color(0xFFFDFDFD) || color == Color(0xFF97E0F7)) Color.Black else Color.White,
                 fontSize = 14.sp,
-                fontWeight = FontWeight.Normal
+                fontWeight = FontWeight.Normal,
+                overflow = Ellipsis,
+                maxLines = 1
             )
 
             Text(
