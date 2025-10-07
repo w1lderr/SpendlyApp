@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -22,7 +23,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.max
 import androidx.compose.ui.unit.sp
 import com.apka.spendly.data.dto.UserChallengeDTO
 import com.apka.spendly.ui.imageVector.TargetIcon
@@ -62,6 +65,7 @@ fun StatChallengeItem(userChallengeDTO: UserChallengeDTO) {
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Row(
+            modifier = Modifier.weight(1f),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -87,14 +91,17 @@ fun StatChallengeItem(userChallengeDTO: UserChallengeDTO) {
             Spacer(modifier = Modifier.width(13.dp))
 
             Column(
+                modifier = Modifier.weight(1f),
                 horizontalAlignment = Alignment.Start,
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = userChallengeDTO.challengeName,
+                    text = "${userChallengeDTO.challengeName}sdfsdfsfsqrert",
                     color = Color.White,
                     fontSize = 18.sp,
-                    fontWeight = FontWeight.Medium
+                    fontWeight = FontWeight.Medium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
 
                 Spacer(modifier = Modifier.height(5.dp))
@@ -116,11 +123,14 @@ fun StatChallengeItem(userChallengeDTO: UserChallengeDTO) {
             }
         }
 
+        Spacer(modifier = Modifier.width(8.dp))
+
         Text(
             text = "+$formattedAmount ₴",
             color = Color.White,
             fontSize = 17.sp,
-            fontWeight = FontWeight.Normal
+            fontWeight = FontWeight.Normal,
+            maxLines = 1
         )
     }
 }
