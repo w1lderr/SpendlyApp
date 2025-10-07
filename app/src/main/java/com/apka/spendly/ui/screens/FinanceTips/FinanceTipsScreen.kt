@@ -34,7 +34,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.max
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.apka.spendly.data.dto.FinanceTipDTO
@@ -150,7 +152,7 @@ fun FinTipItem(financeTipDTO: FinanceTipDTO) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(15.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(
@@ -170,7 +172,9 @@ fun FinTipItem(financeTipDTO: FinanceTipDTO) {
                     text = financeTipDTO.finTipTitle,
                     color = Color.White,
                     fontSize = 20.sp,
-                    fontWeight = FontWeight.Medium
+                    fontWeight = FontWeight.Medium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -179,7 +183,9 @@ fun FinTipItem(financeTipDTO: FinanceTipDTO) {
                     text = financeTipDTO.finTipDesc,
                     color = Color(0xFFBEBEBE),
                     fontSize = 15.sp,
-                    fontWeight = FontWeight.Normal
+                    fontWeight = FontWeight.Normal,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
                 )
             }
         }
