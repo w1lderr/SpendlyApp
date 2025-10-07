@@ -497,7 +497,7 @@ fun CategoryItem(
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                text = "$category ksdkfdskfkd",
+                text = category,
                 color = if (color == Color(0xFFFDFDFD) || color == Color(0xFF97E0F7)) Color.Black else Color.White,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Normal,
