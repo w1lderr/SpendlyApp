@@ -121,7 +121,7 @@ fun FinanceTipsScreen(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "No finance tips available",
+                    text = "Поки що порад немає",
                     color = Color.White,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Medium
