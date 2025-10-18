@@ -103,7 +103,7 @@ fun AboutScreen(
             horizontalArrangement = Arrangement.Start
         ) {
             Text(
-                text = "Фінансовий інструмент для аналізу витрат, управління бюджетами та економія коштів.",
+                text = "Фінансовий інструмент для аналізу витрат, управління бюджетами та економії коштів.",
                 fontSize = 19.sp,
                 fontWeight = FontWeight.Normal,
                 color = Color(0xFFB5B5B5),
