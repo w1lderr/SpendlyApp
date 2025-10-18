@@ -21,17 +21,12 @@ class AddNewTargetViewModel(
     val uiState: StateFlow<AddNewTargetUiState> get() = _uiState
     val target: StateFlow<AddTarget> get() = _target
 
-    fun onDispose() {
-        setIsNavigateStatus(false)
-        _target.value = AddTarget()
-    }
-
     fun setToast(value: String) {
         _uiState.value = _uiState.value.copy(toast = value)
     }
 
-    private fun setIsNavigateStatus(value: Boolean) {
-        _uiState.value = _uiState.value.copy(isNavigate = value)
+    private fun setIsNavigateStatus() {
+        _uiState.value = _uiState.value.copy(isNavigate = true)
     }
 
     fun onNameChanged(value: String) {
@@ -60,32 +55,51 @@ class AddNewTargetViewModel(
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                if (target.targetName.isEmpty()
-                    || target.category.isEmpty()
-                    || target.targetAmount.toDouble() <= 0
-                ) {
+                if (target.targetName.isEmpty()) {
                     withContext(Dispatchers.Main) {
-                        setToast("Fill all fields")
+                        setToast("Введіть назву цілі")
                     }
-                } else {
-                    repo.addTarget(
-                        TargetDTO(
-                            targetId = "",
-                            uuid = uuid,
-                            targetName = target.targetName,
-                            targetDescription = target.targetDescription,
-                            targetAmount = target.targetAmount.toLong(),
-                            category = target.category,
-                            date = 0L,
-                            completed = false,
-                            reminder = target.enabledReminder,
-                        )
+                    return@launch
+                }
+
+                if (target.category.isEmpty()) {
+                    withContext(Dispatchers.Main) {
+                        setToast("Оберіть категорію")
+                    }
+                    return@launch
+                }
+
+                val amountValue = target.targetAmount.toLongOrNull()
+                if (amountValue == null || amountValue <= 0) {
+                    withContext(Dispatchers.Main) {
+                        setToast("Введіть коректну суму")
+                    }
+                    return@launch
+                }
+
+                val amountConverter = amountValue * 100
+
+                repo.addTarget(
+                    TargetDTO(
+                        targetId = "",
+                        uuid = uuid,
+                        targetName = target.targetName,
+                        targetDescription = target.targetDescription.ifEmpty { null },
+                        targetAmount = amountConverter,
+                        category = target.category,
+                        date = 0L,
+                        completed = false,
+                        reminder = target.enabledReminder,
                     )
-                    setIsNavigateStatus(true)
+                )
+
+                withContext(Dispatchers.Main) {
+                    setToast("Ціль успішно додано")
+                    setIsNavigateStatus()
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
-                    setToast("Error adding target: ${e.message}")
+                    setToast("Помилка: ${e.message}")
                 }
             }
         }

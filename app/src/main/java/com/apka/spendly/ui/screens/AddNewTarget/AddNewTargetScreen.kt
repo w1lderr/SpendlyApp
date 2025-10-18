@@ -299,7 +299,7 @@ fun AddNewTargetScreen(
                         onValueChange = { viewModel.onAmountChanged(it) },
                         label = {
                             Text(
-                                text = "Сума",
+                                text = "Сума у грн",
                                 fontSize = 17.sp,
                                 fontWeight = FontWeight.Normal
                             )

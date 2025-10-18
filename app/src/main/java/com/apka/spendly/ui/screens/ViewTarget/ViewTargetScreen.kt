@@ -42,6 +42,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -346,12 +347,15 @@ fun ShowAlertDialog(
                 onValueChange = { viewModel.onContributionChanged(it) },
                 label = {
                     Text(
-                        text = "Сума",
+                        text = "Сума у грн",
                         fontSize = 17.sp,
                         fontWeight = FontWeight.Normal
                     )
                 },
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Number,
+                    imeAction = ImeAction.Done
+                ),
                 colors = TextFieldDefaults.colors(
                     focusedContainerColor = Color(0xFF1F1F1F),
                     unfocusedContainerColor = Color(0xFF1F1F1F),

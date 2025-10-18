@@ -32,11 +32,13 @@ class ViewTargetViewModel(private val repo: TargetRepo) : ViewModel() {
         val contributionValue = _contribution.value
         viewModelScope.launch(Dispatchers.IO) {
             try {
+                val amountConverter = contributionValue.toLong() * 100
+
                 val result = repo.addContribution(
                     TargetTopUpHistoryDTO(
                         targetTopUpHistoryId = "",
                         targetId = targetId,
-                        amount = contributionValue.toLong(),
+                        amount = amountConverter,
                         timestamp = 0L
                     )
                 )
