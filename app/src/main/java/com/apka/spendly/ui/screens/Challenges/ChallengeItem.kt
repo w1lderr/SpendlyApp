@@ -73,6 +73,8 @@ fun ChallengeItem(
                     color = Color.White,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.SemiBold,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
                 )
             }
 
