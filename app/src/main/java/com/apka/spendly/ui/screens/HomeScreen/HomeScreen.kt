@@ -48,9 +48,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.apka.spendly.navigation.Screens
-import com.apka.spendly.ui.imageVector.BellIcon
 import com.apka.spendly.ui.imageVector.FireIcon
 import com.apka.spendly.ui.imageVector.IdeaIcon
+import com.apka.spendly.ui.imageVector.ProfileIcon
 import com.apka.spendly.ui.imageVector.TargetIcon
 import ir.ehsannarmani.compose_charts.PieChart
 import ir.ehsannarmani.compose_charts.models.Pie
@@ -129,28 +129,15 @@ fun HomeScreen(
                 fontWeight = FontWeight.Medium
             )
 
-            Box(
-                modifier = Modifier
-                    .size(50.dp)
-                    .border(
-                        border = BorderStroke(1.dp, Color(0xFF313131)),
-                        shape = RoundedCornerShape(90.dp)
-                    )
-                    .clip(RoundedCornerShape(90.dp))
-                    .background(Color(0xFF1F1F1F))
-                    .clickable(
-                        onClick = {
-                            navController.navigate(Screens.NotificationsScreen.name)
-                        },
-                    ),
-                contentAlignment = Alignment.Center,
-            ) {
-                Icon(
-                    imageVector = BellIcon,
-                    contentDescription = "Notifications",
-                    tint = Color.White
-                )
-            }
+            Icon(
+                modifier = Modifier.clickable(
+                    onClick = {
+                        navController.navigate(Screens.ProfileScreen.name)
+                    }
+                ),
+                imageVector = ProfileIcon,
+                contentDescription = "Profile",
+            )
         }
 
         Spacer(modifier = Modifier.height(30.dp))

@@ -10,7 +10,7 @@ enum class Screens {
     TargetsScreen,
     SettingsScreen,
     StatisticsScreen,
-    NotificationsScreen,
+    ProfileScreen,
     AddNewTargetScreen,
     FinanceTipsScreen,
     ExchangeRateScreen,
