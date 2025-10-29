@@ -118,14 +118,14 @@ fun HomeScreen(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 15.dp, end = 15.dp, top = 12.dp),
+                .padding(start = 12.dp, end = 12.dp, top = 12.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
                 text = greeting.value,
                 color = Color.White,
-                fontSize = 27.sp,
+                fontSize = 25.sp,
                 fontWeight = FontWeight.Medium
             )
 
@@ -137,6 +137,7 @@ fun HomeScreen(
                 ),
                 imageVector = ProfileIcon,
                 contentDescription = "Profile",
+                tint = Color.DarkGray
             )
         }
 
