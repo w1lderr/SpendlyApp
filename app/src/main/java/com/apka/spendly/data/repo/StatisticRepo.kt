@@ -1,20 +1,21 @@
 package com.apka.spendly.data.repo
 
 import com.apka.spendly.androidUuidGenerator.AndroidUuidGenerator
-import com.apka.spendly.data.dto.TransactionDTO
+import com.apka.spendly.data.dto.ChallengeStatisticDTO
 import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
-class TransactionRepo(
+class StatisticRepo(
     private val okHttpClient: OkHttpClient,
-    private val androidUuidGenerator: AndroidUuidGenerator
+    androidUuidGenerator: AndroidUuidGenerator
 ) {
-    private val json = Json { ignoreUnknownKeys = true }
     private val uuid = androidUuidGenerator.getOrCreateGuid()
+    private val json = Json { ignoreUnknownKeys = true }
 
-    fun fetchTransactions(): List<TransactionDTO> {
-        val url = "http://10.0.2.2:8080/spendly/monobank/getTransactions?uuid=$uuid"
+
+    fun getChallengesStat(period: String): ChallengeStatisticDTO {
+        val url = "http://10.0.2.2:8080/spendly/challenges/statistics?uuid=$uuid&period=$period"
 
         val request = Request.Builder()
             .url(url)

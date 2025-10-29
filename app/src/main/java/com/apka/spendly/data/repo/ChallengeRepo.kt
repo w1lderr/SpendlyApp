@@ -27,7 +27,7 @@ class ChallengeRepo(
 
         if (!response.isSuccessful) throw IOException("Failed to fetch challenges")
 
-        return Json.decodeFromString(response.body?.string() ?: "[]")
+        return Json.decodeFromString(response.body.string())
     }
 
     fun getChallenges(): List<ChallengeDTO> {
@@ -40,7 +40,7 @@ class ChallengeRepo(
 
         if (!response.isSuccessful) throw IOException("Failed to fetch challenges")
 
-        return Json.decodeFromString(response.body?.string() ?: "[]")
+        return Json.decodeFromString(response.body.string())
     }
 
     fun joinChallenge(challengeId: String): String {
@@ -57,6 +57,6 @@ class ChallengeRepo(
             .build()
 
         val response = okHttpClient.newCall(request).execute()
-        return response.body?.string() ?: "Empty response body"
+        return response.body.string()
     }
 }

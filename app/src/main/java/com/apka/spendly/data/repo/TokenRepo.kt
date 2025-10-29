@@ -18,6 +18,6 @@ class TokenRepo(private val okHttpClient: OkHttpClient) {
             .build()
 
         val response = okHttpClient.newCall(request).execute()
-        return response.body?.string() ?: "Empty response body"
+        return response.body.string()
     }
 }

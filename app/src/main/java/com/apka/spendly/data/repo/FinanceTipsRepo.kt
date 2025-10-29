@@ -17,6 +17,6 @@ class FinanceTipsRepo(private val okHttpClient: OkHttpClient) {
 
         if (!response.isSuccessful) throw IOException("Failed to fetch finance tips")
 
-        return Json.decodeFromString(response.body?.string() ?: "[]")
+        return Json.decodeFromString(response.body.string())
     }
 }

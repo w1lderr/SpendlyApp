@@ -39,7 +39,7 @@ class TargetRepo(
 
         if (!response.isSuccessful) throw IOException("Targets fetch failed")
 
-        return Json.decodeFromString(response.body?.string() ?: "[]")
+        return Json.decodeFromString(response.body.string())
     }
 
     fun addContribution(targetTopUpHistoryDTO: TargetTopUpHistoryDTO): Int {

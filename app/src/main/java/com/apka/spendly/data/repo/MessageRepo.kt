@@ -24,7 +24,7 @@ class MessageRepo(
             .build()
 
         val response = okHttpClient.newCall(request).execute()
-        return response.body?.string() ?: "Empty response body"
+        return response.body.string()
     }
 
     fun sendMessage(message: Message): String {
@@ -38,7 +38,7 @@ class MessageRepo(
             .build()
 
         val response = okHttpClient.newCall(request).execute()
-        return response.body?.string() ?: "Empty response body"
+        return response.body.string()
     }
 
     fun deleteMessages() {
@@ -62,6 +62,6 @@ class MessageRepo(
 
         if (!response.isSuccessful) throw IOException("History fetch failed")
 
-        return Json.decodeFromString(response.body?.string() ?: "[]")
+        return Json.decodeFromString(response.body.string())
     }
 }

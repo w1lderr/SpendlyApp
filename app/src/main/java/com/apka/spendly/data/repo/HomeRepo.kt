@@ -17,9 +17,7 @@ class HomeRepo(private val okHttpClient: OkHttpClient) {
         okHttpClient.newCall(request).execute().use { response ->
             if (!response.isSuccessful) throw Exception("Unexpected code $response")
 
-            val body = response.body?.string()?.trim()
-                ?: throw Exception("Error: ${response.message}")
-
+            val body = response.body.string().trim()
             return body.toLong()
         }
     }
@@ -37,9 +35,7 @@ class HomeRepo(private val okHttpClient: OkHttpClient) {
         okHttpClient.newCall(request).execute().use { response ->
             if (!response.isSuccessful) throw Exception("Unexpected code $response")
 
-            val body = response.body?.string()
-                ?: throw Exception("Empty response")
-
+            val body = response.body.string()
             return json.decodeFromString<MonthlySummaryDTO>(body)
         }
     }
