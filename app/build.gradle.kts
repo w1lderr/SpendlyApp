@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("com.google.devtools.ksp")
     kotlin("plugin.serialization") version "2.2.21"
+    alias(libs.plugins.kotzilla)
 }
 
 android {
@@ -43,6 +44,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.kotzilla.sdk)
     implementation(libs.compose.markdown)
     implementation(libs.androidx.material.icons.extended)
 
