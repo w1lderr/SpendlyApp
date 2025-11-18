@@ -7,6 +7,7 @@ import com.apka.spendly.data.repo.FCMTokenRepo
 import com.apka.spendly.data.repo.FinanceTipsRepo
 import com.apka.spendly.data.repo.HomeRepo
 import com.apka.spendly.data.repo.MessageRepo
+import com.apka.spendly.data.repo.StatisticRepo
 import com.apka.spendly.data.repo.TargetRepo
 import com.apka.spendly.data.repo.TokenRepo
 import com.apka.spendly.data.repo.TransactionRepo
@@ -23,4 +24,5 @@ val provideRepositoryModule = module {
     single<TargetRepo> { TargetRepo(get(), get()) }
     single<ExchangeRepo> { ExchangeRepo(get()) }
     single<MessageRepo> { MessageRepo(get(), get()) }
+    single<StatisticRepo> { StatisticRepo(get(), get()) }
 }

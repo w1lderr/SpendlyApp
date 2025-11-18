@@ -1,4 +1,4 @@
-package com.apka.spendly.ui.screens.HomeScreen
+package com.apka.spendly.ui.screens.Home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,7 +17,7 @@ class HomeViewModel(
     private val uuidGenerator: AndroidUuidGenerator
 ) : ViewModel() {
     private val _totalSumSpending = MutableStateFlow(0L)
-    private val _categories = MutableStateFlow(MonthlySummaryDTO(0L, emptyList()))
+    private val _categories = MutableStateFlow(MonthlySummaryDTO())
     private val _uiState = MutableStateFlow(HomeUiState())
     private val _balance = MutableStateFlow(0L)
     private val _greeting = MutableStateFlow(getGreetingBasedOnTime())
@@ -39,10 +39,10 @@ class HomeViewModel(
 
     private fun getGreetingBasedOnTime(): String {
         val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-        return when {
-            hour in 5..11 -> "Доброго ранку"
-            hour in 12..16 -> "Добрий день"
-            hour in 17..20 -> "Добрий вечір"
+        return when (hour) {
+            in 5..11 -> "Доброго ранку"
+            in 12..16 -> "Добрий день"
+            in 17..20 -> "Добрий вечір"
             else -> "Доброї ночі"
         }
     }

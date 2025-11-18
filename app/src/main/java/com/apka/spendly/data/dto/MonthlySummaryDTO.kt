@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class MonthlySummaryDTO(
-    val total: Long,
-    val categories: List<CategorySummaryDTO>
+    val total: Long = 0,
+    val categories: List<CategorySummaryDTO> = emptyList()
 )

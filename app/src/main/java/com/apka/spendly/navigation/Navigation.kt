@@ -16,7 +16,7 @@ import com.apka.spendly.ui.screens.DuringLoading.DuringLoadingScreen
 import com.apka.spendly.ui.screens.ExchangeRate.ExchangeRateScreen
 import com.apka.spendly.ui.screens.FinanceTips.FinanceTipsScreen
 import com.apka.spendly.ui.screens.GetStarted.GetStartedScreen
-import com.apka.spendly.ui.screens.HomeScreen.HomeScreen
+import com.apka.spendly.ui.screens.Home.HomeScreen
 import com.apka.spendly.ui.screens.Profile.ProfileScreen
 import com.apka.spendly.ui.screens.SetToken.SetTokenScreen
 import com.apka.spendly.ui.screens.Settings.AboutScreen

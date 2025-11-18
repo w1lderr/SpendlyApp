@@ -1,4 +1,4 @@
-package com.apka.spendly.ui.screens.HomeScreen
+package com.apka.spendly.ui.screens.Home
 
 import android.widget.Toast
 import androidx.compose.animation.core.Spring
