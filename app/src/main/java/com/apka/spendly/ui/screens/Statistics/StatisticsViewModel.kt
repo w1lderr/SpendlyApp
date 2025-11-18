@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apka.spendly.data.dto.ChallengeStatisticDTO
-import com.apka.spendly.data.repo.ChallengeRepo
 import com.apka.spendly.data.repo.StatisticRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
