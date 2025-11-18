@@ -25,7 +25,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.apka.spendly.data.dto.ChallengeDTO
 import com.apka.spendly.data.dto.UserChallengeDTO
 import com.apka.spendly.ui.imageVector.TargetIcon
 import java.util.Locale
@@ -95,13 +94,13 @@ fun StatChallengeItem(challenge: UserChallengeDTO) {
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = when(challenge.status) {
+                            text = when (challenge.status) {
                                 "completed" -> "Завершено"
                                 "failed" -> "Провалено"
                                 "started" -> "Почато"
                                 else -> "Почато"
                             },
-                            color = when(challenge.status) {
+                            color = when (challenge.status) {
                                 "started" -> Color.Black
                                 else -> Color.White
                             },

@@ -17,7 +17,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -42,9 +41,6 @@ import androidx.navigation.NavController
 import com.apka.spendly.navigation.Screens
 import org.koin.androidx.compose.koinViewModel
 import java.util.Locale
-import kotlin.div
-import kotlin.text.compareTo
-import kotlin.text.toInt
 
 @Composable
 fun StatisticsScreen(
@@ -201,7 +197,7 @@ fun StatisticsScreen(
         Spacer(modifier = Modifier.height(22.dp))
 
         Row(
-           modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
