@@ -24,7 +24,8 @@ import androidx.compose.ui.unit.sp
 fun InfoCard(
     value: Int,
     desc: String,
-    showSign: Boolean = false
+    showSign: Boolean = false,
+    currency: String? = null
 ) {
     Card(
         modifier = Modifier.size(width = 160.dp, height = 90.dp),
@@ -32,7 +33,7 @@ fun InfoCard(
         colors = CardDefaults.cardColors(
             containerColor = Color(0xFF1E1E1E)
         ),
-        shape = RoundedCornerShape(12.dp),
+        shape = RoundedCornerShape(15.dp),
         border = BorderStroke(1.dp, Color.White.copy(alpha = 0.02f))
     ) {
         Column(
@@ -41,14 +42,10 @@ fun InfoCard(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = if (showSign) {
-                    when {
-                        value > 0 -> "+$value"
-                        value < 0 -> "$value"
-                        else -> "0"
-                    }
-                } else {
-                    value.toString()
+                text = buildString {
+                    if (showSign && value > 0) append("+")
+                    append(value)
+                    if (currency != null) append(currency)
                 },
                 color = Color.White,
                 fontSize = 25.sp,

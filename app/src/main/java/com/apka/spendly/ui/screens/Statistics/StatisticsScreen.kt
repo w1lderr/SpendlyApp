@@ -1,6 +1,7 @@
 package com.apka.spendly.ui.screens.Statistics
 
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,10 +15,18 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -29,13 +38,19 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.apka.spendly.navigation.Screens
 import org.koin.androidx.compose.koinViewModel
 import java.util.Locale
+import kotlin.div
+import kotlin.text.compareTo
+import kotlin.text.toInt
 
 @Composable
 fun StatisticsScreen(
+    navController: NavController,
     paddingValues: PaddingValues,
-    viewModel: StatisticsViewModel = koinViewModel()
+    viewModel: StatisticsViewModel = koinViewModel(),
 ) {
     val scrollState = rememberScrollState()
     val challengeStat = viewModel.challengeStat.collectAsState()
@@ -144,12 +159,12 @@ fun StatisticsScreen(
             }
         )
 
-        Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(22.dp))
 
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 20.dp),
+                .padding(start = 15.dp),
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -169,7 +184,8 @@ fun StatisticsScreen(
                     InfoCard(
                         value = (challengeStat.value.avgChallengeProfit / 100).toInt(),
                         desc = "середній заробіток за день",
-                        showSign = true
+                        showSign = true,
+                        currency = "₴"
                     )
                 }
 
@@ -182,8 +198,76 @@ fun StatisticsScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(35.dp))
+        Spacer(modifier = Modifier.height(22.dp))
 
+        Row(
+           modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(410.dp)
+                    .padding(start = 15.dp, end = 15.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFF1E1E1E)
+                ),
+                shape = RoundedCornerShape(25.dp),
+                border = BorderStroke(1.dp, Color.White.copy(alpha = 0.02f))
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(15.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Top
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "Challenges",
+                            color = Color.White,
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
 
+                        Button(
+                            modifier = Modifier.size(width = 95.dp, height = 35.dp),
+                            onClick = {
+                                navController.navigate(Screens.ChallengesScreen.name)
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color(0xFF723FEB)
+                            ),
+                            shape = RoundedCornerShape(90.dp)
+                        ) {
+                            Text(
+                                text = "View all",
+                                color = Color.White,
+                                fontSize = 13.sp,
+                                fontWeight = FontWeight.Medium
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(35.dp))
+
+                    LazyColumn {
+                        itemsIndexed(
+                            items = challengeStat.value.challenges.take(4),
+                            key = { _, challenge -> challenge.challengeId }
+                        ) { index, challenge ->
+                            StatChallengeItem(challenge)
+
+                            Spacer(modifier = Modifier.height(25.dp))
+                        }
+                    }
+                }
+            }
+        }
     }
 }

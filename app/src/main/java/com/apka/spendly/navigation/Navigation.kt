@@ -61,7 +61,7 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
         composable(Screens.AIScreen.name) {
         }
         composable(Screens.StatisticsScreen.name) {
-            StatisticsScreen(paddingValues)
+            StatisticsScreen(navController, paddingValues)
         }
         composable(Screens.ProfileScreen.name) {
             ProfileScreen(paddingValues)
