@@ -218,7 +218,6 @@ fun HomeScreen(
                             spaceDegree = 5f
                         )
                     } else {
-                        // Show loading indicator
                         CircularProgressIndicator(
                             modifier = Modifier.size(30.dp),
                             color = Color.White
@@ -252,7 +251,6 @@ fun HomeScreen(
                         }
                     }
                 } else {
-                    // Show loading indicator
                     CircularProgressIndicator(
                         modifier = Modifier.size(30.dp),
                         color = Color.White
@@ -263,7 +261,6 @@ fun HomeScreen(
 
         Spacer(modifier = Modifier.height(25.dp))
 
-        // Buttons
         Row(
             modifier = Modifier
                 .fillMaxWidth()

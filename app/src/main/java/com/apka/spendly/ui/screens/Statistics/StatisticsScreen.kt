@@ -128,7 +128,7 @@ fun StatisticsScreen(
             Spacer(modifier = Modifier.height(5.dp))
 
             Text(
-                text = "зароблено на челенджах",
+                text = "заощаджено на челенджах",
                 fontSize = 16.sp,
                 color = Color(0xFFB8B8B8),
                 fontWeight = FontWeight.Normal
@@ -179,7 +179,7 @@ fun StatisticsScreen(
                 item {
                     InfoCard(
                         value = (challengeStat.value.avgChallengeProfit / 100).toInt(),
-                        desc = "середній заробіток за день",
+                        desc = "середня економія за день",
                         showSign = true,
                         currency = "₴"
                     )
