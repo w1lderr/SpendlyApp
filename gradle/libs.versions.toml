@@ -20,7 +20,7 @@ activityCompose = "1.12.0"
 composeBom = "2025.11.01"
 materialIconsExtended = "1.7.8"
 navigationCompose = "2.9.6"
-okhttp = "5.3.1"
+okhttp = "5.3.2"
 okhttpDigest = "3.1.1"
 kotzilla = "1.4.0"
 
