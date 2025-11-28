@@ -1,4 +1,4 @@
-package com.apka.spendly.ui.screens.AIScreen
+package com.apka.spendly.ui.screens.ChatScreen
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -22,19 +22,19 @@ import okhttp3.WebSocket
 import okhttp3.WebSocketListener
 import java.util.UUID
 
-class AIVM(
+class ChatViewModel(
     private val repo: MessageRepo,
     private val okHttpClient: OkHttpClient,
     androidUuidGenerator: AndroidUuidGenerator
 ) : ViewModel() {
     private val _message = MutableStateFlow("")
     private val uuid = androidUuidGenerator.getOrCreateGuid()
-    private val _uiState = MutableStateFlow(AIUiState())
+    private val _uiState = MutableStateFlow(ChatUiState())
     private val _isLoading = MutableStateFlow(false)
     private var webSocket: WebSocket? = null
     private var currentSendJob: Job? = null
 
-    val uiState: StateFlow<AIUiState> get() = _uiState
+    val uiState: StateFlow<ChatUiState> get() = _uiState
     val message: StateFlow<String> get() = _message
     val isLoading: StateFlow<Boolean> get() = _isLoading
 
@@ -187,7 +187,7 @@ class AIVM(
                         // Only try to get missing messages if we have a conversation going
                         checkForMissedMessages()
                     }
-                    connectToSocket() // Reconnect
+                    connectToSocket()
                 }
             }
 

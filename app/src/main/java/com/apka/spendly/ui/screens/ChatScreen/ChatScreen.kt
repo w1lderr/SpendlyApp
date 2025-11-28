@@ -1,4 +1,4 @@
-package com.apka.spendly.ui.screens.AIScreen
+package com.apka.spendly.ui.screens.ChatScreen
 
 import android.app.Activity
 import android.content.Intent
@@ -68,10 +68,10 @@ import org.koin.compose.viewmodel.koinViewModel
 import java.util.Locale
 
 @Composable
-fun AIScreen(
+fun ChatScreen(
     navController: NavController,
     paddingValues: PaddingValues,
-    viewModel: AIVM = koinViewModel()
+    viewModel: ChatViewModel = koinViewModel()
 ) {
     val context = LocalContext.current
     val uiState = viewModel.uiState.collectAsState()
@@ -423,7 +423,7 @@ fun DonutGradientRing(
 @Composable
 fun QuestionItem(
     question: String,
-    viewModel: AIVM,
+    viewModel: ChatViewModel,
     enabled: Boolean = true
 ) {
     Card(

@@ -1,9 +1,9 @@
 package com.apka.spendly.di
 
-import com.apka.spendly.ui.screens.AIScreen.AIVM
 import com.apka.spendly.ui.screens.AddNewTarget.AddNewTargetViewModel
 import com.apka.spendly.ui.screens.BalanceInfo.BalanceInfoVM
 import com.apka.spendly.ui.screens.Challenges.ChallengesViewModel
+import com.apka.spendly.ui.screens.ChatScreen.ChatViewModel
 import com.apka.spendly.ui.screens.DuringLoading.DuringLoadingViewModel
 import com.apka.spendly.ui.screens.ExchangeRate.ExchangeRateVM
 import com.apka.spendly.ui.screens.FinanceTips.FinanceTipsViewModel
@@ -38,6 +38,6 @@ val provideViewModelModule = module {
     viewModel<TopUpHistoryVM> { TopUpHistoryVM(get()) }
     viewModel<ExchangeRateVM> { ExchangeRateVM(get()) }
     viewModel<SettingsViewModel> { SettingsViewModel(get()) }
-    viewModel<AIVM> { AIVM(get(), get(), get()) }
+    viewModel<ChatViewModel> { ChatViewModel(get(), get(), get()) }
     viewModel<StatisticsViewModel> { StatisticsViewModel(get()) }
 }

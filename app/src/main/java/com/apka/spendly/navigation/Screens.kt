@@ -20,5 +20,5 @@ enum class Screens {
     AboutScreen,
     PrivacyPolicyScreen,
     TermsOfUseScreen,
-    AIScreen
+    ChatScreen
 }

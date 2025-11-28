@@ -7,11 +7,11 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.apka.spendly.ui.screens.AIScreen.AIScreen
 import com.apka.spendly.ui.screens.AddNewTarget.AddNewTargetScreen
 import com.apka.spendly.ui.screens.Authorization.AuthorizationScreen
 import com.apka.spendly.ui.screens.BalanceInfo.BalanceInfoScreen
 import com.apka.spendly.ui.screens.Challenges.ChallengesScreen
+import com.apka.spendly.ui.screens.ChatScreen.ChatScreen
 import com.apka.spendly.ui.screens.DuringLoading.DuringLoadingScreen
 import com.apka.spendly.ui.screens.ExchangeRate.ExchangeRateScreen
 import com.apka.spendly.ui.screens.FinanceTips.FinanceTipsScreen
@@ -58,7 +58,7 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
         composable(Screens.SettingsScreen.name) {
             SettingsScreen(navController, paddingValues)
         }
-        composable(Screens.AIScreen.name) {
+        composable(Screens.ChatScreen.name) {
         }
         composable(Screens.StatisticsScreen.name) {
             StatisticsScreen(navController, paddingValues)
@@ -185,8 +185,8 @@ fun Navigation(navController: NavHostController, paddingValues: PaddingValues) {
                 paddingValues
             )
         }
-        composable(Screens.AIScreen.name) {
-            AIScreen(
+        composable(Screens.ChatScreen.name) {
+            ChatScreen(
                 navController = navController,
                 paddingValues = paddingValues
             )
