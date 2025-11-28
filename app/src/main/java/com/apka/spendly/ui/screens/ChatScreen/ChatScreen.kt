@@ -148,7 +148,7 @@ fun ChatScreen(
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
-                    text = "Llama 3",
+                    text = "Gemma 3",
                     fontSize = 20.sp,
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold
