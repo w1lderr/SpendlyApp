@@ -225,14 +225,14 @@ fun StatisticsScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Challenges",
+                            text = "Челенджі",
                             color = Color.White,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.SemiBold
                         )
 
                         Button(
-                            modifier = Modifier.size(width = 95.dp, height = 35.dp),
+                            modifier = Modifier.size(width = 128.dp, height = 35.dp),
                             onClick = {
                                 navController.navigate(Screens.ChallengesScreen.name)
                             },
@@ -242,7 +242,7 @@ fun StatisticsScreen(
                             shape = RoundedCornerShape(90.dp)
                         ) {
                             Text(
-                                text = "View all",
+                                text = "Переглянути",
                                 color = Color.White,
                                 fontSize = 13.sp,
                                 fontWeight = FontWeight.Medium
