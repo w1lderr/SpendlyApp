@@ -13,8 +13,8 @@ class TransactionRepo(
     private val json = Json { ignoreUnknownKeys = true }
     private val uuid = androidUuidGenerator.getOrCreateGuid()
 
-    fun fetchTransactions(): List<TransactionDTO> {
-        val url = "http://10.0.2.2:8080/spendly/monobank/getTransactions?uuid=$uuid"
+    fun fetchTransactionsOfThisMonth(): List<TransactionDTO> {
+        val url = "http://10.0.2.2:8080/spendly/monobank/getTransactionsCurrentMonth?uuid=$uuid"
 
         val request = Request.Builder()
             .url(url)

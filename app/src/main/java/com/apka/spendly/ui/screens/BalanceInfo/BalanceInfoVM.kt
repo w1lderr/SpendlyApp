@@ -20,7 +20,7 @@ class BalanceInfoVM(private val repo: TransactionRepo) : ViewModel() {
     fun getTransactions() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val transactions = repo.fetchTransactions()
+                val transactions = repo.fetchTransactionsOfThisMonth()
                     .sortedByDescending { it.date }
                 _uiState.value = _uiState.value.copy(transactions = transactions)
             } catch (e: Exception) {
