@@ -148,7 +148,7 @@ fun ChatScreen(
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
-                    text = "Gemma 3",
+                    text = "Spendly AI",
                     fontSize = 20.sp,
                     color = Color.White,
                     fontWeight = FontWeight.SemiBold
@@ -253,7 +253,7 @@ fun ChatScreen(
                         },
                         placeholder = {
                             Text(
-                                text = if (isLoading.value) "Gemma думає..." else "Запитайте gemma...",
+                                text = if (isLoading.value) "Spendly думає..." else "Запитайте Spendly AI...",
                                 color = Color(0xFFB8B8B8),
                                 fontSize = 18.sp,
                                 fontWeight = FontWeight.Normal
