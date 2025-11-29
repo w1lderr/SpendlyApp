@@ -105,7 +105,7 @@ fun StatisticsScreen(
                 ) {
                     Text(
                         text = "₴",
-                        fontSize = 30.sp,
+                        fontSize = 33.sp,
                         color = Color.White,
                         fontWeight = FontWeight.Medium,
                     )
@@ -232,7 +232,7 @@ fun StatisticsScreen(
                         )
 
                         Button(
-                            modifier = Modifier.size(width = 128.dp, height = 35.dp),
+                            modifier = Modifier.size(width = 90.dp, height = 35.dp),
                             onClick = {
                                 navController.navigate(Screens.ChallengesScreen.name)
                             },
@@ -242,7 +242,7 @@ fun StatisticsScreen(
                             shape = RoundedCornerShape(90.dp)
                         ) {
                             Text(
-                                text = "Переглянути",
+                                text = "Глянути",
                                 color = Color.White,
                                 fontSize = 13.sp,
                                 fontWeight = FontWeight.Medium
