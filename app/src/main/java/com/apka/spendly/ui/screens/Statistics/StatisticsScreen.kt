@@ -232,7 +232,7 @@ fun StatisticsScreen(
                         )
 
                         Button(
-                            modifier = Modifier.size(width = 90.dp, height = 35.dp),
+                            modifier = Modifier.size(width = 100.dp, height = 35.dp),
                             onClick = {
                                 navController.navigate(Screens.ChallengesScreen.name)
                             },
