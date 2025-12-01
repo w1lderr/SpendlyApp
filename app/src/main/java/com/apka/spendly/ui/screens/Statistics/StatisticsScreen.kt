@@ -256,7 +256,7 @@ fun StatisticsScreen(
                         itemsIndexed(
                             items = challengeStat.value.challenges.take(4),
                             key = { _, challenge -> challenge.challengeId }
-                        ) { index, challenge ->
+                        ) { _, challenge ->
                             StatChallengeItem(challenge)
 
                             Spacer(modifier = Modifier.height(25.dp))
