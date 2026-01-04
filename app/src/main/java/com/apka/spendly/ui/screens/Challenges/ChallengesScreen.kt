@@ -52,7 +52,7 @@ fun ChallengesScreen(
 
     LaunchedEffect(uiState.value.toast) {
         if (uiState.value.toast.isNotEmpty()) {
-            Toast.makeText(context, uiState.value.toast, Toast.LENGTH_SHORT).show()
+//            Toast.makeText(context, uiState.value.toast, Toast.LENGTH_SHORT).show()
             viewModel.setToast("")
         }
     }

@@ -138,14 +138,14 @@ fun ChallengeItem(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Not Started",
+                        text = "Не розпочато",
                         color = Color.White,
                         fontSize = 18.sp,
                         fontWeight = FontWeight.SemiBold
                     )
 
                     Button(
-                        modifier = Modifier.size(width = 100.dp, height = 40.dp),
+                        modifier = Modifier.size(width = 140.dp, height = 40.dp),
                         onClick = {
                             onJoin()
                         },
@@ -155,9 +155,9 @@ fun ChallengeItem(
                         shape = RoundedCornerShape(20.dp)
                     ) {
                         Text(
-                            text = "Join",
+                            text = "При'єднатись",
                             color = Color.White,
-                            fontSize = 18.sp,
+                            fontSize = 14.sp,
                             fontWeight = FontWeight.Medium
                         )
                     }
@@ -184,7 +184,7 @@ fun ChallengeItem(
                         Spacer(modifier = Modifier.width(13.dp))
 
                         Text(
-                            text = "Saved +${(challengeItemUI.totalSaved / 100).toInt()}₴",
+                            text = "Збережено +${(challengeItemUI.totalSaved / 100).toInt()}₴",
                             color = Color.White,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Normal
@@ -202,9 +202,9 @@ fun ChallengeItem(
                         shape = RoundedCornerShape(20.dp)
                     ) {
                         Text(
-                            text = "Started",
+                            text = "Почато",
                             color = Color.Black,
-                            fontSize = 18.sp,
+                            fontSize = 16.sp,
                             fontWeight = FontWeight.Medium
                         )
                     }
@@ -231,7 +231,7 @@ fun ChallengeItem(
                         Spacer(modifier = Modifier.width(13.dp))
 
                         Text(
-                            text = "Total Saved +${(challengeItemUI.totalSaved / 100).toInt()}₴",
+                            text = "Збережено +${(challengeItemUI.totalSaved / 100).toInt()}₴",
                             color = Color.White,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Normal
@@ -239,7 +239,7 @@ fun ChallengeItem(
                     }
 
                     Button(
-                        modifier = Modifier.size(width = 116.dp, height = 40.dp),
+                        modifier = Modifier.size(width = 127.dp, height = 40.dp),
                         onClick = {
 
                         },
@@ -249,9 +249,9 @@ fun ChallengeItem(
                         shape = RoundedCornerShape(20.dp)
                     ) {
                         Text(
-                            text = "Finished",
+                            text = "Завершено",
                             color = Color.White,
-                            fontSize = 18.sp,
+                            fontSize = 14.sp,
                             fontWeight = FontWeight.Medium
                         )
                     }
@@ -278,7 +278,7 @@ fun ChallengeItem(
                         Spacer(modifier = Modifier.width(13.dp))
 
                         Text(
-                            text = "Total Saved +${(challengeItemUI.totalSaved / 100).toInt()}₴",
+                            text = "Збережено +${(challengeItemUI.totalSaved / 100).toInt()}₴",
                             color = Color.White,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Normal
@@ -286,7 +286,7 @@ fun ChallengeItem(
                     }
 
                     Button(
-                        modifier = Modifier.size(width = 100.dp, height = 40.dp),
+                        modifier = Modifier.size(width = 126.dp, height = 40.dp),
                         onClick = {
 
                         },
@@ -296,9 +296,9 @@ fun ChallengeItem(
                         shape = RoundedCornerShape(20.dp)
                     ) {
                         Text(
-                            text = "Failed",
+                            text = "Провалено",
                             color = Color.White,
-                            fontSize = 18.sp,
+                            fontSize = 15.sp,
                             fontWeight = FontWeight.Medium
                         )
                     }
