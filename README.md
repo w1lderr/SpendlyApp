@@ -4,11 +4,11 @@ Spendly is a research project for the Junior Academy of Sciences of Ukraine (JAS
 
 By combining gamification, AI-driven insights, and a user-friendly interface, Spendly is positioned as an alternative to standard expense trackers.
 
-## Why Monobank only?
+## ❓Why Monobank only?
 
 At the moment, Spendly supports **only Monobank**. This choice is intentional: Monobank is currently the only bank in the target region that provides a public API accessible to all users.
 
-## Project architecture
+## 🏗️Project architecture
 
 Spendly follows a clean, single-module **MVVM (Model-View-ViewModel)** architecture built entirely with Jetpack Compose.
 
@@ -45,16 +45,7 @@ app/
 
 Each screen follows the pattern: `Screen.kt` + `ViewModel.kt` + `UiState.kt`, with state exposed via `StateFlow` and collected as `State` in Compose.
 
-
-### Android app structure (high level)
-
-- `app/src/main/java/com/apka/spendly/ui/screens` — Compose screens
-- `app/src/main/java/com/apka/spendly/data/repo` — repositories for API calls
-- `app/src/main/java/com/apka/spendly/data/dto` and `data/model` — data contracts
-- `app/src/main/java/com/apka/spendly/di` — dependency injection modules (Koin)
-- `app/src/main/java/com/apka/spendly/navigation` — app navigation graph
-
-## Features
+## ✨Features
 
 - **Auto-import transactions from Monobank**
 - **Add a purchase you made with cash**
@@ -72,7 +63,7 @@ Each screen follows the pattern: `Screen.kt` + `ViewModel.kt` + `UiState.kt`, wi
 
 > Note: some literacy/gamification mechanics above are part of the broader research concept and may evolve across iterations.
 
-## AI in Spendly
+## 🤖AI in Spendly
 
 The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally, enabling:
 
@@ -80,7 +71,7 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
 - personalized assistant chat,
 - contextual financial guidance.
 
-## Screenshots
+## 📸Screenshots
 
 <picture>
   <img alt="home" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/home.png" width="250">
@@ -106,7 +97,7 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
 
 &nbsp;&nbsp;&nbsp;
 
-## Technologies used
+## 🛠️Technologies used
 
 ### Android app
 
@@ -168,7 +159,7 @@ If you want to contribute:
 
 Please keep changes focused, tested, and consistent with the current architecture.
 
-## License
+## 📄License
 
 This project is licensed under the **Apache License 2.0**.
 See [`LICENSE`](./LICENSE) for details.
