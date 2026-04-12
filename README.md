@@ -4,13 +4,13 @@ Spendly is a research project for the Junior Academy of Sciences of Ukraine (JAS
 
 By combining gamification, AI-driven insights, and a user-friendly interface, Spendly is positioned as an alternative to standard expense trackers.
 
-&nbsp;&nbsp;&nbsp;
+
 
 ## ❓Why Monobank only?
 
 At the moment, Spendly supports **only Monobank**. This choice is intentional: Monobank is currently the only bank in the target region that provides a public API accessible to all users.
 
-&nbsp;&nbsp;&nbsp;
+
 
 ## 🏗️Project architecture
 
@@ -49,7 +49,7 @@ app/
 
 Each screen follows the pattern: `Screen.kt` + `ViewModel.kt` + `UiState.kt`, with state exposed via `StateFlow` and collected as `State` in Compose.
 
-&nbsp;&nbsp;&nbsp;
+
 
 ## ✨Features
 
@@ -69,7 +69,7 @@ Each screen follows the pattern: `Screen.kt` + `ViewModel.kt` + `UiState.kt`, wi
 
 > Note: some literacy/gamification mechanics above are part of the broader research concept and may evolve across iterations.
 
-&nbsp;&nbsp;&nbsp;
+
 
 ## 🤖AI in Spendly
 
@@ -79,7 +79,7 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
 - personalized assistant chat,
 - contextual financial guidance.
 
-&nbsp;&nbsp;&nbsp;
+
 
 ## 📸Screenshots
 
@@ -105,7 +105,7 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
   <img alt="fin_tips" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/fintips.png" width="250">
 </picture>
 
-&nbsp;&nbsp;&nbsp;
+
 
 ## 🛠️Technologies used
 
@@ -130,7 +130,7 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
 - **KSP**
 - **GitHub Actions** for CI (`build` and `testDebug` workflows)
 
-&nbsp;&nbsp;&nbsp;
+
 
 ## ❓How to run this project?
 
@@ -158,7 +158,7 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
 ./gradlew clean build
 ```
 
-&nbsp;&nbsp;&nbsp;
+
 
 ## 🤝Contributing
 
@@ -173,7 +173,7 @@ If you want to contribute:
 
 Please keep changes focused, tested, and consistent with the current architecture.
 
-&nbsp;&nbsp;&nbsp;
+
 
 ## 📄License
 
