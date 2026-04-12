@@ -1,4 +1,4 @@
-# Spendly
+# 🪙Spendly
 
 Spendly is a research project for the Junior Academy of Sciences of Ukraine (JASU) — a mobile app designed to improve financial literacy and help users track expenses.
 
