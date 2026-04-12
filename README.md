@@ -120,7 +120,7 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
 - **KSP**
 - **GitHub Actions** for CI (`build` and `testDebug` workflows)
 
-## How to run this project
+## ❓How to run this project?
 
 ### Prerequisites
 
@@ -146,7 +146,7 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
 ./gradlew clean build
 ```
 
-## Contributing
+## 🤝Contributing
 
 Contributions are welcome.
 
