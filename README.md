@@ -71,7 +71,7 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
 ## Screenshots
 
 <picture>
-  <img alt="home" src="https://github.com/w1lderr/SpendlyApp/blob/master/home.png" width="300">
+  <img alt="home" src="https://github.com/w1lderr/SpendlyApp/blob/master/home.png" width="250">
 </picture>
 
 ## Technologies used
