@@ -10,28 +10,37 @@ At the moment, Spendly supports **only Monobank**. This choice is intentional: M
 
 ## Project architecture
 
-Spendly uses a client-server approach:
+Spendly follows a clean, single-module **MVVM (Model-View-ViewModel)** architecture built entirely with Jetpack Compose.
 
-```text
-┌──────────────────────────────────────────────┐
-│ Android App (Kotlin, Jetpack Compose)       │
-│ - UI screens + navigation                    │
-│ - ViewModels (state + logic)                 │
-│ - Repositories (network/data access)         │
-│ - Koin DI modules                            │
-└───────────────────┬──────────────────────────┘
-                    │ HTTP / WebSocket
-                    ▼
-┌──────────────────────────────────────────────┐
-│ Spendly Backend (external service)           │
-│ - Monobank integration                        │
-│ - AI endpoints (tips/chat analysis)          │
-│ - Challenge/statistics endpoints             │
-└───────────────┬───────────────┬──────────────┘
-                │               │
-                ▼               ▼
-     Monobank Open API     NBU Exchange API
-                           (bank.gov.ua)
+```
+app/
+├── androidUuidGenerator/       # Device-based UUID generation
+├── api/                        # HTTP client setup (Digest Auth)
+├── data/
+│   ├── dto/                    # Data Transfer Objects (API contracts)
+│   ├── model/                  # Domain models
+│   ├── preferences/            # DataStore preferences
+│   └── repo/                   # Repositories (data access layer)
+├── di/                         # Koin dependency injection modules
+│   ├── AppModule
+│   ├── NetworkModule
+│   ├── RepositoryModule
+│   ├── ViewModelModule
+│   ├── UtilModule
+│   └── PreferencesModule
+├── navigation/                 # Navigation graph & bottom nav
+├── service/                    # Firebase Messaging, Speech, WebView
+└── ui/
+    ├── imageVector/            # Custom SVG icon definitions
+    ├── screens/                # One package per screen (Screen + VM + UiState)
+    │   ├── Home/
+    │   ├── ChatScreen/
+    │   ├── Statistics/
+    │   ├── Target/
+    │   ├── Challenges/
+    │   ├── Settings/
+    │   └── ...
+    └── theme/                  # Material3 theme, colors, typography
 ```
 
 ### Android app structure (high level)
