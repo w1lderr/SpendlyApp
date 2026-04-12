@@ -4,7 +4,7 @@ Spendly is a research project for the Junior Academy of Sciences of Ukraine (JAS
 
 By combining gamification, AI-driven insights, and a user-friendly interface, Spendly is positioned as an alternative to standard expense trackers.
 
-## Why Monobank only
+## Why Monobank only?
 
 At the moment, Spendly supports **only Monobank**. This choice is intentional: Monobank is currently the only bank in the target region that provides a public API accessible to all users.
 
