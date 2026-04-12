@@ -76,6 +76,12 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
   <img alt="profile" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/profilescreen.png" width="300">
 </picture>
 
+<picture>
+  <img alt="challenges" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/challenges.png" width="300">
+  <img alt="chat_with_ai" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/chatwithai.png" width="300">
+  <img alt="goals" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/goals.png width="300">
+</picture>
+
 ## Technologies used
 
 ### Android app
