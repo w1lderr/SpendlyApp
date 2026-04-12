@@ -70,7 +70,9 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
 
 ## Screenshots
 
-
+<picture>
+  <img alt="StreamScouter Logo" src="https://github.com/w1lderr/SpendlyApp/blob/master/home.png">
+</picture>
 
 ## Technologies used
 
