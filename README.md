@@ -87,9 +87,9 @@ The AI layer is designed to run on the backend with **Ollama + Gemma 4** locally
 &nbsp;&nbsp;&nbsp;
 
 <picture>
-  <img alt="list_of_goals" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/listofgoals.png" width="300">
-  <img alt="goals" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/goals.png" width="300">
-  <img alt="fin_tips" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/fintips.png" width="300">
+  <img alt="list_of_goals" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/listofgoals.png" width="250">
+  <img alt="goals" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/goals.png" width="250">
+  <img alt="fin_tips" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/fintips.png" width="250">
 </picture>
 
 &nbsp;&nbsp;&nbsp;
