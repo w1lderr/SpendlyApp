@@ -43,6 +43,9 @@ app/
     └── theme/                  # Material3 theme, colors, typography
 ```
 
+Each screen follows the pattern: `Screen.kt` + `ViewModel.kt` + `UiState.kt`, with state exposed via `StateFlow` and collected as `State` in Compose.
+
+
 ### Android app structure (high level)
 
 - `app/src/main/java/com/apka/spendly/ui/screens` — Compose screens
