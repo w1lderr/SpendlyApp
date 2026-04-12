@@ -1,7 +1,3 @@
-## 🪙Spendly
-
-
-
 <picture>
   <img alt="frame" src="https://github.com/w1lderr/SpendlyApp/blob/master/images/frame.png">
 </picture>
