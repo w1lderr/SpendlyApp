@@ -19,7 +19,7 @@ class ChallengeRepo(
 
     fun getUserChallenges(): List<UserChallengeDTO> {
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/challenge/get/user/challenges?uuid=$uuid")
+            .url("http://46.101.188.243:8080/spendly/challenge/get/user/challenges?uuid=$uuid")
             .get()
             .build()
 
@@ -32,7 +32,7 @@ class ChallengeRepo(
 
     fun getChallenges(): List<ChallengeDTO> {
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/challenge/get/challenges")
+            .url("http://46.101.188.243:8080/spendly/challenge/get/challenges")
             .get()
             .build()
 
@@ -52,7 +52,7 @@ class ChallengeRepo(
         val requestBody = jsonBody.toRequestBody("application/json; charset=utf-8".toMediaType())
 
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/challenge/joinChallenge")
+            .url("http://46.101.188.243:8080/spendly/challenge/joinChallenge")
             .post(requestBody)
             .build()
 

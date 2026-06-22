@@ -22,7 +22,7 @@ class TargetRepo(
         val requestBody = jsonBody.toRequestBody("application/json".toMediaType())
 
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/target/addTarget")
+            .url("http://46.101.188.243:8080/spendly/target/addTarget")
             .post(requestBody)
             .build()
 
@@ -31,7 +31,7 @@ class TargetRepo(
 
     fun getTargets(): List<TargetDTO> {
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/target/getTargets?uuid=$uuid")
+            .url("http://46.101.188.243:8080/spendly/target/getTargets?uuid=$uuid")
             .get()
             .build()
 
@@ -47,7 +47,7 @@ class TargetRepo(
         val requestBody = jsonBody.toRequestBody("application/json".toMediaType())
 
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/contribution/addContribution")
+            .url("http://46.101.188.243:8080/spendly/contribution/addContribution")
             .post(requestBody)
             .build()
 
@@ -57,7 +57,7 @@ class TargetRepo(
 
     fun getTargetTopUpHistory(targetId: String): List<TargetTopUpHistoryDTO> {
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/contribution/getTopUpHistory?targetId=$targetId")
+            .url("http://46.101.188.243:8080/spendly/contribution/getTopUpHistory?targetId=$targetId")
             .get()
             .build()
 
@@ -70,7 +70,7 @@ class TargetRepo(
 
     fun getTotalTopUpAmount(targetId: String): Long {
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/target/getTotalTopUpAmount?targetId=$targetId")
+            .url("http://46.101.188.243:8080/spendly/target/getTotalTopUpAmount?targetId=$targetId")
             .get()
             .build()
 

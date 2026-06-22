@@ -13,7 +13,7 @@ class TokenRepo(private val okHttpClient: OkHttpClient) {
             .build()
 
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/monobank/token")
+            .url("http://46.101.188.243:8080/spendly/monobank/token")
             .post(requestBody)
             .build()
 

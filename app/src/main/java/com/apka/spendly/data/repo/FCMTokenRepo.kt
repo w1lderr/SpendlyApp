@@ -18,7 +18,7 @@ class FCMTokenRepo(
         val requestBody = jsonBody.toRequestBody("application/json".toMediaType())
 
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/fcm/save/token")
+            .url("http://46.101.188.243:8080/spendly/fcm/save/token")
             .post(requestBody)
             .build()
 

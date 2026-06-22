@@ -15,7 +15,7 @@ class StatisticRepo(
 
 
     fun getChallengesStat(period: String): ChallengeStatisticDTO {
-        val url = "http://10.0.2.2:8080/spendly/challenges/statistics?uuid=$uuid&period=$period"
+        val url = "http://46.101.188.243:8080/spendly/challenges/statistics?uuid=$uuid&period=$period"
 
         val request = Request.Builder()
             .url(url)

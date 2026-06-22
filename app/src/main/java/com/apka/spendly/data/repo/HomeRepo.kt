@@ -7,7 +7,7 @@ import okhttp3.Request
 
 class HomeRepo(private val okHttpClient: OkHttpClient) {
     fun getBalance(uuid: String): Long {
-        val url = "http://10.0.2.2:8080/spendly/monobank/getBalance?uuid=$uuid"
+        val url = "http://46.101.188.243:8080/spendly/monobank/getBalance?uuid=$uuid"
 
         val request = Request.Builder()
             .url(url)
@@ -25,7 +25,7 @@ class HomeRepo(private val okHttpClient: OkHttpClient) {
     private val json = Json { ignoreUnknownKeys = true }
 
     fun getMonthlyCategories(uuid: String): MonthlySummaryDTO {
-        val url = "http://10.0.2.2:8080/spendly/monobank/getMonthlyCategories?uuid=$uuid"
+        val url = "http://46.101.188.243:8080/spendly/monobank/getMonthlyCategories?uuid=$uuid"
 
         val request = Request.Builder()
             .url(url)

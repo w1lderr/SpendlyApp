@@ -9,7 +9,7 @@ import java.io.IOException
 class FinanceTipsRepo(private val okHttpClient: OkHttpClient) {
     fun getFinanceTips(): List<FinanceTipDTO> {
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/tips/get/finance/tips")
+            .url("http://46.101.188.243:8080/spendly/tips/get/finance/tips")
             .get()
             .build()
 

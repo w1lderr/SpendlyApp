@@ -19,7 +19,7 @@ class MessageRepo(
 
     fun stopGeneration(): String {
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/messages/stopGeneration?uuid=$uuid")
+            .url("http://46.101.188.243:8080/spendly/messages/stopGeneration?uuid=$uuid")
             .post("".toRequestBody())
             .build()
 
@@ -33,7 +33,7 @@ class MessageRepo(
         val requestBody = jsonBody.toRequestBody("application/json".toMediaType())
 
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/messages/sendMessage")
+            .url("http://46.101.188.243:8080/spendly/messages/sendMessage")
             .post(requestBody)
             .build()
 
@@ -43,7 +43,7 @@ class MessageRepo(
 
     fun deleteMessages() {
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/messages/deleteAllMessages?uuid=$uuid")
+            .url("http://46.101.188.243:8080/spendly/messages/deleteAllMessages?uuid=$uuid")
             .delete()
             .build()
 
@@ -54,7 +54,7 @@ class MessageRepo(
 
     fun getHistory(): List<MessageDTO> {
         val request = Request.Builder()
-            .url("http://10.0.2.2:8080/spendly/messages/getChatHistory?uuid=$uuid")
+            .url("http://46.101.188.243:8080/spendly/messages/getChatHistory?uuid=$uuid")
             .get()
             .build()
 
