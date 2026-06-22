@@ -6,7 +6,6 @@ import kotlinx.serialization.Serializable
 data class TransactionDTO(
     val transactionId: String,
     val uuid: String,
-    val cardNumber: String,
     val description: String,
     val amount: Long,
     val currencyCode: Int,
