@@ -9,6 +9,10 @@ Spendly is a research project for the Junior Academy of Sciences of Ukraine (JAS
 
 By combining gamification, AI-driven insights, and a user-friendly interface, Spendly is positioned as an alternative to standard expense trackers.
 
+## 📦Download APK
+
+You can download the APK from [this link](https://github.com/w1lderr/SpendlyApp/blob/master/app-debug.apk).
+
 
 
 ## ❓Why Monobank only?
